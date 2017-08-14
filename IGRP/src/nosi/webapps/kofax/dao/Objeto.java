@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import nosi.base.ActiveRecord.BaseActiveRecord;
 import nosi.webapps.igrp.dao.Organization;
@@ -29,7 +29,7 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "id_organica",foreignKey = @ForeignKey(name="ORGANIZATION_OBJETO_ID_ORGANICA"),nullable=false)
 	private Organization organica;
 	@Column(nullable=false)
