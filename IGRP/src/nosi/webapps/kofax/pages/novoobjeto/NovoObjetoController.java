@@ -24,14 +24,14 @@ public class NovoObjetoController extends Controller {
 		view.organica.setValue(IgrpHelper.toMap(new Organization().findAll(), "id", "name"));
 		
 		
-		HashMap<String,String> def_pag = new HashMap<>();
-		def_pag.put("sim", "Sim");
-		def_pag.put("nao", "Não");
+		HashMap<Integer,String> def_pag = new HashMap<>();
+		def_pag.put(1, "Sim");
+		def_pag.put(0, "Não");
 		view.default_page.setValue(def_pag);
 		
-		HashMap<String,String> prencher_aut = new HashMap<>();
-		prencher_aut.put("sim", "Sim");
-		prencher_aut.put("nao", "Não");
+		HashMap<Integer,String> prencher_aut = new HashMap<>();
+		prencher_aut.put(1, "Sim");
+		prencher_aut.put(0, "Não");
 		view.preencher_automatico.setValue(prencher_aut);
 		
 		
@@ -45,11 +45,12 @@ public class NovoObjetoController extends Controller {
 		NovoObjeto model = new NovoObjeto();
 		model.load();
 		Organization o = new Organization().findOne(model.getOrganica());
-		Objeto obj = new Objeto(o, model.getObjeto(), model.getPagina(), model.getDefault_page(), model.getFormato_output(), model.getGuardar_em(), model.getP_estado());
+		Objeto obj = new Objeto(o, model.getObjeto(), model.getPagina(), model.getDefault_page(), model.getFormato_output(), model.getGuardar_em(), model.getP_estado(), model.getPreencher_automatico());
 		obj.insert();
-		/*for(int i = 0; i< ; i++) {
+		for(int i = 0; i< model.getCampo().length; i++) {
+			System.out.println(model.getCampo_desc()[i]);
 			
-		}*/
+		}
 		return this.redirect("kofax","NovoObjeto","index");
 		/*---- End ----*/
 	}

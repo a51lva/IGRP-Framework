@@ -44,11 +44,13 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 	private String guardar_em;
 	@Column(nullable=false)
 	private String estado;
+	@Column(nullable = false)
+	private int automatico;
 	
 	public Objeto(){}
 
 	public Objeto(Organization organica, String objeto, String link_pagina, Integer default_page, String formato_output,
-			String guardar_em, String estado) {
+			String guardar_em, String estado, int automatico) {
 		super();
 		this.organica = organica;
 		this.objeto = objeto;
@@ -57,6 +59,7 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 		this.formato_output = formato_output;
 		this.guardar_em = guardar_em;
 		this.estado = estado;
+		this.automatico = automatico;
 	}
 
 	public Integer getId() {
@@ -122,5 +125,14 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	public int getAutomatico() {
+		return automatico;
+	}
+
+	public void setAutomatico(int automatico) {
+		this.automatico = automatico;
+	}
+	
 	
 }

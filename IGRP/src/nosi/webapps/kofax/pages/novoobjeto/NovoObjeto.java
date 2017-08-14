@@ -2,7 +2,6 @@
 package nosi.webapps.kofax.pages.novoobjeto;
 import nosi.core.webapp.Model;
 import nosi.core.webapp.RParam;
-import nosi.webapps.igrp.dao.Organization;
 
 import java.util.ArrayList;
 
@@ -23,8 +22,10 @@ public class NovoObjeto extends Model{
 	private String guardar_em;
 	@RParam(rParamName = "p_id")
 	private int p_id;
-	@RParam(rParamName = "p_campo")
-	private String campo;
+	@RParam(rParamName = "p_campo_fk")
+	private String [] campo;
+	@RParam(rParamName = "p_campo_fk_desc")
+	private String [] campo_desc;
 	@RParam(rParamName = "p_estado")
 	private String p_estado;
 
@@ -92,10 +93,10 @@ public class NovoObjeto extends Model{
 		return this.p_id;
 	}
 	
-	public void setCampo(String campo){
+	public void setCampo(String [] campo){
 		this.campo = campo;
 	}
-	public String getCampo(){
+	public String[] getCampo(){
 		return this.campo;
 	}
 	
@@ -104,6 +105,14 @@ public class NovoObjeto extends Model{
 	}
 	public String getP_estado(){
 		return this.p_estado;
+	}
+
+
+	public String[] getCampo_desc() {
+		return campo_desc;
+	}
+	public void setCampo_desc(String[] campo_desc) {
+		this.campo_desc = campo_desc;
 	}
 
 
