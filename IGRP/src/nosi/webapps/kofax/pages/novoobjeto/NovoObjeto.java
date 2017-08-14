@@ -2,17 +2,19 @@
 package nosi.webapps.kofax.pages.novoobjeto;
 import nosi.core.webapp.Model;
 import nosi.core.webapp.RParam;
+import nosi.webapps.igrp.dao.Organization;
+
 import java.util.ArrayList;
 
 public class NovoObjeto extends Model{		
 	@RParam(rParamName = "p_organica")
-	private String organica;
+	private int organica;
 	@RParam(rParamName = "p_objeto")
 	private String objeto;
 	@RParam(rParamName = "p_default_page")
-	private String default_page;
+	private int default_page;
 	@RParam(rParamName = "p_preencher_automatico")
-	private String preencher_automatico;
+	private int preencher_automatico;
 	@RParam(rParamName = "p_pagina")
 	private String pagina;
 	@RParam(rParamName = "p_formato_output")
@@ -20,7 +22,7 @@ public class NovoObjeto extends Model{
 	@RParam(rParamName = "p_guardar_em")
 	private String guardar_em;
 	@RParam(rParamName = "p_id")
-	private String p_id;
+	private int p_id;
 	@RParam(rParamName = "p_campo")
 	private String campo;
 	@RParam(rParamName = "p_estado")
@@ -34,10 +36,10 @@ public class NovoObjeto extends Model{
 		return this.separatorlist_1;
 	}
 	
-	public void setOrganica(String organica){
+	public void setOrganica(int organica){
 		this.organica = organica;
 	}
-	public String getOrganica(){
+	public int getOrganica(){
 		return this.organica;
 	}
 	
@@ -48,17 +50,17 @@ public class NovoObjeto extends Model{
 		return this.objeto;
 	}
 	
-	public void setDefault_page(String default_page){
+	public void setDefault_page(int default_page){
 		this.default_page = default_page;
 	}
-	public String getDefault_page(){
+	public int getDefault_page(){
 		return this.default_page;
 	}
 	
-	public void setPreencher_automatico(String preencher_automatico){
+	public void setPreencher_automatico(int preencher_automatico){
 		this.preencher_automatico = preencher_automatico;
 	}
-	public String getPreencher_automatico(){
+	public int getPreencher_automatico(){
 		return this.preencher_automatico;
 	}
 	
@@ -83,10 +85,10 @@ public class NovoObjeto extends Model{
 		return this.guardar_em;
 	}
 	
-	public void setP_id(String p_id){
+	public void setP_id(int p_id){
 		this.p_id = p_id;
 	}
-	public String getP_id(){
+	public int getP_id(){
 		return this.p_id;
 	}
 	
