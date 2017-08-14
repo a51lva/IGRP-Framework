@@ -28,7 +28,7 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-87793d30">
+                                    <div class="row" id="row-00db9bd0">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
@@ -54,6 +54,13 @@
                                                                         </span>
                                                                     </div>
                                                                 </xsl:if>
+                                                                <xsl:if test="rows/content/form_1/fields/imagem">
+                                                                    <div class="col-sm-12  holder- gen-fields-holder" item-name="imagem">
+                                                                        <div class="row">
+                                                                            <img src="{rows/content/form_1/fields/imagem/value}" data-label="{rows/content/form_1/fields/imagem/label}" name="imagem" id="id-imagem" width="" height="" class=" "/>
+                                                                        </div>
+                                                                    </div>
+                                                                </xsl:if>
                                                                 <xsl:if test="rows/content/form_1/fields/tipo_objeto">
                                                                     <div class="col-sm-3 form-group  gen-fields-holder" item-name="tipo_objeto" item-type="select" required="required">
                                                                         <label for="{rows/content/form_1/fields/tipo_objeto/@name}">
@@ -73,14 +80,14 @@
                                                                         </select>
                                                                     </div>
                                                                 </xsl:if>
-                                                                <xsl:if test="rows/content/form_1/fields/n_no_negocio">
-                                                                    <div class="form-group col-sm-3   gen-fields-holder" item-name="n_no_negocio" item-type="number" required="required">
-                                                                        <label for="{rows/content/form_1/fields/n_no_negocio/@name}">
+                                                                <xsl:if test="rows/content/form_1/fields/n_do_negocio">
+                                                                    <div class="form-group col-sm-3   gen-fields-holder" item-name="n_do_negocio" item-type="number" required="required">
+                                                                        <label for="{rows/content/form_1/fields/n_do_negocio/@name}">
                                                                             <span>
-                                                                                <xsl:value-of select="rows/content/form_1/fields/n_no_negocio/label"/>
+                                                                                <xsl:value-of select="rows/content/form_1/fields/n_do_negocio/label"/>
                                                                             </span>
                                                                         </label>
-                                                                        <input type="number" value="{rows/content/form_1/fields/n_no_negocio/value}" class="form-control " id="{rows/content/form_1/fields/n_no_negocio/@name}" name="{rows/content/form_1/fields/n_no_negocio/@name}" required="required" min="" max="" maxlength="30" placeholder=""></input>
+                                                                        <input type="number" value="{rows/content/form_1/fields/n_do_negocio/value}" class="form-control " id="{rows/content/form_1/fields/n_do_negocio/@name}" name="{rows/content/form_1/fields/n_do_negocio/@name}" required="required" min="" max="" maxlength="30" placeholder=""></input>
                                                                     </div>
                                                                 </xsl:if>
                                                                 <xsl:if test="rows/content/form_1/fields/n_de_processo">
@@ -354,9 +361,9 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502713447502"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502713447502"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502713447502"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502713447502"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502713447502"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502727045791"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502727045791"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502727045791"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502727045791"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502727045792"/>
 </xsl:stylesheet>

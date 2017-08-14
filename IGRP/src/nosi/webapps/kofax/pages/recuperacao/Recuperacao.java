@@ -7,12 +7,14 @@ import java.util.ArrayList;
 public class Recuperacao extends Model{		
 	@RParam(rParamName = "p_identificacao")
 	private String identificacao;
+	@RParam(rParamName = "p_imagem")
+	private String imagem;
 	@RParam(rParamName = "p_tipo_objeto")
-	private String tipo_objeto;
-	@RParam(rParamName = "p_n_no_negocio")
-	private float n_no_negocio;
+	private int tipo_objeto;
+	@RParam(rParamName = "p_n_do_negocio")
+	private int n_do_negocio;
 	@RParam(rParamName = "p_n_de_processo")
-	private float n_de_processo;
+	private int n_de_processo;
 	@RParam(rParamName = "p_data_de_registo")
 	private String data_de_registo;
 	@RParam(rParamName = "p_nome")
@@ -20,7 +22,7 @@ public class Recuperacao extends Model{
 	@RParam(rParamName = "p_tipo_documento")
 	private String tipo_documento;
 	@RParam(rParamName = "p_n_de_documento")
-	private float n_de_documento;
+	private int n_de_documento;
 	@RParam(rParamName = "p_localizacao_fisica")
 	private String localizacao_fisica;
 	@RParam(rParamName = "p_estante")
@@ -32,13 +34,17 @@ public class Recuperacao extends Model{
 	@RParam(rParamName = "p_folha")
 	private String folha;
 	@RParam(rParamName = "p_id")
-	private String p_id;
+	private int p_id;
 	@RParam(rParamName = "p_informacoes_adicionais")
 	private String informacoes_adicionais;
-	@RParam(rParamName = "p_campo")
-	private String campo;
-	@RParam(rParamName = "p_valor")
-	private String valor;
+	@RParam(rParamName = "p_campo_fk")
+	private String[] p_campo_fk;
+	@RParam(rParamName = "p_campo_fk_desc")
+	private String[] p_campo_fk_desc;
+	@RParam(rParamName = "p_valor_fk_desc")
+	private String[] p_valor_fk_desc;
+	@RParam(rParamName = "p_valor_fk")
+	private String[] p_valor_fk;
 
 	private ArrayList<Separatorlist_1> separatorlist_1 = new ArrayList<>();
 	public void setSeparatorlist_1(ArrayList<Separatorlist_1> separatorlist_1){
@@ -55,25 +61,11 @@ public class Recuperacao extends Model{
 		return this.identificacao;
 	}
 	
-	public void setTipo_objeto(String tipo_objeto){
-		this.tipo_objeto = tipo_objeto;
+	public void setImagem(String imagem){
+		this.imagem = imagem;
 	}
-	public String getTipo_objeto(){
-		return this.tipo_objeto;
-	}
-	
-	public void setN_no_negocio(float n_no_negocio){
-		this.n_no_negocio = n_no_negocio;
-	}
-	public float getN_no_negocio(){
-		return this.n_no_negocio;
-	}
-	
-	public void setN_de_processo(float n_de_processo){
-		this.n_de_processo = n_de_processo;
-	}
-	public float getN_de_processo(){
-		return this.n_de_processo;
+	public String getImagem(){
+		return this.imagem;
 	}
 	
 	public void setData_de_registo(String data_de_registo){
@@ -95,13 +87,6 @@ public class Recuperacao extends Model{
 	}
 	public String getTipo_documento(){
 		return this.tipo_documento;
-	}
-	
-	public void setN_de_documento(float n_de_documento){
-		this.n_de_documento = n_de_documento;
-	}
-	public float getN_de_documento(){
-		return this.n_de_documento;
 	}
 	
 	public void setLocalizacao_fisica(String localizacao_fisica){
@@ -139,34 +124,67 @@ public class Recuperacao extends Model{
 		return this.folha;
 	}
 	
-	public void setP_id(String p_id){
-		this.p_id = p_id;
-	}
-	public String getP_id(){
-		return this.p_id;
-	}
-	
 	public void setInformacoes_adicionais(String informacoes_adicionais){
 		this.informacoes_adicionais = informacoes_adicionais;
 	}
 	public String getInformacoes_adicionais(){
 		return this.informacoes_adicionais;
 	}
-	
-	public void setCampo(String campo){
-		this.campo = campo;
-	}
-	public String getCampo(){
-		return this.campo;
-	}
-	
-	public void setValor(String valor){
-		this.valor = valor;
-	}
-	public String getValor(){
-		return this.valor;
-	}
 
+	public int getTipo_objeto() {
+		return tipo_objeto;
+	}
+	public void setTipo_objeto(int tipo_objeto) {
+		this.tipo_objeto = tipo_objeto;
+	}
+	public int getN_do_negocio() {
+		return n_do_negocio;
+	}
+	public void setN_do_negocio(int n_do_negocio) {
+		this.n_do_negocio = n_do_negocio;
+	}
+	public int getN_de_processo() {
+		return n_de_processo;
+	}
+	public void setN_de_processo(int n_de_processo) {
+		this.n_de_processo = n_de_processo;
+	}
+	public int getN_de_documento() {
+		return n_de_documento;
+	}
+	public void setN_de_documento(int n_de_documento) {
+		this.n_de_documento = n_de_documento;
+	}
+	public int getP_id() {
+		return p_id;
+	}
+	public void setP_id(int p_id) {
+		this.p_id = p_id;
+	}
+	public String[] getP_campo_fk() {
+		return p_campo_fk;
+	}
+	public void setP_campo_fk(String[] p_campo_fk) {
+		this.p_campo_fk = p_campo_fk;
+	}
+	public String[] getP_campo_fk_desc() {
+		return p_campo_fk_desc;
+	}
+	public void setP_campo_fk_desc(String[] p_campo_fk_desc) {
+		this.p_campo_fk_desc = p_campo_fk_desc;
+	}
+	public String[] getP_valor_fk_desc() {
+		return p_valor_fk_desc;
+	}
+	public void setP_valor_fk_desc(String[] p_valor_fk_desc) {
+		this.p_valor_fk_desc = p_valor_fk_desc;
+	}
+	public String[] getP_valor_fk() {
+		return p_valor_fk;
+	}
+	public void setP_valor_fk(String[] p_valor_fk) {
+		this.p_valor_fk = p_valor_fk;
+	}
 
 	public static class Separatorlist_1{
 		private Pair informacoes_adicionais;

@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import nosi.base.ActiveRecord.BaseActiveRecord;
+import nosi.core.webapp.helpers.DateHelper;
 
 /**
  * @author: Emanuel Pereira
@@ -46,8 +47,6 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	private String livro;
 	private String folha;
 	@Column(nullable=false)
-	private String tp_objeto;
-	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date dt_registo;
 	@Column(nullable=false)
@@ -62,8 +61,8 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	
 	
 	public Dados(Objeto objeto, String referencia, Integer nr_processo, String nome, String tipo_documento,
-			Integer nr_documento, String estante, String pasta, String livro, String folha, String tp_objeto,
-			Date dt_registo, String xml, String imagem) {
+			Integer nr_documento, String estante, String pasta, String livro, String folha,
+			String dt_registo, String xml, String imagem) {
 		super();
 		this.objeto = objeto;
 		this.referencia = referencia;
@@ -75,11 +74,11 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 		this.pasta = pasta;
 		this.livro = livro;
 		this.folha = folha;
-		this.tp_objeto = tp_objeto;
-		this.dt_registo = dt_registo;
-		this.xml = xml;
+		this.dt_registo = DateHelper.formatDate(dt_registo,"yyyy-MM-dd");
+		this.xml = xml.trim();
 		this.imagem = imagem;
 	}
+	
 
 
 	public Integer getId() {
@@ -170,20 +169,12 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 		this.folha = folha;
 	}
 
-	public String getTp_objeto() {
-		return tp_objeto;
-	}
-
-	public void setTp_objeto(String tp_objeto) {
-		this.tp_objeto = tp_objeto;
-	}
-
 	public Date getDt_registo() {
 		return dt_registo;
 	}
 
-	public void setDt_registo(Date dt_registo) {
-		this.dt_registo = dt_registo;
+	public void setDt_registo(String dt_registo) {
+		this.dt_registo = DateHelper.formatDate(dt_registo,"yyyy-MM-dd");
 	}
 
 	public String getXml() {
@@ -200,6 +191,17 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Dados [id=" + id + ", objeto=" + objeto + ", referencia=" + referencia + ", nr_processo=" + nr_processo
+				+ ", nome=" + nome + ", tipo_documento=" + tipo_documento + ", nr_documento=" + nr_documento
+				+ ", estante=" + estante + ", pasta=" + pasta + ", livro=" + livro + ", folha=" + folha
+				+ ", dt_registo=" + dt_registo + ", xml=" + xml + ", imagem=" + imagem + "]";
 	}	
+	
 	
 }

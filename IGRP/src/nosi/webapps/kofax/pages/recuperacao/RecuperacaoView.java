@@ -11,8 +11,9 @@ public class RecuperacaoView extends View {
 	
 	
 	public Field identificacao;
+	public Field imagem;
 	public Field tipo_objeto;
-	public Field n_no_negocio;
+	public Field n_do_negocio;
 	public Field n_de_processo;
 	public Field data_de_registo;
 	public Field nome;
@@ -40,15 +41,18 @@ public class RecuperacaoView extends View {
 		identificacao = new SeparatorField(model,"identificacao");
 		identificacao.setLabel("Identificação");
 		identificacao.propertie().add("name","p_identificacao").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
+		imagem = new TextField(model,"imagem");
+		imagem.setLabel("Imagem");
+		imagem.propertie().add("name","p_imagem").add("type","img").add("persist","true").add("img","").add("width","").add("height","").add("croppie","false").add("rounded","false").add("maxlength","30").add("placeholder","").add("right","false");
 		tipo_objeto = new ListField(model,"tipo_objeto");
 		tipo_objeto.setLabel("Tipo Objeto");
 		tipo_objeto.propertie().add("name","p_tipo_objeto").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
-		n_no_negocio = new NumberField(model,"n_no_negocio");
-		n_no_negocio.setLabel("Nº no negócio");
-		n_no_negocio.propertie().add("name","p_n_no_negocio").add("type","number").add("min","").add("max","").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		n_do_negocio = new NumberField(model,"n_do_negocio");
+		n_do_negocio.setLabel("Nº do negócio");
+		n_do_negocio.propertie().add("name","p_n_do_negocio").add("type","number").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
 		n_de_processo = new NumberField(model,"n_de_processo");
 		n_de_processo.setLabel("Nº de processo");
-		n_de_processo.propertie().add("name","p_n_de_processo").add("type","number").add("min","").add("max","").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		n_de_processo.propertie().add("name","p_n_de_processo").add("type","number").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
 		data_de_registo = new DateField(model,"data_de_registo");
 		data_de_registo.setLabel("Data de registo");
 		data_de_registo.propertie().add("name","p_data_de_registo").add("type","date").add("format","IGRP_datePicker").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false").add("class","default");
@@ -101,8 +105,9 @@ public class RecuperacaoView extends View {
 		
 
 		form_1.addField(identificacao);
+		form_1.addField(imagem);
 		form_1.addField(tipo_objeto);
-		form_1.addField(n_no_negocio);
+		form_1.addField(n_do_negocio);
 		form_1.addField(n_de_processo);
 		form_1.addField(data_de_registo);
 		form_1.addField(nome);
