@@ -4,12 +4,15 @@
 
 package nosi.webapps.kofax.pages.novoobjeto;
 import nosi.core.webapp.Controller;
+import nosi.core.webapp.Igrp;
+
 import java.io.IOException;
 import java.util.HashMap;
 
 import nosi.core.webapp.Response;
 import nosi.core.webapp.helpers.IgrpHelper;
 import nosi.webapps.igrp.dao.Organization;
+import nosi.webapps.kofax.dao.Campos;
 import nosi.webapps.kofax.dao.Objeto;
 
 /*---- Import your packages here... ----*//*---- End ----*/
@@ -46,10 +49,18 @@ public class NovoObjetoController extends Controller {
 		model.load();
 		Organization o = new Organization().findOne(model.getOrganica());
 		Objeto obj = new Objeto(o, model.getObjeto(), model.getPagina(), model.getDefault_page(), model.getFormato_output(), model.getGuardar_em(), model.getP_estado(), model.getPreencher_automatico());
-		//obj.insert();
+		obj.setEstado("Ativo");
+		obj = obj.insert();
+		if(obj != null) {
+			Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
+		}else {
+			Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
+		}
 		for(int i = 0; i< model.getP_campo_fk().length; i++) {
 			System.out.println(model.getP_campo_fk_desc()[i]);
-			
+			Campos campo = new Campos(obj, model.getP_campo_fk_desc()[i], model.getP_estado());
+			campo.setEstado("Ativo");
+			campo.insert();
 		}
 		return this.redirect("kofax","NovoObjeto","index");
 		/*---- End ----*/
