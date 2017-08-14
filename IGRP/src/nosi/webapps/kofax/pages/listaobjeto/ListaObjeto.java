@@ -2,6 +2,8 @@
 package nosi.webapps.kofax.pages.listaobjeto;
 import nosi.core.webapp.Model;
 import nosi.core.webapp.RParam;
+import nosi.webapps.igrp.dao.Organization;
+
 import java.util.ArrayList;
 
 public class ListaObjeto extends Model{		
@@ -18,7 +20,7 @@ public class ListaObjeto extends Model{
 	public static class Table_1{
 		private String objeto;
 		private String pagina;
-		private String organica;
+		private Organization organica;
 		private String estado;
 		private String p_id;
 		public void setObjeto(String objeto){
@@ -35,10 +37,10 @@ public class ListaObjeto extends Model{
 			return this.pagina;
 		}
 
-		public void setOrganica(String organica){
+		public void setOrganica(Organization organica){
 			this.organica = organica;
 		}
-		public String getOrganica(){
+		public Organization getOrganica(){
 			return this.organica;
 		}
 
