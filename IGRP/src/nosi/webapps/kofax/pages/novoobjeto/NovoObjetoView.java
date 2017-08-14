@@ -43,7 +43,7 @@ public class NovoObjetoView extends View {
 		preencher_automatico.setLabel("Preencher automático");
 		preencher_automatico.propertie().add("name","p_preencher_automatico").add("type","radiolist").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("child_size","12").add("right","false");
 		pagina = new TextField(model,"pagina");
-		pagina.setLabel("Página");
+		pagina.setLabel("P�gina");
 		pagina.propertie().add("name","p_pagina").add("type","text").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
 		formato_output = new TextField(model,"formato_output");
 		formato_output.setLabel("Formato output");
