@@ -46,9 +46,9 @@ public class NovoObjetoController extends Controller {
 		model.load();
 		Organization o = new Organization().findOne(model.getOrganica());
 		Objeto obj = new Objeto(o, model.getObjeto(), model.getPagina(), model.getDefault_page(), model.getFormato_output(), model.getGuardar_em(), model.getP_estado(), model.getPreencher_automatico());
-		obj.insert();
-		for(int i = 0; i< model.getCampo().length; i++) {
-			System.out.println(model.getCampo_desc()[i]);
+		//obj.insert();
+		for(int i = 0; i< model.getP_campo_fk().length; i++) {
+			System.out.println(model.getP_campo_fk_desc()[i]);
 			
 		}
 		return this.redirect("kofax","NovoObjeto","index");

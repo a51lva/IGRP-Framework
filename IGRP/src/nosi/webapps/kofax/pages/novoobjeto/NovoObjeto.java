@@ -23,9 +23,9 @@ public class NovoObjeto extends Model{
 	@RParam(rParamName = "p_id")
 	private int p_id;
 	@RParam(rParamName = "p_campo_fk")
-	private String [] campo;
+	private String [] p_campo_fk;
 	@RParam(rParamName = "p_campo_fk_desc")
-	private String [] campo_desc;
+	private String [] p_campo_fk_desc;
 	@RParam(rParamName = "p_estado")
 	private String p_estado;
 
@@ -92,28 +92,25 @@ public class NovoObjeto extends Model{
 	public int getP_id(){
 		return this.p_id;
 	}
-	
-	public void setCampo(String [] campo){
-		this.campo = campo;
-	}
-	public String[] getCampo(){
-		return this.campo;
-	}
-	
 	public void setP_estado(String p_estado){
 		this.p_estado = p_estado;
 	}
 	public String getP_estado(){
 		return this.p_estado;
 	}
-
-
-	public String[] getCampo_desc() {
-		return campo_desc;
+	public String[] getP_campo_fk() {
+		return p_campo_fk;
 	}
-	public void setCampo_desc(String[] campo_desc) {
-		this.campo_desc = campo_desc;
+	public void setP_campo_fk(String[] p_campo_fk) {
+		this.p_campo_fk = p_campo_fk;
 	}
+	public String[] getP_campo_fk_desc() {
+		return p_campo_fk_desc;
+	}
+	public void setP_campo_fk_desc(String[] p_campo_fk_desc) {
+		this.p_campo_fk_desc = p_campo_fk_desc;
+	}
+
 
 
 	public static class Separatorlist_1{
