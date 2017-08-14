@@ -21,7 +21,7 @@ import nosi.webapps.agenda.dao.Fault;
  * Aug 4, 2017
  */
 public final class RestRequestHelper{
-	
+
 	public static final String baseUrl = "https://localhost:9092/services/DSN_Agenda";
 
 	private RestRequestHelper() {}
