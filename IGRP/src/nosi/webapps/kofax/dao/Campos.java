@@ -21,10 +21,14 @@ import nosi.base.ActiveRecord.BaseActiveRecord;
 @Entity
 @Table(name = "tbl_campos")
 public class Campos extends BaseActiveRecord<Campos> implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	
+	private Integer id;	
 	@ManyToOne
 	@JoinColumn(name="id_objeto_fk", foreignKey = @ForeignKey(name = "Campos_obj_fk"), nullable=false)
 	private Objeto id_objeto;

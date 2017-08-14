@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../images/IGRP/IGRP2.3/app/kofax/listaobjeto/ListaObjeto.xsl" type="text/xsl"?>
+<rows>
+    <site>
+        <welcome_note>Ola</welcome_note>
+        <footer_note>2011 - Copyright NOSI</footer_note>
+        <user_name>red-igrp</user_name>
+        <button type="specific">
+            <title>Sair</title>
+            <app>RED</app>
+            <page />
+            <link>#</link>
+            <target>_self</target>
+            <img>exit.png</img>
+        </button>
+    </site>
+    <page>ListaObjeto</page>
+    <app>kofax</app>
+    <plsql>
+        <action>index</action>
+        <package_instance></package_instance>
+        <package_db>nosi.webapps.kofax.pages</package_db>
+        <package_html>ListaObjeto</package_html>
+        <table_name></table_name>
+        <with_replace>false</with_replace>
+        <with_label>false</with_label>
+        <with_biztalk>false</with_biztalk>
+        <dynamic_menu>false</dynamic_menu>
+        <copy_menu>false</copy_menu>
+        <package_copy_db />
+        <package_copy_html />
+        <preserve_url>http://localhost:8080/IGRP/webapps?r=igrp/page/preserveUrl&amp;p_id=</preserve_url>
+    </plsql>
+    <content>
+        <title>Listar Objetos</title>
+        <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
+            <item type="specific" code="" rel="novo">
+                <title>Novo</title>
+                <app>kofax</app>
+                <page>NovoObjeto</page>
+                <link>index</link>
+                <target>_self</target>
+                <img>success|fa-plus-square</img>
+                <parameter>undefinedimages/IGRP/IGRP2.3/app/kofax/novoobjeto/NovoObjeto.xsl</parameter>
+            </item>
+        </toolsbar_1>
+        <table_1 type="table" xml-type="table" gen-type="container" gen-group="true">
+            <fields>
+                <objeto name="p_objeto" type="text" maxlength="100" align="left" lookup_parser="false" iskey="false">
+                    <label>Objeto</label>
+                </objeto>
+                <pagina name="p_pagina" type="text" maxlength="50" align="left" lookup_parser="false" iskey="false">
+                    <label>Página</label>
+                </pagina>
+                <organica name="p_organica" type="text" maxlength="50" align="left" lookup_parser="false" iskey="false">
+                    <label>Orgânica</label>
+                </organica>
+                <estado name="p_estado" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Estado</label>
+                </estado>
+                <id name="p_id" type="hidden" maxlength="30" tag="id"/>
+            </fields>
+            <table>
+                <value>
+                    <row>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <objeto name="p_objeto">Consectetur elit laudantium dolor labore</objeto>
+                        <pagina name="p_pagina">Sed laudantium unde accusantium amet</pagina>
+                        <organica name="p_organica">Adipiscing sit labore totam aperiam</organica>
+                        <estado name="p_estado">Doloremque omnis ipsum stract</estado>
+                        <id name="p_id" tag="id">1</id>
+                    </row>
+                    <row>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <objeto name="p_objeto">Aliqua magna doloremque aperiam doloremque</objeto>
+                        <pagina name="p_pagina">Voluptatem deserunt adipiscing ipsum aliqua</pagina>
+                        <organica name="p_organica">Mollit aliqua amet elit anim</organica>
+                        <estado name="p_estado">Voluptatem aliqua laudantium d</estado>
+                        <id name="p_id" tag="id">1</id>
+                    </row>
+                    <row>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <objeto name="p_objeto">Ipsum dolor rem magna rem</objeto>
+                        <pagina name="p_pagina">Sed natus magna natus sit</pagina>
+                        <organica name="p_organica">Totam laudantium perspiciatis elit magna</organica>
+                        <estado name="p_estado">Sed sit unde labore iste</estado>
+                        <id name="p_id" tag="id">1</id>
+                    </row>
+                    <row>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <objeto name="p_objeto">Amet dolor aliqua officia magna</objeto>
+                        <pagina name="p_pagina">Anim magna totam aliqua accusantium</pagina>
+                        <organica name="p_organica">Labore laudantium sit voluptatem sit</organica>
+                        <estado name="p_estado">Amet sit lorem totam mollit</estado>
+                        <id name="p_id" tag="id">1</id>
+                    </row>
+                    <row>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <objeto name="p_objeto">Accusantium perspiciatis natus unde elit</objeto>
+                        <pagina name="p_pagina">Sit stract magna dolor natus</pagina>
+                        <organica name="p_organica">Aperiam elit magna omnis sed</organica>
+                        <estado name="p_estado">Doloremque totam aliqua omnis</estado>
+                        <id name="p_id" tag="id">1</id>
+                    </row>
+                </value>
+                <context-menu>
+                    <item type="specific" code="" class="warning" rel="editar">
+                        <title>Editar</title>
+                        <app>kofax</app>
+                        <page>NovoObjeto</page>
+                        <link>index</link>
+                        <parameter>undefinedimages/IGRP/IGRP2.3/app/kofax/novoobjeto/NovoObjeto.xsl?</parameter>
+                        <target>submit</target>
+                        <img>warning|fa-pencil-square-o</img>
+                    </item>
+                    <item type="specific" code="" class="danger" rel="eliminar">
+                        <title>Eliminar</title>
+                        <app>kofax</app>
+                        <page>ListaObjeto</page>
+                        <link>index</link>
+                        <parameter>undefinedimages/IGRP/IGRP2.3/app/kofax/listaobjeto/ListaObjeto.xsl?</parameter>
+                        <target>confirm</target>
+                        <img>danger|fa-remove</img>
+                    </item>
+                </context-menu>
+            </table>
+        </table_1>
+    </content>
+</rows>
