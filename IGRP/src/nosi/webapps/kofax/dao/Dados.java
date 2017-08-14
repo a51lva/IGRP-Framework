@@ -1,7 +1,7 @@
 package nosi.webapps.kofax.dao;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,9 +31,9 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@OneToMany	
-	@JoinColumn(name = "id_objeto",foreignKey = @ForeignKey(name="OBJETO_DADOS_ID_OBJETO"),nullable=false)
-	private Objeto objeto;
+//	@ManyToOne
+//	@JoinColumn(name = "id_objeto",foreignKey = @ForeignKey(name="OBJETO_DADOS_ID_OBJETO"),nullable=false)
+//	private Objeto objeto;
 	private String referencia;
 	@Column(nullable=false)
 	private Integer nr_processo;
@@ -65,7 +65,7 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 			Integer nr_documento, String estante, String pasta, String livro, String folha, String tp_objeto,
 			Date dt_registo, String xml, String imagem) {
 		super();
-		this.objeto = objeto;
+//		this.objeto = objeto;
 		this.referencia = referencia;
 		this.nr_processo = nr_processo;
 		this.nome = nome;
@@ -90,13 +90,13 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 		this.id = id;
 	}
 
-	public Objeto getObjeto() {
-		return objeto;
-	}
-
-	public void setObjeto(Objeto objeto) {
-		this.objeto = objeto;
-	}
+//	public Objeto getObjeto() {
+//		return objeto;
+//	}
+//
+//	public void setObjeto(Objeto objeto) {
+//		this.objeto = objeto;
+//	}
 
 	public String getReferencia() {
 		return referencia;
