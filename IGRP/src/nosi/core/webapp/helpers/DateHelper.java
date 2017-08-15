@@ -25,17 +25,17 @@ public class DateHelper {
 		return myDateString;
 	}
 	
-	public static Date formatDate(String data,String outputFormat){ 
-		if (data == null || data.equals(""))
-			return null;
-        Date date = null;
-        try {
-            DateFormat formatter = new SimpleDateFormat(outputFormat);
-            date = (java.util.Date)formatter.parse(data);
-        } catch (ParseException e) {   
-        	e.printStackTrace();
-        	return null;
-        }
-        return date;
+	public static java.sql.Date formatDate(String data,String inputFormat,String outputFormat){ 
+		DateFormat formatter = new SimpleDateFormat(inputFormat); 
+		Date date;
+		try {
+			date = (Date)formatter.parse(data);
+			SimpleDateFormat newFormat = new SimpleDateFormat(outputFormat);
+			String finalDate = newFormat.format(date);
+			return java.sql.Date.valueOf(finalDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

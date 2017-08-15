@@ -70,7 +70,7 @@
                 </organica>
                 <objeto name="p_objeto" type="text" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Objeto</label>
-                    <value>Elit aliqua rem mollit omnis</value>
+                    <value>Doloremque iste accusantium de</value>
                 </objeto>
                 <default_page name="p_default_page" type="radiolist" domain="" maxlength="30" required="true" change="false" readonly="false" disabled="false" child_size="12" right="false">
                     <label>Default Page</label>
@@ -116,15 +116,33 @@
                 </preencher_automatico>
                 <pagina name="p_pagina" type="text" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Página</label>
-                    <value>Deserunt accusantium officia t</value>
+                    <value>Natus sit rem consectetur accu</value>
                 </pagina>
-                <formato_output name="p_formato_output" type="text" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
+                <formato_output name="p_formato_output" type="select" multiple="false" domain="" maxlength="30" required="true" change="false" disabled="false" right="false">
                     <label>Formato output</label>
-                    <value>Lorem sed accusantium unde con</value>
+                    <list>
+                        <option/>
+                        <option>
+                            <text>Option 1</text>
+                            <value>1</value>
+                        </option>
+                        <option>
+                            <text>Option 2</text>
+                            <value>2</value>
+                        </option>
+                        <option>
+                            <text>Option 3</text>
+                            <value>3</value>
+                        </option>
+                        <option>
+                            <text>Option 4</text>
+                            <value>4</value>
+                        </option>
+                    </list>
                 </formato_output>
                 <guardar_em name="p_guardar_em" type="text" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Guardar Em</label>
-                    <value>Magna totam officia anim amet</value>
+                    <value>Magna unde ut natus consectetu</value>
                 </guardar_em>
                 <hidden name="p_id" type="hidden" maxlength="30" tag="id"/>
             </fields>
@@ -133,39 +151,39 @@
             <fields>
                 <campo name="p_campo" type="text" maxlength="50" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
                     <label>Campo</label>
-                    <value>Labore officia doloremque mollit consectetur</value>
+                    <value>Mollit doloremque laudantium ipsum aperiam</value>
                 </campo>
                 <estado name="p_estado" type="hidden" maxlength="30" visible="true" tag="estado" desc="true"/>
             </fields>
             <table>
                 <value>
                     <row>
-                        <campo name="p_campo" desc="true">Labore perspiciatis magna stract deserunt</campo>
-                        <campo_desc name="p_campo_desc">Labore perspiciatis magna stract deserunt</campo_desc>
+                        <campo name="p_campo" desc="true">Sit rem accusantium iste voluptatem</campo>
+                        <campo_desc name="p_campo_desc">Sit rem accusantium iste voluptatem</campo_desc>
                         <estado name="p_estado" tag="estado" desc="true">1</estado>
                         <estado_desc name="p_estado_desc">1</estado_desc>
                     </row>
                     <row>
-                        <campo name="p_campo" desc="true">Sed deserunt sit perspiciatis sit</campo>
-                        <campo_desc name="p_campo_desc">Sed deserunt sit perspiciatis sit</campo_desc>
+                        <campo name="p_campo" desc="true">Voluptatem elit dolor sed officia</campo>
+                        <campo_desc name="p_campo_desc">Voluptatem elit dolor sed officia</campo_desc>
                         <estado name="p_estado" tag="estado" desc="true">1</estado>
                         <estado_desc name="p_estado_desc">1</estado_desc>
                     </row>
                     <row>
-                        <campo name="p_campo" desc="true">Voluptatem unde sit unde rem</campo>
-                        <campo_desc name="p_campo_desc">Voluptatem unde sit unde rem</campo_desc>
+                        <campo name="p_campo" desc="true">Sed totam magna voluptatem omnis</campo>
+                        <campo_desc name="p_campo_desc">Sed totam magna voluptatem omnis</campo_desc>
                         <estado name="p_estado" tag="estado" desc="true">1</estado>
                         <estado_desc name="p_estado_desc">1</estado_desc>
                     </row>
                     <row>
-                        <campo name="p_campo" desc="true">Aperiam doloremque aperiam aliqua natus</campo>
-                        <campo_desc name="p_campo_desc">Aperiam doloremque aperiam aliqua natus</campo_desc>
+                        <campo name="p_campo" desc="true">Omnis perspiciatis elit consectetur unde</campo>
+                        <campo_desc name="p_campo_desc">Omnis perspiciatis elit consectetur unde</campo_desc>
                         <estado name="p_estado" tag="estado" desc="true">1</estado>
                         <estado_desc name="p_estado_desc">1</estado_desc>
                     </row>
                     <row>
-                        <campo name="p_campo" desc="true">Magna sit ut voluptatem anim</campo>
-                        <campo_desc name="p_campo_desc">Magna sit ut voluptatem anim</campo_desc>
+                        <campo name="p_campo" desc="true">Unde adipiscing ut officia unde</campo>
+                        <campo_desc name="p_campo_desc">Unde adipiscing ut officia unde</campo_desc>
                         <estado name="p_estado" tag="estado" desc="true">1</estado>
                         <estado_desc name="p_estado_desc">1</estado_desc>
                     </row>

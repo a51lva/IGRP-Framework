@@ -45,9 +45,9 @@ public class NovoObjetoView extends View {
 		pagina = new TextField(model,"pagina");
 		pagina.setLabel("Página");
 		pagina.propertie().add("name","p_pagina").add("type","text").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
-		formato_output = new TextField(model,"formato_output");
+		formato_output = new ListField(model,"formato_output");
 		formato_output.setLabel("Formato output");
-		formato_output.propertie().add("name","p_formato_output").add("type","text").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		formato_output.propertie().add("name","p_formato_output").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
 		guardar_em = new TextField(model,"guardar_em");
 		guardar_em.setLabel("Guardar Em");
 		guardar_em.propertie().add("name","p_guardar_em").add("type","text").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");

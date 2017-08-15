@@ -11,7 +11,6 @@ public class RecuperacaoView extends View {
 	
 	
 	public Field identificacao;
-	public Field imagem;
 	public Field tipo_objeto;
 	public Field n_do_negocio;
 	public Field n_de_processo;
@@ -24,6 +23,8 @@ public class RecuperacaoView extends View {
 	public Field pasta;
 	public Field livro;
 	public Field folha;
+	public Field adicionar_ficheiro;
+	public Field imagem;
 	public Field p_id;
 	public Field informacoes_adicionais;
 	public Field campo;
@@ -41,9 +42,6 @@ public class RecuperacaoView extends View {
 		identificacao = new SeparatorField(model,"identificacao");
 		identificacao.setLabel("Identificação");
 		identificacao.propertie().add("name","p_identificacao").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
-		imagem = new TextField(model,"imagem");
-		imagem.setLabel("Imagem");
-		imagem.propertie().add("name","p_imagem").add("type","img").add("persist","true").add("img","").add("width","").add("height","").add("croppie","false").add("rounded","false").add("maxlength","30").add("placeholder","").add("right","false");
 		tipo_objeto = new ListField(model,"tipo_objeto");
 		tipo_objeto.setLabel("Tipo Objeto");
 		tipo_objeto.propertie().add("name","p_tipo_objeto").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
@@ -80,6 +78,12 @@ public class RecuperacaoView extends View {
 		folha = new TextField(model,"folha");
 		folha.setLabel("Folha");
 		folha.propertie().add("name","p_folha").add("type","text").add("maxlength","30").add("required","false").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		adicionar_ficheiro = new SeparatorField(model,"adicionar_ficheiro");
+		adicionar_ficheiro.setLabel("Adicionar Ficheiro");
+		adicionar_ficheiro.propertie().add("name","p_adicionar_ficheiro").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
+		imagem = new FileField(model,"imagem");
+		imagem.setLabel("Imagem");
+		imagem.propertie().add("name","p_imagem").add("type","file").add("accept","").add("targetrend","").add("multiple","false").add("rendvalue","false").add("maxlength","30").add("required","true").add("disabled","false").add("right","false").add("class","default").add("min","").add("max","");
 		p_id = new HiddenField(model,"p_id");
 		p_id.setLabel("");
 		p_id.propertie().add("name","p_id").add("type","hidden").add("maxlength","30").add("tag","id");
@@ -101,11 +105,9 @@ public class RecuperacaoView extends View {
 	}
 		
 	@Override
-	public void render(){
-		
+	public void render(){		
 
 		form_1.addField(identificacao);
-		form_1.addField(imagem);
 		form_1.addField(tipo_objeto);
 		form_1.addField(n_do_negocio);
 		form_1.addField(n_de_processo);
@@ -118,6 +120,8 @@ public class RecuperacaoView extends View {
 		form_1.addField(pasta);
 		form_1.addField(livro);
 		form_1.addField(folha);
+		form_1.addField(adicionar_ficheiro);
+		form_1.addField(imagem);
 		form_1.addField(p_id);
 
 		separatorlist_1.addField(informacoes_adicionais);

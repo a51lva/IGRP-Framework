@@ -74,13 +74,11 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 		this.pasta = pasta;
 		this.livro = livro;
 		this.folha = folha;
-		this.dt_registo = DateHelper.formatDate(dt_registo,"yyyy-MM-dd");
+		this.dt_registo = DateHelper.formatDate(dt_registo,"dd-MM-yyyy","yyyy-MM-dd");
 		this.xml = xml.trim();
 		this.imagem = imagem;
 	}
 	
-
-
 	public Integer getId() {
 		return id;
 	}
@@ -174,7 +172,7 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	}
 
 	public void setDt_registo(String dt_registo) {
-		this.dt_registo = DateHelper.formatDate(dt_registo,"yyyy-MM-dd");
+		this.dt_registo = DateHelper.formatDate(dt_registo,"dd-MM-yyyy","yyyy-MM-dd");
 	}
 
 	public String getXml() {

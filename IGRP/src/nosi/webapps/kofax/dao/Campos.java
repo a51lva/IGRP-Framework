@@ -37,8 +37,13 @@ public class Campos extends BaseActiveRecord<Campos> implements Serializable{
 	private String campo;
 	private String estado;
 	
-	public Campos() {}
-
+	 public Campos() {}
+	 public Campos(Objeto id_objeto, String campo, String estado) {
+			super();
+			this.id_objeto = id_objeto;
+			this.campo = campo;
+			this.estado = estado;
+	} 
 	public Integer getId() {
 		return id;
 	}
