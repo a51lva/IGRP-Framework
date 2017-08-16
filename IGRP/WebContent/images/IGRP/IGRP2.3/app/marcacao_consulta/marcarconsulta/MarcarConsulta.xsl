@@ -24,7 +24,7 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-b81e7d82">
+                                    <div class="row" id="row-2554ea3b">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
@@ -67,8 +67,27 @@
                                                                         <label for="{rows/content/form_1/fields/medico/@name}">
                                                                             <xsl:value-of select="rows/content/form_1/fields/medico/label"/>
                                                                         </label>
-                                                                        <select class="form-control select2 " id="form_1_medico" name="{rows/content/form_1/fields/medico/@name}" required="required">
+                                                                        <select class="form-control select2 IGRP_change" id="form_1_medico" name="{rows/content/form_1/fields/medico/@name}" required="required">
                                                                             <xsl:for-each select="rows/content/form_1/fields/medico/list/option">
+                                                                                <option value="{value}" label="{text}">
+                                                                                    <xsl:if test="@selected='true'">
+                                                                                        <xsl:attribute name="selected">selected</xsl:attribute>
+                                                                                    </xsl:if>
+                                                                                    <span>
+                                                                                        <xsl:value-of select="text"/>
+                                                                                    </span>
+                                                                                </option>
+                                                                            </xsl:for-each>
+                                                                        </select>
+                                                                    </div>
+                                                                </xsl:if>
+                                                                <xsl:if test="rows/content/form_1/fields/especialidade">
+                                                                    <div class="col-sm-3 form-group  gen-fields-holder" item-name="especialidade" item-type="select" required="required">
+                                                                        <label for="{rows/content/form_1/fields/especialidade/@name}">
+                                                                            <xsl:value-of select="rows/content/form_1/fields/especialidade/label"/>
+                                                                        </label>
+                                                                        <select class="form-control select2 " id="form_1_especialidade" name="{rows/content/form_1/fields/especialidade/@name}" required="required">
+                                                                            <xsl:for-each select="rows/content/form_1/fields/especialidade/list/option">
                                                                                 <option value="{value}" label="{text}">
                                                                                     <xsl:if test="@selected='true'">
                                                                                         <xsl:attribute name="selected">selected</xsl:attribute>
@@ -123,9 +142,9 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502888212532"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502888212532"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502888212532"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502888212532"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502888212532"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502901888628"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502901888628"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502901888628"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502901888628"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502901888628"/>
 </xsl:stylesheet>

@@ -11,6 +11,7 @@ public class ListaMedicoView extends View {
 	
 	
 	public Field nome;
+	public Field epecialidades;
 	public Field n_consulta_por_dia;
 	public Field p_id;
 	public IGRPForm form_1;
@@ -27,6 +28,9 @@ public class ListaMedicoView extends View {
 		nome = new TextField(model,"nome");
 		nome.setLabel("Nome");
 		nome.propertie().add("name","p_nome").add("type","text").add("maxlength","30").add("required","false").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		epecialidades = new TextField(model,"epecialidades");
+		epecialidades.setLabel("Epecialidades");
+		epecialidades.propertie().add("name","p_epecialidades").add("type","text").add("maxlength","30").add("align","left").add("lookup_parser","false").add("iskey","false");
 		n_consulta_por_dia = new NumberField(model,"n_consulta_por_dia");
 		n_consulta_por_dia.setLabel("Nº Consulta por dia");
 		n_consulta_por_dia.propertie().add("name","p_n_consulta_por_dia").add("type","number").add("maxlength","30").add("align","left").add("lookup_parser","false").add("min","").add("max","").add("iskey","false").add("total_footer","false");
@@ -50,6 +54,7 @@ public class ListaMedicoView extends View {
 
 
 		table_1.addField(nome);
+		table_1.addField(epecialidades);
 		table_1.addField(n_consulta_por_dia);
 		table_1.addField(p_id);
 

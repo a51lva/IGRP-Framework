@@ -8,7 +8,7 @@ public class ListarUtente extends Model{
 	@RParam(rParamName = "p_nome")
 	private String nome;
 	@RParam(rParamName = "p_sexo")
-	private String sexo;
+	private int sexo;
 
 	private ArrayList<Table_1> table_1 = new ArrayList<>();
 	public void setTable_1(ArrayList<Table_1> table_1){
@@ -25,10 +25,10 @@ public class ListarUtente extends Model{
 		return this.nome;
 	}
 	
-	public void setSexo(String sexo){
+	public void setSexo(int sexo){
 		this.sexo = sexo;
 	}
-	public String getSexo(){
+	public int getSexo(){
 		return this.sexo;
 	}
 
@@ -37,7 +37,7 @@ public class ListarUtente extends Model{
 		private String nome;
 		private String morada;
 		private String sexo;
-		private float idade;
+		private int idade;
 		private String p_id;
 		public void setNome(String nome){
 			this.nome = nome;
@@ -60,10 +60,10 @@ public class ListarUtente extends Model{
 			return this.sexo;
 		}
 
-		public void setIdade(float idade){
+		public void setIdade(int idade){
 			this.idade = idade;
 		}
-		public float getIdade(){
+		public int getIdade(){
 			return this.idade;
 		}
 

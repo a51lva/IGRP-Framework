@@ -39,7 +39,7 @@ public class RegistarUtenteView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_gravar = new IGRPButton("Gravar","marcacao_consulta","RegistarUtente","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
-		btn_voltar = new IGRPButton("Voltar","marcacao_consulta","RegistarUtente","voltar","_self","default|fa-angle-right","","");
+		btn_voltar = new IGRPButton("Lista de Utentes","marcacao_consulta","RegistarUtente","voltar","_self","default|fa-list","","");
 		btn_voltar.propertie.add("type","specific").add("code","").add("rel","voltar");
 		
 	

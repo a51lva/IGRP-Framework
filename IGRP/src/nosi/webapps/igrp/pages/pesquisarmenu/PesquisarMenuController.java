@@ -30,7 +30,7 @@ public class PesquisarMenuController extends Controller {
 		List<Menu> menus= null;
 		if(model.getOrganica()==0){
 			menus = menu.find()
-					   .andWhere("application", "=", model.getAplicacao())
+					   .andWhere("application", "=",model.getAplicacao()!=0? model.getAplicacao():null)
 					   .andWhere("menu", "=", model.getMenu_principal())
 					   .all();
 		}else{

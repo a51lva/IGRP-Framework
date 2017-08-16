@@ -13,11 +13,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import nosi.base.ActiveRecord.BaseActiveRecord;
 import nosi.core.webapp.helpers.DateHelper;
-import nosi.webapps.kofax.dao.Campos;
 
 @Entity
 @Table(name="tbl_utente")
-public class Utente extends BaseActiveRecord<Campos> implements Serializable{
+public class Utente extends BaseActiveRecord<Utente> implements Serializable{
 
 	/**
 	 * 

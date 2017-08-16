@@ -13,6 +13,8 @@ public class RegistarMedicoView extends View {
 	public Field nome;
 	public Field morada;
 	public Field n_consulta_por_dia;
+	public Field especialidades;
+	public Field p_id;
 	public IGRPForm form_1;
 
 	public IGRPToolsBar toolsbar_1;
@@ -31,11 +33,17 @@ public class RegistarMedicoView extends View {
 		n_consulta_por_dia = new NumberField(model,"n_consulta_por_dia");
 		n_consulta_por_dia.setLabel("Nº Consulta por dia");
 		n_consulta_por_dia.propertie().add("name","p_n_consulta_por_dia").add("type","number").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false").add("min","").add("max","");
+		especialidades = new ListField(model,"especialidades");
+		especialidades.setLabel("Especialidades");
+		especialidades.propertie().add("name","p_especialidades").add("type","select").add("multiple","true").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
+		p_id = new HiddenField(model,"p_id");
+		p_id.setLabel("");
+		p_id.propertie().add("name","p_id").add("type","hidden").add("maxlength","30").add("tag","id");
 
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_gravar = new IGRPButton("Gravar","marcacao_consulta","RegistarMedico","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
-		btn_voltar = new IGRPButton("Voltar","marcacao_consulta","RegistarMedico","voltar","_self","default|fa-angle-right","","");
+		btn_voltar = new IGRPButton("Listar Medico","marcacao_consulta","RegistarMedico","voltar","_self","default|fa-list","","");
 		btn_voltar.propertie.add("type","specific").add("code","").add("rel","voltar");
 		
 	
@@ -48,6 +56,8 @@ public class RegistarMedicoView extends View {
 		form_1.addField(nome);
 		form_1.addField(morada);
 		form_1.addField(n_consulta_por_dia);
+		form_1.addField(especialidades);
+		form_1.addField(p_id);
 
 		toolsbar_1.addButton(btn_gravar);
 		toolsbar_1.addButton(btn_voltar);

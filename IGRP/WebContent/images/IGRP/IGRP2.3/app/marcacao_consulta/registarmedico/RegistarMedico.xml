@@ -36,37 +36,60 @@
         <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
             <item type="specific" code="" rel="gravar">
                 <title>Gravar</title>
-                <app>marcacao_consulta</app>
-                <page>RegistarMedico</page>
-                <link>index</link>
+                <app/>
+                <page/>
+                <link/>
                 <target>submit</target>
                 <img>success|fa-save</img>
-                <parameter>undefinedimages/IGRP/IGRP2.3/app/marcacao_consulta/registarmedico/RegistarMedico.xsl</parameter>
+                <parameter>undefined</parameter>
             </item>
             <item type="specific" code="" rel="voltar">
                 <title>Voltar</title>
-                <app>marcacao_consulta</app>
-                <page>ListaMedico</page>
-                <link>index</link>
+                <app/>
+                <page/>
+                <link/>
                 <target>_self</target>
                 <img>default|fa-angle-right</img>
-                <parameter>undefinedimages/IGRP/IGRP2.3/app/marcacao_consulta/listamedico/ListaMedico.xsl</parameter>
+                <parameter>undefined</parameter>
             </item>
         </toolsbar_1>
         <form_1 type="form" xml-type="form" gen-type="container" gen-group="">
             <fields>
                 <nome name="p_nome" type="text" maxlength="100" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Nome</label>
-                    <value>Rem ipsum aperiam officia consectetur</value>
+                    <value>Voluptatem sit accusantium adipiscing magna</value>
                 </nome>
                 <morada name="p_morada" type="text" maxlength="60" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Morada</label>
-                    <value>Labore laudantium labore laudantium doloremque</value>
+                    <value>Lorem sit laudantium totam consectetur</value>
                 </morada>
                 <n_consulta_por_dia name="p_n_consulta_por_dia" type="number" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false" min="" max="">
                     <label>Nº Consulta por dia</label>
-                    <value>21</value>
+                    <value>12</value>
                 </n_consulta_por_dia>
+                <especialidades name="p_especialidades" type="select" multiple="true" domain="" maxlength="30" required="true" change="false" disabled="false" right="false">
+                    <label>Especialidades</label>
+                    <list>
+                        <option/>
+                        <option>
+                            <text>Option 1</text>
+                            <value>1</value>
+                        </option>
+                        <option>
+                            <text>Option 2</text>
+                            <value>2</value>
+                        </option>
+                        <option>
+                            <text>Option 3</text>
+                            <value>3</value>
+                        </option>
+                        <option>
+                            <text>Option 4</text>
+                            <value>4</value>
+                        </option>
+                    </list>
+                </especialidades>
+                <hidden name="p_id" type="hidden" maxlength="30" tag="id"/>
             </fields>
         </form_1>
     </content>

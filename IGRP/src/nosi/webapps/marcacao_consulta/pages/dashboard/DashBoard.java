@@ -1,7 +1,6 @@
 /*---------------------- Create Model ----------------------*/
 package nosi.webapps.marcacao_consulta.pages.dashboard;
 import nosi.core.webapp.Model;
-import nosi.core.webapp.RParam;
 import java.util.ArrayList;
 
 public class DashBoard extends Model{		
@@ -24,88 +23,52 @@ public class DashBoard extends Model{
 
 
 	public class Chart_1{
-		private String Ano;
-		private String X1;
-		private String X2;
-		private String X3;
-		private String X4;
-		public void setAno(String Ano){
+		private int Ano;
+		private int homem;
+		private int mulher;
+		
+		public void setAno(int Ano){
 			this.Ano = Ano;
 		}
-		public String getAno(){
+		public int getAno(){
 			return this.Ano;
 		}
-
-		public void setX1(String X1){
-			this.X1 = X1;
+		public int getHomem() {
+			return homem;
 		}
-		public String getX1(){
-			return this.X1;
+		public void setHomem(int homem) {
+			this.homem = homem;
 		}
-
-		public void setX2(String X2){
-			this.X2 = X2;
+		public int getMulher() {
+			return mulher;
 		}
-		public String getX2(){
-			return this.X2;
+		public void setMulher(int mulher) {
+			this.mulher = mulher;
 		}
-
-		public void setX3(String X3){
-			this.X3 = X3;
-		}
-		public String getX3(){
-			return this.X3;
-		}
-
-		public void setX4(String X4){
-			this.X4 = X4;
-		}
-		public String getX4(){
-			return this.X4;
-		}
-
 	}
 	public class Chart_2{
-		private String Ano;
-		private String X1;
-		private String X2;
-		private String X3;
-		private String X4;
-		public void setAno(String Ano){
+		private int Ano;
+		private int homem;
+		private int mulher;
+		
+		public void setAno(int Ano){
 			this.Ano = Ano;
 		}
-		public String getAno(){
+		public int getAno(){
 			return this.Ano;
 		}
-
-		public void setX1(String X1){
-			this.X1 = X1;
+		public int getHomem() {
+			return homem;
 		}
-		public String getX1(){
-			return this.X1;
+		public void setHomem(int homem) {
+			this.homem = homem;
 		}
-
-		public void setX2(String X2){
-			this.X2 = X2;
+		public int getMulher() {
+			return mulher;
 		}
-		public String getX2(){
-			return this.X2;
+		public void setMulher(int mulher) {
+			this.mulher = mulher;
 		}
-
-		public void setX3(String X3){
-			this.X3 = X3;
-		}
-		public String getX3(){
-			return this.X3;
-		}
-
-		public void setX4(String X4){
-			this.X4 = X4;
-		}
-		public String getX4(){
-			return this.X4;
-		}
-
 	}
 }
 /*-------------------------*/

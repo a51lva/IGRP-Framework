@@ -260,7 +260,7 @@ public class MigrationIGRPInitConfig {
 		app.setDad("marcacao_consulta");
 		app.setDescription("Marcação de Consulta");
 		app.setName("Marcação de Consulta");
-		app.setImg_src("saude.png");
+		app.setImg_src("icon_saude.png");
 		app.setStatus(1);
 		app = app.insert();
 		Organization org = new Organization("Org.M.Consulta", "Marcacao Consulta", 1, app, user, null);
@@ -277,16 +277,23 @@ public class MigrationIGRPInitConfig {
 		actions.add(new Action("MarcarConsulta", "index", null, "	marcacao_consulta/marcarconsulta/MarcarConsulta.xsl", "Marcar Consulta", "Marcar Consulta", "2.3", 1, app));
 		actions.add(new Action("RegistarMedico", "index", null, "marcacao_consulta/registarmedico/RegistarMedico.xsl", "Registar Medico", "Registar Medico", "2.3", 1, app));
 		actions.add(new Action("RegistarUtente", "index", null, "marcacao_consulta/registarutente/RegistarUtente.xsl", "Registar Utente", "Registar Utente", "2.3", 1, app));
+		actions.add(new Action("Especialidade", "index", null, "marcacao_consulta/especialidade/Especialidade.xsl", "Registar Especialidade", "Registar Especialidade", "2.3", 1, app));
+		actions.add(new Action("ListaEspecialidade", "index", null, "marcacao_consulta/listaespecialidade/ListaEspecialidade.xsl", "Listar Especialidade", "Listar Especialidade", "2.3", 1, app));
 		
 		for(Action ac:actions){
 			ac.insert();
 		}
+		app = app.find().andWhere("dad", "=", app.getDad()).one();
+		app.setAction(actions.get(1));
+		app = app.update();
+		
 		List<Menu> menus = new ArrayList<>();			
 		menus.add(new Menu("Gestão de Consulta", 1, 1, 0, null, null, app, null));		
-		menus.add(new Menu("Registar Medico", 1, 1, 0, "_self", actions.get(5), app, menus.get(0)));
-		menus.add(new Menu("Registar Utente", 1, 1, 0, "_self", actions.get(6), app, menus.get(0)));
+		menus.add(new Menu("Lista de Medico", 1, 1, 0, "_self", actions.get(2), app, menus.get(0)));
+		menus.add(new Menu("Lista de Utente", 1, 1, 0, "_self", actions.get(3), app, menus.get(0)));
 		menus.add(new Menu("Marcar Consulta", 1, 1, 0, "_self", actions.get(4), app, menus.get(0)));
 		menus.add(new Menu("Consultas Pendentes", 1, 1, 0, "_self", actions.get(0), app, menus.get(0)));
+		menus.add(new Menu("Registar Especialidade", 1, 1, 0, "_self", actions.get(7), app, menus.get(0)));
 		menus.add(new Menu("Dashboard", 1, 1, 0, "_self", actions.get(1), app, menus.get(0)));
 		
 		for(Menu m:menus){
@@ -301,11 +308,13 @@ public class MigrationIGRPInitConfig {
 		profiles.add(new Profile(30, "MEN", prof0, user0, org));
 		profiles.add(new Profile(31, "MEN", prof0, user0, org));
 		profiles.add(new Profile(32, "MEN", prof0, user0, org));
+		profiles.add(new Profile(33, "MEN", prof0, user0, org));
 		profiles.add(new Profile(28, "MEN", prof, user0, org));
 		profiles.add(new Profile(29, "MEN", prof, user0, org));
 		profiles.add(new Profile(30, "MEN", prof, user0, org));
 		profiles.add(new Profile(31, "MEN", prof, user0, org));
 		profiles.add(new Profile(32, "MEN", prof, user0, org));
+		profiles.add(new Profile(33, "MEN", prof, user0, org));
 		
 		for(Profile p:profiles){
 			p.insert();

@@ -54,9 +54,9 @@ public Response actionIndex() throws IOException, IllegalArgumentException, Ille
 		
 		HashMap<String, String> idioma = new HashMap<String, String>();
 		idioma.put("", "--- Selecionar Idioma ---");
-		idioma.put("PT", "PortuguÃªs");
-		idioma.put("EN", "InglÃªs");
-		idioma.put("FR", "FrancÃªs");
+		idioma.put("PT", "Português");
+		idioma.put("EN", "Inglês");
+		idioma.put("FR", "Francês");
 		idioma.put("ES", "Espanhol");
 		view.idioma.setValue(idioma);
 		

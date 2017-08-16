@@ -9,6 +9,9 @@
                 <link rel="stylesheet" type="text/css" href="{$path}/core/igrp/toolsbar/toolsbar.css"/>
                 <!-- FORM CSS INCLUDES -->
                 <link rel="stylesheet" type="text/css" href="{$path}/core/igrp/form/igrp.forms.css"/>
+                <!-- SELECT CSS INCLUDES -->
+                <link rel="stylesheet" type="text/css" href="{$path}/plugins/select2/select2.min.css"/>
+                <link rel="stylesheet" type="text/css" href="{$path}/plugins/select2/select2.style.css"/>
                 <style/>
             </head>
             <body class="{$bodyClass} sidebar-off">
@@ -19,7 +22,7 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-6fca59a9">
+                                    <div class="row" id="row-82bb6564">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
@@ -68,6 +71,25 @@
                                                                         <input type="number" value="{rows/content/form_1/fields/n_consulta_por_dia/value}" class="form-control " id="{rows/content/form_1/fields/n_consulta_por_dia/@name}" name="{rows/content/form_1/fields/n_consulta_por_dia/@name}" required="required" min="" max="" maxlength="30" placeholder=""></input>
                                                                     </div>
                                                                 </xsl:if>
+                                                                <xsl:if test="rows/content/form_1/fields/especialidades">
+                                                                    <div class="col-sm-3 form-group  gen-fields-holder" item-name="especialidades" item-type="select" required="required">
+                                                                        <label for="{rows/content/form_1/fields/especialidades/@name}">
+                                                                            <xsl:value-of select="rows/content/form_1/fields/especialidades/label"/>
+                                                                        </label>
+                                                                        <select class="form-control select2 " id="form_1_especialidades" name="{rows/content/form_1/fields/especialidades/@name}" required="required" multiple="multiple">
+                                                                            <xsl:for-each select="rows/content/form_1/fields/especialidades/list/option">
+                                                                                <option value="{value}" label="{text}">
+                                                                                    <xsl:if test="@selected='true'">
+                                                                                        <xsl:attribute name="selected">selected</xsl:attribute>
+                                                                                    </xsl:if>
+                                                                                    <span>
+                                                                                        <xsl:value-of select="text"/>
+                                                                                    </span>
+                                                                                </option>
+                                                                            </xsl:for-each>
+                                                                        </select>
+                                                                    </div>
+                                                                </xsl:if>
                                                             </div>
                                                         </div>
                                                         <xsl:apply-templates select="rows/content/form_1/tools-bar" mode="form-buttons"/>
@@ -84,12 +106,15 @@
                 </form>
                 <!-- FORM JS INCLUDES -->
                 <script type="text/javascript" src="{$path}/core/igrp/form/igrp.forms.js"/>
+                <!-- SELECT JS INCLUDES -->
+                <script type="text/javascript" src="{$path}/plugins/select2/select2.full.min.js"/>
+                <script type="text/javascript" src="{$path}/plugins/select2/select2.init.js"/>
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502888254606"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502888254606"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502888254606"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502888254606"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502888254607"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502899552518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502899552518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502899552518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502899552518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502899552518"/>
 </xsl:stylesheet>

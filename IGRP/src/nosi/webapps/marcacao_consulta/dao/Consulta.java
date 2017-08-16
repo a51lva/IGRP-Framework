@@ -1,6 +1,9 @@
 package nosi.webapps.marcacao_consulta.dao;
 
 import java.io.Serializable;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,12 +17,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import nosi.base.ActiveRecord.BaseActiveRecord;
+import nosi.core.config.Config;
+import nosi.core.config.Connection;
 import nosi.core.webapp.helpers.DateHelper;
-import nosi.webapps.kofax.dao.Campos;
+import nosi.webapps.marcacao_consulta.pages.dashboard.DashBoard;
 
+import java.util.ArrayList;
 @Entity
 @Table(name="tbl_consulta")
-public class Consulta extends BaseActiveRecord<Campos> implements Serializable{
+public class Consulta extends BaseActiveRecord<Consulta> implements Serializable{
 
 	/**
 	 * 
@@ -39,16 +45,21 @@ public class Consulta extends BaseActiveRecord<Campos> implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_medico", foreignKey = @ForeignKey(name = "MEDICO_CONSULTA_FK"), nullable=false)
 	private Medico medico;
+
+	@ManyToOne
+	@JoinColumn(name="id_especialidade", foreignKey = @ForeignKey(name = "ESPECIALIDADE_CONSULTA_FK"), nullable=false)
+	private Especialidade especialidade;
 	
 	public Consulta() {
 	}
 	
-	public Consulta(String data_consulta, int estado, Utente utente, Medico medico) {
+	public Consulta(String data_consulta, int estado, Utente utente, Medico medico,Especialidade esp) {
 		super();
 		this.data_consulta = DateHelper.formatDate(data_consulta, "dd-MM-yyyy", "yyyy-MM-dd");
 		this.estado = estado;
 		this.utente = utente;
 		this.medico = medico;
+		this.especialidade = esp;
 	}
 	
 	public Integer getId() {
@@ -80,66 +91,61 @@ public class Consulta extends BaseActiveRecord<Campos> implements Serializable{
 	}
 	public void setMedico(Medico medico) {
 		this.medico = medico;
+	}	
+	
+	public Especialidade getEspecialidade() {
+		return especialidade;
 	}
+
+	public void setEspecialidade(Especialidade especialidade) {
+		this.especialidade = especialidade;
+	}
+
 	public Object[] getChart1(){
-//		String sql = "select sum(Total_Masculino) total_m, sum(Total_Feminino) total_f, Ano from "
-//				+ "(Select count(*) as Total_Masculino, 0 as Total_Feminino, YEAR(m.data_consulta) as Ano "
-//				+ "from TBL_MARCAO_CONSULTA m, tbl_utente u "
-//				+ "where m.estado =1 AND m.id_utente=u.id AND u.sexo=2 group by YEAR(m.data_consulta)"
-//				+ " union "
-//				+ "Select 0 as Total_Masculino, count(*) as Total_Feminino, YEAR(m.data_consulta) as Ano "
-//				+ "from TBL_MARCAO_CONSULTA m, tbl_utente u"
-//				+ " where m.estado =1 AND m.id_utente=u.id AND u.sexo=1 group by YEAR(m.data_consulta)) group by Ano";
-//		ArrayList<DashBoard.Chart_1> consultas = new ArrayList<>();
-//		try {
-//			PreparedStatement ps = this.con.prepareStatement(sql);
-//			ResultSet rs = ps.executeQuery();
-//			while(rs.next()){
-//				DashBoard.Chart_1 c = new DashBoard().new Chart_1();
-//				c.setAno(rs.getInt("Ano"));
-//				c.setHomem(rs.getInt("total_m"));
-//				c.setMulher(rs.getInt("total_f"));
-//				consultas.add(c);
-//			}
-//		}catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return consultas.toArray();
-		return null;
+		String sql = "select sum(Total_Masculino) total_m, sum(Total_Feminino) total_f, Ano from "
+				+ "(Select count(*) as Total_Masculino, 0 as Total_Feminino, YEAR(m.data_consulta) as Ano "
+				+ "from tbl_consulta m, tbl_utente u "
+				+ "where m.estado =1 AND m.id_utente=u.id AND u.sexo=2 group by YEAR(m.data_consulta)"
+				+ " union "
+				+ "Select 0 as Total_Masculino, count(*) as Total_Feminino, YEAR(m.data_consulta) as Ano "
+				+ "from tbl_consulta m, tbl_utente u"
+				+ " where m.estado =1 AND m.id_utente=u.id AND u.sexo=1 group by YEAR(m.data_consulta)) group by Ano";
+		ArrayList<DashBoard.Chart_1> consultas = new ArrayList<>();
+		try {
+			PreparedStatement ps = Connection.getConnection(Config.getDbType()).prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				DashBoard.Chart_1 c = new DashBoard().new Chart_1();
+				c.setAno(rs.getInt("Ano"));
+				c.setHomem(rs.getInt("total_m"));
+				c.setMulher(rs.getInt("total_f"));
+				consultas.add(c);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return consultas.toArray();
 	}
-	public boolean disponibilidade(){
-//		PreparedStatement ps;
-//		try {
-//			ps = this.con.prepareStatement("SELECT count(*) as total FROM tbl_marcao_consulta WHERE data_consulta=? AND id_medico=? AND estado=0");
-//			ps.setDate(1,(Date) this.getData_consulta());
-//			ps.setInt(2, this.getMedico().getId());
-//			ResultSet rs = ps.executeQuery();
-//			if(rs.next()){
-//				Medico m = new Medico();
-//				m.setId(this.getMedico().getId());
-//				if(m.getOne()!=null && ((Medico)m.getOne()).getNum_consulta() > rs.getInt("total")){
-//					return true;
-//				}
-//			}
-//			return false;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}		
+	public boolean disponibilidade(String data,int id_medico,int especialidade){
+		PreparedStatement ps;
+		try {
+			ps = Connection.getConnection(Config.getDbType()).prepareStatement("SELECT count(*) as total FROM tbl_consulta WHERE data_consulta=? AND id_medico=? AND estado=0 AND id_medico IN (SELECT id_medico from tbl_medico_especialidades WHERE id_especialidade=?)");
+			ps.setString(1, data);;
+			ps.setInt(2,id_medico);
+			ps.setInt(3, especialidade);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				Medico m = new Medico().findOne(id_medico);
+				if(m!=null && m.getNum_consulta() > rs.getInt("total")){
+					return true;
+				}
+			}
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
 		return false;
 	}
 	
-	public boolean updateStatus(int status) {
-//		try {
-//			PreparedStatement ps = this.con.prepareStatement("UPDATE tbl_marcao_consulta SET estado=? WHERE id=?");
-//			ps.setInt(1, status);
-//			ps.setInt(2, this.getId());
-//			int r = ps.executeUpdate();
-//			ps.close();
-//			return r > 0;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-		return false;
-	}
 }

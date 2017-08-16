@@ -11,7 +11,7 @@ public class RegistarUtente extends Model{
 	@RParam(rParamName = "p_data_nascimento")
 	private String data_nascimento;
 	@RParam(rParamName = "p_sexo")
-	private String sexo;
+	private int sexo;
 	
 	public void setNome(String nome){
 		this.nome = nome;
@@ -34,10 +34,10 @@ public class RegistarUtente extends Model{
 		return this.data_nascimento;
 	}
 	
-	public void setSexo(String sexo){
+	public void setSexo(int sexo){
 		this.sexo = sexo;
 	}
-	public String getSexo(){
+	public int getSexo(){
 		return this.sexo;
 	}
 

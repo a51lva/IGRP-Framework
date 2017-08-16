@@ -28,7 +28,7 @@ public class LookupListPageController extends Controller {
 			model.load();		
 		}
 		List<Action> listActions = new Action().find()
-											   .andWhere("application", "=", model.getEnv_fk())
+											   .andWhere("application", "=",model.getEnv_fk()!=0? model.getEnv_fk():null)
 											   .andWhere("page", "like", model.getPage())
 											   .andWhere("page_descr", "like", model.getPage_descr())
 											   .all();

@@ -8,6 +8,8 @@ public class MarcarConsulta extends Model{
 	private String utente;
 	@RParam(rParamName = "p_medico")
 	private String medico;
+	@RParam(rParamName = "p_especialidade")
+	private String especialidade;
 	@RParam(rParamName = "p_data_consulta")
 	private String data_consulta;
 	
@@ -23,6 +25,13 @@ public class MarcarConsulta extends Model{
 	}
 	public String getMedico(){
 		return this.medico;
+	}
+	
+	public void setEspecialidade(String especialidade){
+		this.especialidade = especialidade;
+	}
+	public String getEspecialidade(){
+		return this.especialidade;
 	}
 	
 	public void setData_consulta(String data_consulta){

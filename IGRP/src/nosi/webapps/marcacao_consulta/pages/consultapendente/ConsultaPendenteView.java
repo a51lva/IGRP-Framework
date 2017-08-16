@@ -49,9 +49,9 @@ public class ConsultaPendenteView extends View {
 		btn_nova_consulta.propertie.add("type","specific").add("code","").add("rel","nova_consulta");
 		btn_pesquisar = new IGRPButton("Pesquisar","marcacao_consulta","ConsultaPendente","pesquisar","submit","default|fa-search","","");
 		btn_pesquisar.propertie.add("type","form").add("code","").add("class","default").add("rel","pesquisar");
-		btn_confirmar_consulta = new IGRPButton("Confirmar Consulta","marcacao_consulta","ConsultaPendente","confirmar_consulta","submit","success|fa-chevron-down","","");
+		btn_confirmar_consulta = new IGRPButton("Confirmar Consulta","marcacao_consulta","ConsultaPendente","confirmar_consulta","confirm","success|fa-chevron-down","","");
 		btn_confirmar_consulta.propertie.add("type","specific").add("code","").add("class","success").add("rel","confirmar_consulta");
-		btn_cancelar_consulta = new IGRPButton("Cancelar Consulta","marcacao_consulta","ConsultaPendente","cancelar_consulta","submit","danger|fa-remove","","");
+		btn_cancelar_consulta = new IGRPButton("Cancelar Consulta","marcacao_consulta","ConsultaPendente","cancelar_consulta","confirm","danger|fa-remove","","");
 		btn_cancelar_consulta.propertie.add("type","specific").add("code","").add("class","danger").add("rel","cancelar_consulta");
 		
 	

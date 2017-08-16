@@ -27,7 +27,7 @@ public class SessionController extends Controller {
 			model.load();
 		}		
 		ArrayList<Session.Table_1> data = new ArrayList<>();
-		List<nosi.webapps.igrp.dao.Session> sessions = session.find().andWhere("application", "=", model.getAplicacao())
+		List<nosi.webapps.igrp.dao.Session> sessions = session.find().andWhere("application", "=", model.getAplicacao()!=0?model.getAplicacao():null)
 																	 .andWhere("user.user_name", "=", model.getUtilizador())
 																	 .andWhere("user.status", "=", model.getEstado())
 																	 .andWhere("startTime", "=", model.getData_inicio() != null && !model.getData_inicio().equals("") ? auxFormat.parse(model.getData_inicio()).getTime() : 0)

@@ -26,7 +26,8 @@ public class ListaMedico extends Model{
 
 	public static class Table_1{
 		private String nome;
-		private float n_consulta_por_dia;
+		private String epecialidades;
+		private int n_consulta_por_dia;
 		private String p_id;
 		public void setNome(String nome){
 			this.nome = nome;
@@ -35,10 +36,17 @@ public class ListaMedico extends Model{
 			return this.nome;
 		}
 
-		public void setN_consulta_por_dia(float n_consulta_por_dia){
+		public void setEpecialidades(String epecialidades){
+			this.epecialidades = epecialidades;
+		}
+		public String getEpecialidades(){
+			return this.epecialidades;
+		}
+
+		public void setN_consulta_por_dia(int n_consulta_por_dia){
 			this.n_consulta_por_dia = n_consulta_por_dia;
 		}
-		public float getN_consulta_por_dia(){
+		public int getN_consulta_por_dia(){
 			return this.n_consulta_por_dia;
 		}
 
