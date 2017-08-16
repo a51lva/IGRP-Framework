@@ -126,6 +126,7 @@ public class MigrationIGRPInitConfig {
 			new CreateViews();
 			configAppAgenda(user0,user1,prof0);
 			configAppKofax(user0,user1,prof0);
+			configAppMarcacaoConsulta(user0,user1,prof0);
 		}
 	}
 	
@@ -244,6 +245,67 @@ public class MigrationIGRPInitConfig {
 		profiles.add(new Profile(24, "MEN", prof, user0, org));
 		profiles.add(new Profile(25, "MEN", prof, user0, org));
 		profiles.add(new Profile(26, "MEN", prof, user0, org));
+		
+		for(Profile p:profiles){
+			p.insert();
+		}
+
+		profiles = null;
+		menus = null;
+		actions = null;
+	}
+	
+	private static void configAppMarcacaoConsulta(User user0,User user,ProfileType prof0){
+		Application app = new Application();
+		app.setDad("marcacao_consulta");
+		app.setDescription("Marcação de Consulta");
+		app.setName("Marcação de Consulta");
+		app.setImg_src("saude.png");
+		app.setStatus(1);
+		app = app.insert();
+		Organization org = new Organization("Org.M.Consulta", "Marcacao Consulta", 1, app, user, null);
+		org = org.insert();
+		
+		ProfileType prof = new ProfileType("Administrador", "M.Consulta.Admin", 1, org, app, null);
+		prof = prof.insert();
+		
+		List<Action> actions = new ArrayList<>();
+		actions.add(new Action("ConsultaPendente", "index", null, "marcacao_consulta/consultapendente/ConsultaPendente.xsl	", "Lista de Consultas Pendentes", "Lista de Consultas Pendentes", "2.3", 1, app));
+		actions.add(new Action("DashBoard", "index", null, "	marcacao_consulta/dashboard/DashBoard.xsl", "Dashboard", "Dashboard", "2.3", 1, app));
+		actions.add(new Action("ListaMedico", "index", null, "marcacao_consulta/listamedico/ListaMedico.xsl", "Lista de Medicos", "Lista de Medicos", "2.3", 1, app));
+		actions.add(new Action("ListarUtente", "index", null, "marcacao_consulta/listarutente/ListarUtente.xsl", "Lista de Utentes", "Lista de Utentes", "2.3", 1, app));
+		actions.add(new Action("MarcarConsulta", "index", null, "	marcacao_consulta/marcarconsulta/MarcarConsulta.xsl", "Marcar Consulta", "Marcar Consulta", "2.3", 1, app));
+		actions.add(new Action("RegistarMedico", "index", null, "marcacao_consulta/registarmedico/RegistarMedico.xsl", "Registar Medico", "Registar Medico", "2.3", 1, app));
+		actions.add(new Action("RegistarUtente", "index", null, "marcacao_consulta/registarutente/RegistarUtente.xsl", "Registar Utente", "Registar Utente", "2.3", 1, app));
+		
+		for(Action ac:actions){
+			ac.insert();
+		}
+		List<Menu> menus = new ArrayList<>();			
+		menus.add(new Menu("Gestão de Consulta", 1, 1, 0, null, null, app, null));		
+		menus.add(new Menu("Registar Medico", 1, 1, 0, "_self", actions.get(5), app, menus.get(0)));
+		menus.add(new Menu("Registar Utente", 1, 1, 0, "_self", actions.get(6), app, menus.get(0)));
+		menus.add(new Menu("Marcar Consulta", 1, 1, 0, "_self", actions.get(4), app, menus.get(0)));
+		menus.add(new Menu("Consultas Pendentes", 1, 1, 0, "_self", actions.get(0), app, menus.get(0)));
+		menus.add(new Menu("Dashboard", 1, 1, 0, "_self", actions.get(1), app, menus.get(0)));
+		
+		for(Menu m:menus){
+			m.insert();
+		}
+		
+		List<Profile> profiles = new ArrayList<>();
+		profiles.add(new Profile(4, "ENV", prof, user, org));
+		profiles.add(new Profile(4, "PROF", prof, user, org));
+		profiles.add(new Profile(28, "MEN", prof0, user0, org));
+		profiles.add(new Profile(29, "MEN", prof0, user0, org));
+		profiles.add(new Profile(30, "MEN", prof0, user0, org));
+		profiles.add(new Profile(31, "MEN", prof0, user0, org));
+		profiles.add(new Profile(32, "MEN", prof0, user0, org));
+		profiles.add(new Profile(28, "MEN", prof, user0, org));
+		profiles.add(new Profile(29, "MEN", prof, user0, org));
+		profiles.add(new Profile(30, "MEN", prof, user0, org));
+		profiles.add(new Profile(31, "MEN", prof, user0, org));
+		profiles.add(new Profile(32, "MEN", prof, user0, org));
 		
 		for(Profile p:profiles){
 			p.insert();

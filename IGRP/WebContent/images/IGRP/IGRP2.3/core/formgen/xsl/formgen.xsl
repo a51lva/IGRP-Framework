@@ -308,15 +308,15 @@
                                         </xsl:if>
                                         <div class="col-md-6 form-group" item-name="table_name">
                                             <label>Table Name</label>
-                                            <input rel="table" type="text" name="plsql_table" value="" class="text gen-page-setter form-control" maxlength="30"/>
+                                            <input rel="table" type="text" name="plsql_table" value="" class="text gen-page-setter form-control" maxlength="100"/>
                                         </div>
                                         <div class="col-md-6 form-group" item-name="package_db_name">
                                             <label>Package Name (DB)</label>
-                                            <input rel="package" required="" type="text" name="plsql_pack" value="" class="text gen-page-setter form-control" maxlength="30"/>
+                                            <input rel="package" required="" type="text" name="plsql_pack" value="" class="text gen-page-setter form-control" maxlength="100"/>
                                         </div>
                                         <div class="col-md-6 form-group" item-name="package_html_name">
                                             <label>Package Name (HTML)</label>
-                                            <input rel="html" type="text" required="" name="plsql_html" value="" class="text gen-page-setter form-control" maxlength="30"/>
+                                            <input rel="html" type="text" required="" name="plsql_html" value="" class="text gen-page-setter form-control" maxlength="100"/>
                                         </div>
 
                                         <div class="col-md-6 form-group" item-name="gentype">

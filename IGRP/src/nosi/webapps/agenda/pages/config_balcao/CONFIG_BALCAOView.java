@@ -73,7 +73,7 @@ public class CONFIG_BALCAOView extends View {
 		btn_gravar = new IGRPButton("Gravar","agenda","CONFIG_BALCAO","gravar","submit_form","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
 
-		btn_list = new IGRPButton("Lista de Balcões","agenda","LST_BALCAO","index","_self","","","");
+		btn_list = new IGRPButton("Lista de Balcões","agenda","LST_BALCAO","index","_self","default|fa-list","","");
 		btn_list.propertie.add("type","specific").add("code","").add("rel","list");
 	
 	}

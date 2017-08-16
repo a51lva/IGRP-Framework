@@ -42,7 +42,7 @@ public class ENTIDADEView extends View {
 		btn_gravar = new IGRPButton("Gravar","agenda","ENTIDADE","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
 		
-		btn_list = new IGRPButton("Lista de Entidades","agenda","LST_ENTIDADE","index","_self","","","");
+		btn_list = new IGRPButton("Lista de Entidades","agenda","LST_ENTIDADE","index","_self","default|fa-list","","");
 		btn_list.propertie.add("type","specific").add("code","").add("rel","list");
 	}
 		
