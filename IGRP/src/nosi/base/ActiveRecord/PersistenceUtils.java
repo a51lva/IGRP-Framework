@@ -21,14 +21,16 @@ public class PersistenceUtils {
 	
 	public static void init(){
 		for(DbInfo dbI:Igrp.getInstance().getDbConfig().getDbInfo()){
-			Map<String,String> properties = new HashMap<>();
-			String url = getUrl(dbI.getDbmsName(),dbI.getHostName(),dbI.getPort(), dbI.getDbName());
-			System.out.println("url:"+url);
-			properties.put("javax.persistence.jdbc.url",url);
-		    properties.put("javax.persistence.jdbc.user",dbI.getUser());
-		    properties.put("javax.persistence.jdbc.password",dbI.getPassword());
-		    properties.put("hibernate.hbm2ddl.auto", "update");
-			ENTITY_MANAGER_FACTORY.put(dbI.getConnectionName(), Persistence.createEntityManagerFactory(dbI.getConnectionName(),properties));
+			if(dbI.getDefault_db().equals("true")){
+				Map<String,String> properties = new HashMap<>();
+				String url = getUrl(dbI.getDbmsName(),dbI.getHostName(),dbI.getPort(), dbI.getDbName());
+				System.out.println("url:"+url);
+				properties.put("javax.persistence.jdbc.url",url);
+			    properties.put("javax.persistence.jdbc.user",dbI.getUser());
+			    properties.put("javax.persistence.jdbc.password",dbI.getPassword());
+			    properties.put("hibernate.hbm2ddl.auto", "update");
+				ENTITY_MANAGER_FACTORY.put(dbI.getConnectionName(), Persistence.createEntityManagerFactory(dbI.getConnectionName(),properties));
+			}
 		}
 	}
 	public static String getUrl(String type,String host,int port,String db_name){
