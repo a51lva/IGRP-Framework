@@ -23,7 +23,25 @@ public class NovoObjetoController extends Controller {
 	public Response actionIndex() throws IOException{
 		/*---- Insert your code here... ----*/
 		NovoObjeto model = new NovoObjeto();
+		
+		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		if(id != null) {
+			Objeto obj = new Objeto().findOne(id);
+			if(obj != null) {
+				model.setDefault_page(obj.getDefault_page());
+				model.setP_estado(obj.getEstado());
+				model.setFormato_output(obj.getFormato_output());
+				model.setGuardar_em(obj.getGuardar_em());
+				model.setPagina(obj.getLink_pagina());
+				model.setObjeto(obj.getObjeto());
+				model.setOrganica(obj.getOrganica().getId());
+				model.setPreencher_automatico(obj.getAutomatico());
+			}
+		}
 		NovoObjetoView view = new NovoObjetoView(model);
+		
+		
+		
 		view.organica.setValue(IgrpHelper.toMap(new Organization().findAll(), "id", "name"));
 		
 		
@@ -37,6 +55,9 @@ public class NovoObjetoController extends Controller {
 		prencher_aut.put(0, "Não");
 		view.preencher_automatico.setValue(prencher_aut);
 		
+		if(id != null) {
+			view.btn_gravar.setLink("gravar&p_id="+id);
+		}
 		
 		return this.renderView(view);
 		/*---- End ----*/
