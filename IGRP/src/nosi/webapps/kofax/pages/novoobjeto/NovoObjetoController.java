@@ -59,6 +59,7 @@ public class NovoObjetoController extends Controller {
 			Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
 		}
 		for(int i = 0; i< model.getP_campo_fk().length; i++) {
+			System.out.println(model.getP_campo_fk_desc()[i]);
 			Campos campo = new Campos(obj, model.getP_campo_fk_desc()[i], model.getP_estado());
 			campo.setEstado("Ativo");
 			campo.insert();

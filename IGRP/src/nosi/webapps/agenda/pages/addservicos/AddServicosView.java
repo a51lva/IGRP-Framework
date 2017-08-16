@@ -20,6 +20,7 @@ public class AddServicosView extends View {
 
 	public IGRPToolsBar toolsbar_1;
 	public IGRPButton btn_gravar;
+	public IGRPButton btn_list;
 	public AddServicosView(AddServicos model){
 		this.setPageTitle("Adicionar Serviços");
 			
@@ -50,6 +51,9 @@ public class AddServicosView extends View {
 		btn_gravar = new IGRPButton("Gravar","agenda","AddServicos","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
 		
+		btn_list = new IGRPButton("Lista de Serviços","agenda","LST_SERV","index","_self","","","");
+		btn_list.propertie.add("type","specific").add("code","").add("rel","list");
+		
 	
 	}
 		
@@ -67,6 +71,7 @@ public class AddServicosView extends View {
 
 
 		toolsbar_1.addButton(btn_gravar);
+		toolsbar_1.addButton(btn_list);
 		this.addToPage(box_1);
 		this.addToPage(page_title);
 		this.addToPage(form_1);

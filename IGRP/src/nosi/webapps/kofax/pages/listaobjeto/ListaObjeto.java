@@ -1,7 +1,7 @@
 /*---------------------- Create Model ----------------------*/
 package nosi.webapps.kofax.pages.listaobjeto;
 import nosi.core.webapp.Model;
-import nosi.core.webapp.RParam;
+
 import java.util.ArrayList;
 
 public class ListaObjeto extends Model{		
