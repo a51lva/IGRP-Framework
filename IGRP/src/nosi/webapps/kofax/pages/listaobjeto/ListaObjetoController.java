@@ -54,6 +54,7 @@ public class ListaObjetoController extends Controller {
 	public Response actionEditar() throws IOException{
 		/*---- Insert your code here... ----*/
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		System.out.println(id);
 		return this.redirect("kofax","NovoObjeto","index&id="+id);
 		/*---- End ----*/
 	}

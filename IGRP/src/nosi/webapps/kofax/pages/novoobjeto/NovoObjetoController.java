@@ -25,6 +25,7 @@ public class NovoObjetoController extends Controller {
 		NovoObjeto model = new NovoObjeto();
 		
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		System.out.println(id);
 		if(id != null) {
 			Objeto obj = new Objeto().findOne(id);
 			if(obj != null) {
