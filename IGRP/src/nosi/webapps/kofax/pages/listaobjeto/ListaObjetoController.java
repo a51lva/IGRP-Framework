@@ -61,20 +61,21 @@ public class ListaObjetoController extends Controller {
 
 	public Response actionEliminar() throws IOException, IllegalArgumentException, IllegalAccessException{
 		/*---- Insert your code here... ----*/
-		//ListaObjeto model = new ListaObjeto();
-		//if(Igrp.getInstance().getRequest().getMethod().toUpperCase().equals("GET")) {
-			//model.load();
-			String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		if(id != null && !id.equals("") ) {
 			Objeto obj = new Objeto();
-			obj.findOne(id);
-			obj.setEstado("INATIVO");
+			obj = obj.findOne(id);
+			if(obj.getEstado().toUpperCase().equals("ATIVO"))
+				obj.setEstado("INATIVO");
+			else
+				obj.setEstado("ATIVO");
 			obj = obj.update();
 			if(obj != null) {
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 			}else {
 				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
 			}
-		//}
+		}
 		return this.redirect("kofax","ListaObjeto","index");
 		/*---- End ----*/
 	}

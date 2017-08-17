@@ -1,11 +1,11 @@
 package nosi.webapps.kofax.dao;
 
 import java.io.Serializable;
-import java.util.List;
-
+import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,8 +49,8 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 	private String estado;
 	@Column(nullable = false)
 	private int automatico;
-	@OneToMany(cascade=CascadeType.REMOVE,mappedBy="id_objeto")
-	private List<Campos> campos;
+	@OneToMany(fetch=FetchType.EAGER,cascade={CascadeType.ALL},mappedBy="id_objeto")
+	private Collection<Campos> campos;
 	
 	
 	public Objeto(){}
@@ -140,12 +140,20 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 		this.automatico = automatico;
 	}
 
-	public List<Campos> getCampos() {
+	public Collection<Campos> getCampos() {
 		return campos;
 	}
 
-	public void setCampos(List<Campos> campos) {
+	public void setCampos(Collection<Campos> campos) {
 		this.campos = campos;
 	}
+
+	@Override
+	public String toString() {
+		return "Objeto [id=" + id + ", organica=" + organica + ", objeto=" + objeto + ", link_pagina=" + link_pagina
+				+ ", default_page=" + default_page + ", formato_output=" + formato_output + ", guardar_em=" + guardar_em
+				+ ", estado=" + estado + ", automatico=" + automatico + "]";
+	}
+	
 	
 }

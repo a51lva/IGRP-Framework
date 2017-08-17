@@ -46,7 +46,7 @@ public class ListaObjetoView extends View {
 		btn_novo.propertie.add("type","specific").add("code","").add("rel","novo");
 		btn_editar = new IGRPButton("Editar","kofax","ListaObjeto","editar","submit","warning|fa-pencil-square-o","","");
 		btn_editar.propertie.add("type","specific").add("code","").add("class","warning").add("rel","editar");
-		btn_eliminar = new IGRPButton("Eliminar","kofax","ListaObjeto","eliminar","confirm","danger|fa-remove","","");
+		btn_eliminar = new IGRPButton("Alterar Estado","kofax","ListaObjeto","eliminar","confirm","primary|fa-retweet","","");
 		btn_eliminar.propertie.add("type","specific").add("code","").add("class","danger").add("rel","eliminar");
 		
 	

@@ -140,6 +140,10 @@ public class NovoObjeto extends Model{
 			public void setValue(String value) {
 				this.value = value;
 			}
+			@Override
+			public String toString() {
+				return this.key + "_" + this.value;
+			}
 		}
  		
 		public void setCampo(Pair campo){

@@ -27,7 +27,7 @@ public class ListaObjeto extends Model{
 		public String getObjeto(){
 			return this.objeto;
 		}
-
+		
 		public void setPagina(String pagina){
 			this.pagina = pagina;
 		}

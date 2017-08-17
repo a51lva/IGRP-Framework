@@ -73,6 +73,7 @@ public class LST_SERVController extends Controller {
 	public Response actionEditar() throws IOException{
 		/*---- Insert your code here... ----*/
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		System.out.println(id);
 		return this.redirect("agenda","AddServicos","index&p_id="+id);
 		/*---- End ----*/
 	}

@@ -22,7 +22,7 @@ import nosi.webapps.agenda.dao.Fault;
  */
 public final class RestRequestHelper{
 
-	public static final String baseUrl = "https://localhost:9092/services/DSN_Agenda";
+	public static final String baseUrl = "https://0ext.com/services/DSN_Agenda";
 
 	private RestRequestHelper() {}
 	

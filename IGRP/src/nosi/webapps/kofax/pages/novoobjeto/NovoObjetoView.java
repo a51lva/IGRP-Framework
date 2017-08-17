@@ -25,6 +25,7 @@ public class NovoObjetoView extends View {
 
 	public IGRPToolsBar toolsbar_1;
 	public IGRPButton btn_gravar;
+	public IGRPButton btn_list;
 	public NovoObjetoView(NovoObjeto model){
 		this.setPageTitle("Registar Novo Objeto");
 			
@@ -40,7 +41,7 @@ public class NovoObjetoView extends View {
 		default_page.setLabel("Default Page");
 		default_page.propertie().add("name","p_default_page").add("type","radiolist").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("child_size","12").add("right","false");
 		preencher_automatico = new RadioListField(model,"preencher_automatico");
-		preencher_automatico.setLabel("Preencher autom√°tico");
+		preencher_automatico.setLabel("Preencher autom·tico");
 		preencher_automatico.propertie().add("name","p_preencher_automatico").add("type","radiolist").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("child_size","12").add("right","false");
 		pagina = new TextField(model,"pagina");
 		pagina.setLabel("P·gina");
@@ -64,6 +65,8 @@ public class NovoObjetoView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_gravar = new IGRPButton("Gravar","kofax","NovoObjeto","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
+		btn_list = new IGRPButton("Lista de Objetos","kofax","ListaObjeto","index","_self","defualt|fa-list","","");
+		btn_list.propertie.add("type","specific").add("code","").add("rel","list");
 		
 	
 	}
@@ -85,6 +88,7 @@ public class NovoObjetoView extends View {
 		separatorlist_1.addField(p_estado);
 
 		toolsbar_1.addButton(btn_gravar);
+		toolsbar_1.addButton(btn_list);
 		this.addToPage(form_1);
 		this.addToPage(separatorlist_1);
 		this.addToPage(toolsbar_1);
