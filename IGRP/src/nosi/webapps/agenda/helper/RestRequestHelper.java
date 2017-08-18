@@ -91,7 +91,7 @@ public final class RestRequestHelper{
 	                new HTTPSProperties(
 	                        new HostnameVerifier() {
 								public boolean verify(String hostname, SSLSession session) {
-									return false;
+									return true;
 								}
 							},
 	                        sslContext));
