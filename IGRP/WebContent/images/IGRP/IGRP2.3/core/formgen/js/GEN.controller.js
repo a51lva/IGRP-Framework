@@ -2671,7 +2671,7 @@ var GENERATOR = function(genparams){
 			table          : '',
 			package        : '',
 			html           : '',
-			gentype        : '',
+			gentype        : 'java',
 			replace        : false,
 			label          : false,
 			biztalk        : false,

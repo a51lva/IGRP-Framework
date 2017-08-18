@@ -59,10 +59,12 @@ public class NovoObjetoController extends Controller {
 			Collection<Campos> campos = obj.getCampos();
 			if(campos!=null){
 				for(Campos c:campos){
-					NovoObjeto.Separatorlist_1 t = new NovoObjeto.Separatorlist_1();
-					t.setCampo(new NovoObjeto.Separatorlist_1.Pair(c.getCampo(),c.getCampo()));
-					t.setP_estado(new NovoObjeto.Separatorlist_1.Pair(c.getEstado(),c.getEstado()));
-					list.add(t);
+					if(c.getEstado().toUpperCase().equals("ATIVO")){
+						NovoObjeto.Separatorlist_1 t = new NovoObjeto.Separatorlist_1();
+						t.setCampo(new NovoObjeto.Separatorlist_1.Pair(c.getCampo(),c.getCampo()));
+						t.setP_estado(new NovoObjeto.Separatorlist_1.Pair(c.getEstado(),c.getEstado()));
+						list.add(t);
+					}
 				}
 			}
 			view.separatorlist_1.addData(list);
@@ -79,11 +81,11 @@ public class NovoObjetoController extends Controller {
 		model.load();
 		Organization o = new Organization().findOne(model.getOrganica());
 		Objeto obj = new Objeto(o, model.getObjeto(), model.getPagina(), model.getDefault_page(), model.getFormato_output(), model.getGuardar_em(), model.getP_estado(), model.getPreencher_automatico());
-		obj.setEstado("Ativo");
+		obj.setEstado("ATIVO");
 		Collection<Campos> campos = new LinkedHashSet<>();
 		for(int i = 0; i< model.getP_campo_fk().length; i++) {
 			Campos campo = new Campos(obj, model.getP_campo_fk_desc()[i], model.getP_estado());
-			campo.setEstado("Ativo");
+			campo.setEstado("ATIVO");
 			campos.add(campo);
 		}
 		obj.setCampos(campos);
@@ -91,7 +93,8 @@ public class NovoObjetoController extends Controller {
 		if(id != null && !id.equals("")){
 			obj.setId(Integer.parseInt(id));
 			for(Campos c:new Objeto().findOne(Integer.parseInt(id)).getCampos()){
-				c.delete_(c.getId());
+				c.setEstado("INATIVO");
+				c = c.update();
 			}
 			obj = obj.update();
 		}else{

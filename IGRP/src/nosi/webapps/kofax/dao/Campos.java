@@ -1,9 +1,7 @@
 package nosi.webapps.kofax.dao;
 
 import java.io.Serializable;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -14,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import nosi.base.ActiveRecord.BaseActiveRecord;
-import nosi.core.config.Connection;
 
 /**
  * Isaias.Nunes
@@ -31,7 +28,7 @@ public class Campos extends BaseActiveRecord<Campos> implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="id_objeto_fk", foreignKey = @ForeignKey(name = "Campos_obj_fk"), nullable=false)
 	private Objeto id_objeto;
 	
@@ -83,20 +80,5 @@ public class Campos extends BaseActiveRecord<Campos> implements Serializable{
 	@Override
 	public String toString() {
 		return "Campos [id=" + id + ", id_objeto=" + id_objeto + ", campo=" + campo + ", estado=" + estado + "]";
-	}
-	
-
-	public boolean delete_(int id){
-		try {
-			PreparedStatement ps = Connection.getConnection(this.getConnectionName()).prepareStatement("DELETE FROM tbl_campos WHERE id=?");
-			ps.setInt(1, id);
-			System.out.println("slq:"+ps);
-			return ps.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return false;
 	}
 }

@@ -49,7 +49,7 @@ public class Objeto extends BaseActiveRecord<Objeto> implements Serializable{
 	private String estado;
 	@Column(nullable = false)
 	private int automatico;
-	@OneToMany(fetch=FetchType.EAGER,cascade={CascadeType.ALL},mappedBy="id_objeto")
+	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL,mappedBy="id_objeto")
 	private Collection<Campos> campos;
 	
 	

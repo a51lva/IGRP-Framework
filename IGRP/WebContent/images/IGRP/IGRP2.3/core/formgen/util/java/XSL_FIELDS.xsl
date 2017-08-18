@@ -349,5 +349,88 @@
 	    		</xsl:otherwise>	
 	    		
 	    	</xsl:choose>    	
-    </xsl:template>      
+    </xsl:template>     
+    
+    
+    <!-- gen get and set field -->
+	<xsl:template name="getSetFieldSepartor">
+    	<xsl:param name="type"/> 
+    	<xsl:param name="type_content" select="''"/>     
+    	<xsl:param name="name"/>   
+    	<xsl:param name="tab_" select="$tab"/>   
+    	<xsl:param name="tab2_" select="$tab2"/>   
+    		<xsl:variable name="name_">
+    			<xsl:call-template name="CamelCaseWord">
+			        <xsl:with-param name="text">
+			        	<xsl:value-of select="$name"/>
+			        </xsl:with-param>
+		        </xsl:call-template>
+    		</xsl:variable> 	
+	    	<xsl:choose>
+	    		<xsl:when test="$type='number'">
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public void set',$name_,'(float[] ',$name,'){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('this.',$name,' = ',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public float[] get',$name_,'(){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('return this.',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+	    		</xsl:when>
+	    		<xsl:when test="$type='checkbox' or $type='radio'">
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public void set',$name_,'(int[] ',$name,'){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('this.',$name,' = ',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public int[] get',$name_,'(){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('return this.',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+	    		</xsl:when>	    		
+	    		<xsl:otherwise>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public void set',$name_,'(String[] ',$name,'){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('this.',$name,' = ',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public String[] get',$name_,'(){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('return this.',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+	    		</xsl:otherwise>	
+	    		
+	    	</xsl:choose>    	
+    </xsl:template>       
 </xsl:stylesheet>

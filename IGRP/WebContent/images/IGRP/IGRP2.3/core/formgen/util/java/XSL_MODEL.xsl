@@ -14,7 +14,7 @@
     	...
 	-->
     <xsl:template name="gen-get-set-model">
-    	<xsl:for-each select="/rows/content/*[@type != 'table']">
+    	<xsl:for-each select="/rows/content/*[@type != 'table'  and @type != 'separatorlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
 					<xsl:choose>
@@ -36,8 +36,37 @@
 				</xsl:if>
 			</xsl:for-each>
 		</xsl:for-each>
+		<xsl:for-each select="/rows/content/*[@type = 'separatorlist']">
+    		<xsl:for-each select="fields/*">
+    			<xsl:variable name="tag_name">
+					<xsl:choose>
+						<xsl:when test="@type='hidden'">
+							<xsl:value-of select="concat(@name,'_fk')"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="concat(@name,'_fk')"/>
+						</xsl:otherwise>
+					</xsl:choose>
+			 	</xsl:variable>
+	            <xsl:if test="not(@name=preceding::node()/@name)">	
+					<xsl:value-of select="$tab"/>
+					<xsl:call-template name="getSetFieldSepartor">
+			    		<xsl:with-param name="type" select="@type" />
+			    		<xsl:with-param name="name" select="$tag_name" />
+			    	</xsl:call-template>
+					<xsl:value-of select="$newline"/>
+					<xsl:value-of select="$tab"/>
+					<xsl:call-template name="getSetFieldSepartor">
+			    		<xsl:with-param name="type" select="@type" />
+			    		<xsl:with-param name="name" select="concat($tag_name,'_desc')" />
+			    	</xsl:call-template>
+					<xsl:value-of select="$newline"/>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:for-each>
 	</xsl:template>
 
+	
 	<!--
 		Declare fields in class model
     	private String text;
@@ -45,7 +74,7 @@
     	...
 	-->
     <xsl:template name="declare-variables-model">
-    	<xsl:for-each select="/rows/content/*[@type != 'table']">
+    	<xsl:for-each select="/rows/content/*[@type != 'table' and @type != 'separatorlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
 					<xsl:choose>
@@ -68,6 +97,39 @@
 					<xsl:value-of select="$newline"/>			
 					<xsl:value-of select="$tab"/>
 					<xsl:value-of select="concat('private ',$type_field,' ',$tag_name,';')"/>				
+					<xsl:value-of select="$newline"/>
+				</xsl:if>
+			</xsl:for-each>
+    	</xsl:for-each> 
+    	<xsl:for-each select="/rows/content/*[@type = 'separatorlist']">
+    		<xsl:for-each select="fields/*">
+    			<xsl:variable name="tag_name">
+					<xsl:choose>
+						<xsl:when test="@type='hidden'">
+							<xsl:value-of select="@name"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="name()"/>
+						</xsl:otherwise>
+					</xsl:choose>
+			 	</xsl:variable>
+	            <xsl:if test="not(@name=preceding::node()/@name)">		
+					<xsl:value-of select="$tab"/>
+					<xsl:variable name="type_field">
+						<xsl:call-template name="typeField">
+				    		<xsl:with-param name="type" select="@type" />
+				    	</xsl:call-template>
+					</xsl:variable>
+					<xsl:value-of select="concat('@RParam(rParamName = ',$double_quotes,@name,'_fk',$double_quotes,')')"/>			
+					<xsl:value-of select="$newline"/>			
+					<xsl:value-of select="$tab"/>
+					<xsl:value-of select="concat('private ',$type_field,'[] ',@name,'_fk;')"/>				
+					<xsl:value-of select="$newline"/>			
+					<xsl:value-of select="$tab"/>
+					<xsl:value-of select="concat('@RParam(rParamName = ',$double_quotes,@name,'_fk_desc',$double_quotes,')')"/>			
+					<xsl:value-of select="$newline"/>			
+					<xsl:value-of select="$tab"/>
+					<xsl:value-of select="concat('private ',$type_field,'[] ',@name,'_fk_desc;')"/>				
 					<xsl:value-of select="$newline"/>
 				</xsl:if>
 			</xsl:for-each>
@@ -224,6 +286,11 @@
 			}
 			public void setValue(String value) {
 				this.value = value;
+			}
+			
+			@Override
+			public String toString() {
+				return this.key + "_" + this.value;
 			}
 		}
  		</xsl:text>

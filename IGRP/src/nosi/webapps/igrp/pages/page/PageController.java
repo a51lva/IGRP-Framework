@@ -383,6 +383,12 @@ public class PageController extends Controller {
 					int start = start_!=-1?controller.indexOf(Config.RESERCE_CODE_ON_ACTIONS_CONTROLLER,start_):-1;
 					int end = start!=-1?controller.indexOf(Config.RESERVE_CODE_END,start):-1;
 					your_code = (start!=-1 && start_!=-1 && end!=-1)?controller.substring(start+Config.RESERCE_CODE_ON_ACTIONS_CONTROLLER.length(), end):"";
+				}else if(ac!=null && !ac.equals("") && type.equals("exception_after_action")){
+					String actionName = "action"+ac;
+					int start_ = controller.indexOf(actionName);
+					int start = controller.indexOf("IOException",start_);
+					int end = start!=-1?controller.indexOf("{",start):-1;
+					your_code = (start_!=-1 && start!=-1 && end!=-1)?controller.substring(start+"IOException".length(), end):"";
 				}
 			}
 		}
