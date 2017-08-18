@@ -28,7 +28,7 @@ public class MarcarConsultaView extends View {
 		utente.propertie().add("name","p_utente").add("type","select").add("multiple","false").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false").add("domain","");
 		medico = new ListField(model,"medico");
 		medico.setLabel("Medico");
-		medico.propertie().add("name","p_medico").add("type","select").add("multiple","false").add("maxlength","30").add("required","true").add("change","true").add("disabled","false").add("right","false").add("domain","");
+		medico.propertie().add("name","p_medico").add("type","select").add("multiple","false").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false").add("domain","");
 		especialidade = new ListField(model,"especialidade");
 		especialidade.setLabel("Especialidade");
 		especialidade.propertie().add("name","p_especialidade").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");

@@ -77,7 +77,7 @@
                         </option>
                     </list>
                 </utente>
-                <medico name="p_medico" type="select" multiple="false" maxlength="30" required="true" change="true" disabled="false" right="false" domain="">
+                <medico name="p_medico" type="select" multiple="false" maxlength="30" required="true" change="false" disabled="false" right="false" domain="">
                     <label>Medico</label>
                     <list>
                         <option/>

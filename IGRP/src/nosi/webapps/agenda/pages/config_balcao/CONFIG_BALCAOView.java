@@ -54,7 +54,7 @@ public class CONFIG_BALCAOView extends View {
 		confirmacao.setLabel("Confirmacao");
 		confirmacao.propertie().add("name","p_confirmacao").add("type","select").add("multiple","false").add("domain","ALIENACAO_FOGO").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
 		horario_de_atendimento = new SeparatorField(model,"horario_de_atendimento");
-		horario_de_atendimento.setLabel("Hor√°rio de Atendimento");
+		horario_de_atendimento.setLabel("Hor·rio de Atendimento");
 		horario_de_atendimento.propertie().add("name","p_horario_de_atendimento").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
 		hr_inicio = new ListField(model,"hr_inicio");
 		hr_inicio.setLabel("Inicio");

@@ -1,13 +1,12 @@
 /*-------------------------*/
 
 /*Create Controller*/
-
 package nosi.webapps.marcacao_consulta.pages.marcarconsulta;
+
+/*---- Import your packages here... ----*/
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 import nosi.core.webapp.Response;
-
-/*---- Import your packages here... ----*/
 import nosi.core.webapp.helpers.IgrpHelper;
 import nosi.webapps.marcacao_consulta.dao.Consulta;
 import nosi.webapps.marcacao_consulta.dao.Especialidade;

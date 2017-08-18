@@ -271,10 +271,10 @@ public class MigrationIGRPInitConfig {
 		
 		List<Action> actions = new ArrayList<>();
 		actions.add(new Action("ConsultaPendente", "index", null, "marcacao_consulta/consultapendente/ConsultaPendente.xsl	", "Lista de Consultas Pendentes", "Lista de Consultas Pendentes", "2.3", 1, app));
-		actions.add(new Action("DashBoard", "index", null, "	marcacao_consulta/dashboard/DashBoard.xsl", "Dashboard", "Dashboard", "2.3", 1, app));
+		actions.add(new Action("DashBoard", "index", null, "marcacao_consulta/dashboard/DashBoard.xsl", "Dashboard", "Dashboard", "2.3", 1, app));
 		actions.add(new Action("ListaMedico", "index", null, "marcacao_consulta/listamedico/ListaMedico.xsl", "Lista de Medicos", "Lista de Medicos", "2.3", 1, app));
 		actions.add(new Action("ListarUtente", "index", null, "marcacao_consulta/listarutente/ListarUtente.xsl", "Lista de Utentes", "Lista de Utentes", "2.3", 1, app));
-		actions.add(new Action("MarcarConsulta", "index", null, "	marcacao_consulta/marcarconsulta/MarcarConsulta.xsl", "Marcar Consulta", "Marcar Consulta", "2.3", 1, app));
+		actions.add(new Action("MarcarConsulta", "index", null, "marcacao_consulta/marcarconsulta/MarcarConsulta.xsl", "Marcar Consulta", "Marcar Consulta", "2.3", 1, app));
 		actions.add(new Action("RegistarMedico", "index", null, "marcacao_consulta/registarmedico/RegistarMedico.xsl", "Registar Medico", "Registar Medico", "2.3", 1, app));
 		actions.add(new Action("RegistarUtente", "index", null, "marcacao_consulta/registarutente/RegistarUtente.xsl", "Registar Utente", "Registar Utente", "2.3", 1, app));
 		actions.add(new Action("Especialidade", "index", null, "marcacao_consulta/especialidade/Especialidade.xsl", "Registar Especialidade", "Registar Especialidade", "2.3", 1, app));
