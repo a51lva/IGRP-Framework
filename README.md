@@ -4,6 +4,10 @@
 
 You get paid if it's a good contribution and recognized with a certificate (diamond, gold, silver) by NOSi
 
+
+## Video Tutorial
+http://nosicode.cv/index.php/pt/documentacao/igrp-framework/videos/video/2-igrp-framework-tutorial-instalar-e-colaborar
+
 ## DISCLAIMER
 
 O IGRP é uma plataforma informática criada e desenvolvida pelo NOSi.
