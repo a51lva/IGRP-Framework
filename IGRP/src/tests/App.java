@@ -3,6 +3,7 @@ package tests;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.core.MediaType;
@@ -29,7 +30,6 @@ public final class App {
 	
 	public static void main(String []args) throws ParseException {
 		
-		System.out.println();
 	}
 	
 	

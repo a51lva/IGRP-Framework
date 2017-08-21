@@ -22,7 +22,6 @@ public class AgendamentosController extends Controller {
 		/*---- Insert your code here... ----*/		
 		Agendamentos model = new Agendamentos();
 		
-		
 		if(Igrp.getInstance().getRequest().getMethod().equalsIgnoreCase("POST")) {
 			model.load();
 		}

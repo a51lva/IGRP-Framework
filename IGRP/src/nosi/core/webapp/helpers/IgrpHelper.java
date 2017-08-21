@@ -10,14 +10,16 @@ import java.util.Map;
  * @author Marcel Iekiny
  * Apr 19, 2017
  */
-public class IgrpHelper {
+public final class IgrpHelper {
 	
-	public static Map toMap(List<?> values, String keyField, String valueField) {
+	private IgrpHelper() {} // Not for instances ...
+	
+	public static Map<?, ?> toMap(List<?> values, String keyField, String valueField) {
 		return IgrpHelper.toMap(values, keyField, valueField, null);
 	}
 	
-	public static Map toMap(List<?> values, String keyField, String valueField, String prompt) {
-		Map map = new HashMap<>();
+	public static Map<Object, Object> toMap(List<?> values, String keyField, String valueField, String prompt) {
+		Map<Object, Object> map = new HashMap<>();
 		if(prompt != null)
 			map.put(null, prompt);
 		for(Object obj : values) {
@@ -28,6 +30,21 @@ public class IgrpHelper {
 		return map;
 	}
 	
+	/*public static Map<Object, Object> toMap(List<Object> keys, List<Object> values, String prompt) {
+		Map<Object, Object> map = new HashMap<>();
+		if(prompt != null)
+			map.put(null, prompt);
+		for(int i = 0; i < keys.size(); i++) {
+			map.put(keys.get(i) + "", values.get(i) + "");
+			System.out.println(keys.get(i) + "");
+		}
+		return map;
+	}
+	
+	public static Map<Object, Object> toMap(List<Object> keys, List<Object> values) {
+		return toMap(keys, values, null);
+	}
+	*/
 	// Help to convert String[] parameters to any Java primitive type
 	public static Object convertToArray(String []array, String primitiveType){
 		switch(primitiveType){
