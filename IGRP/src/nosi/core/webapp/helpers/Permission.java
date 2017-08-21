@@ -83,28 +83,26 @@ public class Permission {
 //	}
 	
 	public static void changeOrgAndProfile(String dad){
-		Application app = new Application();
-		app = app.findOne(app.getCriteria().where(app.getBuilder().equal(app.getRoot().get("dad"), dad)));
+		Application app = new Application().find().andWhere("dad", "=", dad).one();
 		ProfileType profType = new ProfileType();
 		Organization org = new Organization();
 		Profile prof = new Profile();
-		if(app!=null && app.getId()!=0){
+		if(app!=null){
 			int id_user = Igrp.getInstance().getUser().getIdentity().getIdentityId();
-			int id_app = app.getId();
 			if(app.getPermissionApp(dad)){
-				prof = (Profile) prof.getByUserPerfil(id_user,id_app);
-				if(prof!=null){  
-					org.setId(prof.getOrganization().getId());
-					profType.setId(prof.getProfileType().getId());
+				prof = (Profile) prof.getByUserPerfil(id_user,app.getId());
+				if(prof!=null){
+					 org.setId(prof.getOrganization().getId());
+					 profType.setId(prof.getProfileType().getId());
+					 Igrp.getInstance().getRequest().getSession().setAttribute("org", prof.getOrganization().getId());
+					 Igrp.getInstance().getRequest().getSession().setAttribute("prof",prof.getProfileType().getId());
+					 Igrp.getInstance().getRequest().getSession().setAttribute("env", app.getDad());
 				}
 			}
 		}		
 		((User)Igrp.getInstance().getUser().getIdentity()).setAplicacao(app);
 		((User)Igrp.getInstance().getUser().getIdentity()).setProfile(profType);
 		((User)Igrp.getInstance().getUser().getIdentity()).setOrganica(org);
-		 Igrp.getInstance().getRequest().getSession().setAttribute("org", org.getId()+ "");
-		 Igrp.getInstance().getRequest().getSession().setAttribute("prof", prof.getId()+ "");
-		 Igrp.getInstance().getRequest().getSession().setAttribute("env", app.getDad()+ "");
 	}
 	
 	public static String getCurrentEnv() {
@@ -113,12 +111,12 @@ public class Permission {
 	}
 	
 	public static int getCurrentPerfilId() {
-		String prof = (String) Igrp.getInstance().getRequest().getSession().getAttribute("prof");
-		return prof!=null && !prof.equals("")?Integer.parseInt(prof):-1;
+		Integer prof = (Integer) Igrp.getInstance().getRequest().getSession().getAttribute("prof");
+		return prof!=null && !prof.equals("")?prof:-1;
 	}
 
 	public static int getCurrentOrganization() {
-		String org = (String) Igrp.getInstance().getRequest().getSession().getAttribute("org");
-		return org!=null && !org.equals("")?Integer.parseInt(org):-1;
+		Integer org = (Integer) Igrp.getInstance().getRequest().getSession().getAttribute("org");
+		return org!=null && !org.equals("")?org:-1;
 	}
 }
