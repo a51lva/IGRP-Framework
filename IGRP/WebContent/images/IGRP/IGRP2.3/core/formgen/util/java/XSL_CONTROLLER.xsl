@@ -23,15 +23,8 @@
 
      <!-- import all class to using in controller -->
  	<xsl:template name="import-packages-controller">
- 		<xsl:value-of select="concat('package ',$package_name)"/>
-		<xsl:value-of select="$newline"/>
- 		<xsl:value-of select="$import_controller"/>
-		<xsl:value-of select="$newline"/>
- 		<xsl:value-of select="$import_exception"/>
-		<xsl:value-of select="$newline"/>
- 		<xsl:value-of select="$import_response"/>
-		<xsl:value-of select="$newline"/>
-		<!--         Imports created by programmer -->
+ 		<xsl:value-of select="concat('package ',$package_name)"/>		
+		<!-- Imports class -->
 		<xsl:variable name="url">
      		<xsl:value-of select="concat($preserve_url,'&amp;type=c_import','&amp;app=',$app_name,'&amp;page=',$page_name)"></xsl:value-of>
      	</xsl:variable>
@@ -39,12 +32,19 @@
 			<xsl:value-of select="document($url)/your_code"/>
 		</xsl:variable>	
 		<xsl:value-of select="$newline"/>
-     	<xsl:value-of select="$begin_reserve_code_controller_import"></xsl:value-of>
+     	<xsl:value-of select="$begin_reserve_code_controller_import"></xsl:value-of>		
 		<xsl:choose>
      		<xsl:when test="$url !=''">
 				<xsl:value-of select="$your_code"/>	
      		</xsl:when>
      		<xsl:otherwise>
+     			<xsl:value-of select="$newline"/>
+		 		<xsl:value-of select="$import_controller"/>
+				<xsl:value-of select="$newline"/>
+		 		<xsl:value-of select="$import_exception"/>
+				<xsl:value-of select="$newline"/>
+		 		<xsl:value-of select="$import_response"/>
+				<xsl:value-of select="$newline"/>
 				<xsl:value-of select="$newline"/>
      		</xsl:otherwise>
      	</xsl:choose>
@@ -158,10 +158,18 @@
 	    		</xsl:with-param>
 	    	</xsl:call-template>
 		</xsl:variable>
+		
+		<xsl:variable name="url_">
+     		<xsl:value-of select="concat($preserve_url,'&amp;type=exception_after_action&amp;ac=',$action,'&amp;app=',$app_name,'&amp;page=',$page_name)"></xsl:value-of>
+     	</xsl:variable>	
+     	<xsl:variable name="your_code_exception">
+			<xsl:value-of select="document($url_)/your_code"/>
+		</xsl:variable>	
+		
 		<xsl:value-of select="$newline"/>
 		<xsl:value-of select="$newline"/>
 		<xsl:value-of select="$tab"/>
-     	<xsl:value-of select="concat('public Response action',$action,'() throws IOException{')"/>
+     	<xsl:value-of select="concat('public Response action',$action,'() throws IOException',$your_code_exception,'{')"/>
 		<xsl:value-of select="$newline"/>	
      	<xsl:value-of select="$tab2"/>     	
      	<!--         Actions modified by programmer -->     	

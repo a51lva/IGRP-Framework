@@ -27,7 +27,7 @@ public class ListaPageController extends Controller {
 			a.setPage_descr(model.getPage_descr());
 		}	
 		List<Action> actions = a.find()
-				  .andWhere("application", "=", model.getEnv_fk())
+				  .andWhere("application", "=", model.getEnv_fk()!=0?model.getEnv_fk():null)
 				  .andWhere("page", "like", model.getPage())
 				  .andWhere("page_descr", "like", model.getPage_descr())
 				  .all();

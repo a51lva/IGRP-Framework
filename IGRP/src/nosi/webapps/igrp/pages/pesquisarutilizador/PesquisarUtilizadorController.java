@@ -28,9 +28,9 @@ public class PesquisarUtilizadorController extends Controller {
 		Profile prof = new Profile();
 		List<Profile> profiles = prof.find().andWhere("type","=", "PROF")
 											.andWhere("user.user_name", "=", model.getUsername())
-											.andWhere("organization", "=", model.getOrganica())
-											.andWhere("profileType", "=", model.getPerfil())
-											.andWhere("profileType.application", "=", model.getAplicacao())
+											.andWhere("organization", "=",model.getOrganica()!=0? model.getOrganica():null)
+											.andWhere("profileType", "=",model.getPerfil()!=0? model.getPerfil():null)
+											.andWhere("profileType.application", "=", model.getAplicacao()!=0?model.getAplicacao():null)
 											.andWhere("user.email", "=", model.getEmail())
 											.all();
 		//Preenchendo a tabela

@@ -23,7 +23,7 @@ public class PesquisarOrganicaController extends Controller {
 			model.load();
 		}		
 		//Preenchendo a tabela
-		for(Organization org:new Organization().find().andWhere("application", "=", model.getAplicacao()).all()){
+		for(Organization org:new Organization().find().andWhere("application", "=",model.getAplicacao()!=0? model.getAplicacao():null).all()){
 			PesquisarOrganica.Table_1 table1 = new PesquisarOrganica().new Table_1();
 			table1.setDescricao(org.getName());
 			table1.setEstado(org.getStatus()==1?"Ativo":"Inativo");

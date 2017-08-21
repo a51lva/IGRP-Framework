@@ -27,6 +27,7 @@ public class CONFIG_BALCAOView extends View {
 
 	public IGRPToolsBar toolsbar_1;
 	public IGRPButton btn_gravar;
+	public IGRPButton btn_list;
 	public CONFIG_BALCAOView(CONFIG_BALCAO model){
 		this.setPageTitle("Configuração de Balcão");
 			
@@ -53,7 +54,7 @@ public class CONFIG_BALCAOView extends View {
 		confirmacao.setLabel("Confirmacao");
 		confirmacao.propertie().add("name","p_confirmacao").add("type","select").add("multiple","false").add("domain","ALIENACAO_FOGO").add("maxlength","30").add("required","true").add("change","false").add("disabled","false").add("right","false");
 		horario_de_atendimento = new SeparatorField(model,"horario_de_atendimento");
-		horario_de_atendimento.setLabel("HorÃ¡rio de Atendimento");
+		horario_de_atendimento.setLabel("Horário de Atendimento");
 		horario_de_atendimento.propertie().add("name","p_horario_de_atendimento").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
 		hr_inicio = new ListField(model,"hr_inicio");
 		hr_inicio.setLabel("Inicio");
@@ -71,7 +72,9 @@ public class CONFIG_BALCAOView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_gravar = new IGRPButton("Gravar","agenda","CONFIG_BALCAO","gravar","submit_form","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
-		
+
+		btn_list = new IGRPButton("Lista de Balcões","agenda","LST_BALCAO","index","_self","default|fa-list","","");
+		btn_list.propertie.add("type","specific").add("code","").add("rel","list");
 	
 	}
 		
@@ -94,6 +97,7 @@ public class CONFIG_BALCAOView extends View {
 		form_1.addField(p_estado);
 
 		toolsbar_1.addButton(btn_gravar);
+		toolsbar_1.addButton(btn_list);
 		this.addToPage(box_1);
 		this.addToPage(page_title);
 		this.addToPage(form_1);

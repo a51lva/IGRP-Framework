@@ -48,6 +48,7 @@ public class BaseActiveRecord <T> implements ActiveRecordIterface<T>{
 			manager.persist(this.className);
 			transaction.commit();
 		} catch (Exception e) {
+			e.printStackTrace();
 	      if (transaction != null) {
 	          transaction.rollback();
 	      }
@@ -261,7 +262,7 @@ public class BaseActiveRecord <T> implements ActiveRecordIterface<T>{
 
 	@Override
 	public T andWhere(String columnName, String operator, Object value) {
-		if(value!=null && !value.toString().equals("") && !value.toString().equals("0")){
+		if(value!=null && !value.toString().equals("")){
 			Predicate e = null;
 			switch (operator.toLowerCase()) {
 			case "=":
@@ -273,11 +274,12 @@ public class BaseActiveRecord <T> implements ActiveRecordIterface<T>{
 				}
 				break;
 			case "like":
+				String val = !value.toString().contains("%")?value.toString().toLowerCase().trim()+"%":value.toString().toLowerCase().trim();
 				if(columnName.contains(".")){
 					String[] aux = columnName.split("\\.");
-					e = this.getBuilder().like(this.getBuilder().lower(this.getRoot().join(aux[0]).get(aux[1])), "%"+ value.toString() +"%");
+					e = this.getBuilder().like(this.getBuilder().lower(this.getRoot().join(aux[0]).get(aux[1])), /*"%"+*/ val);
 				}else{
-					e = this.getBuilder().like(this.getBuilder().lower(this.getRoot().get(columnName)), "%"+ value.toString() +"%");
+					e = this.getBuilder().like(this.getBuilder().lower(this.getRoot().get(columnName)), val);
 				}
 				break;
 			case "isnull":
