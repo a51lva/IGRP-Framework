@@ -90,6 +90,7 @@ public class NovoObjetoController extends Controller {
 		}
 		obj.setCampos(campos);
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		boolean isNewRecord = true;
 		if(id != null && !id.equals("")){
 			obj.setId(Integer.parseInt(id));
 			for(Campos c:new Objeto().findOne(Integer.parseInt(id)).getCampos()){
@@ -97,6 +98,7 @@ public class NovoObjetoController extends Controller {
 				c = c.update();
 			}
 			obj = obj.update();
+			isNewRecord = false;
 		}else{
 			obj = obj.insert();
 		}
@@ -104,6 +106,10 @@ public class NovoObjetoController extends Controller {
 			Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 		}else {
 			Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
+		}
+		
+		if(!isNewRecord) {
+			return this.redirect("kofax","NovoObjeto","index", new String[] {"id"}, new String[] {obj.getId().intValue() + ""});
 		}
 		
 		return this.redirect("kofax","NovoObjeto","index");
