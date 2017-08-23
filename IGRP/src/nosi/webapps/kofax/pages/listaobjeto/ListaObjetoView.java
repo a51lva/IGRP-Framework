@@ -43,10 +43,10 @@ public class ListaObjetoView extends View {
 		objeto.setLabel("Objeto");
 		objeto.propertie().add("name","p_objeto").add("type","text").add("maxlength","100").add("align","left").add("lookup_parser","false").add("iskey","false");
 		pagina = new TextField(model,"pagina");
-		pagina.setLabel("P·gina");
+		pagina.setLabel("P√°gina");
 		pagina.propertie().add("name","p_pagina").add("type","text").add("maxlength","50").add("align","left").add("lookup_parser","false").add("iskey","false");
 		organica = new TextField(model,"organica");
-		organica.setLabel("Org‚nica");
+		organica.setLabel("Org√¢nica");
 		organica.propertie().add("name","p_organica").add("type","text").add("maxlength","50").add("align","left").add("lookup_parser","false").add("iskey","false");
 		estado = new TextField(model,"estado");
 		estado.setLabel("Estado");
@@ -58,7 +58,7 @@ public class ListaObjetoView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_novo = new IGRPButton("Novo","kofax","ListaObjeto","novo","_self","success|fa-plus-square","","");
 		btn_novo.propertie.add("type","specific").add("code","").add("rel","novo");
-		btn_pesquisar = new IGRPButton("Pesquisar","kofax","ListaObjeto","pesquisar","submit","default|fa-search","","");
+		btn_pesquisar = new IGRPButton("Pesquisar","kofax","ListaObjeto","pesquisar","submit_form","default|fa-search","","");
 		btn_pesquisar.propertie.add("type","form").add("code","").add("class","default").add("rel","pesquisar");
 		btn_editar = new IGRPButton("Editar","kofax","ListaObjeto","editar","submit","warning|fa-pencil-square-o","","");
 		btn_editar.propertie.add("type","specific").add("code","").add("class","warning").add("rel","editar");

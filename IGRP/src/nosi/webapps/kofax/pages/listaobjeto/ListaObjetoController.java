@@ -21,7 +21,7 @@ public class ListaObjetoController extends Controller {
 
 
 	public Response actionIndex() throws IOException, IllegalArgumentException, IllegalAccessException{
-		/*---- Insert your code here... ----*/								
+		/*---- Insert your code here... ----*/										
 		ListaObjeto model = new ListaObjeto();
 		ListaObjetoView view = new ListaObjetoView(model);
 		List<ListaObjeto.Table_1> data = new ArrayList<>();
@@ -46,35 +46,35 @@ public class ListaObjetoController extends Controller {
 		view.p_id.setParam(true);
 		
 		return this.renderView(view);
-						/*---- End ----*/
+							/*---- End ----*/
 	}
 
 
 	public Response actionNovo() throws IOException{
-		/*---- Insert your code here... ----*/								
+		/*---- Insert your code here... ----*/										
 		return this.redirect("kofax","NovoObjeto","index");
-						/*---- End ----*/
+							/*---- End ----*/
 	}
 	
 
 	public Response actionPesquisar() throws IOException{
-		/*---- Insert your code here... ----*/						
+		/*---- Insert your code here... ----*/								
 		
 		return this.redirect("kofax","ListaObjeto","index");
-					/*---- End ----*/
-	}
-	
-
-	public Response actionEditar() throws IOException{
-		/*---- Insert your code here... ----*/								
-		String id = Igrp.getInstance().getRequest().getParameter("p_id");
-		return this.redirect("kofax","NovoObjeto","index&id="+id);
 						/*---- End ----*/
 	}
 	
 
+	public Response actionEditar() throws IOException{
+		/*---- Insert your code here... ----*/										
+		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		return this.redirect("kofax","NovoObjeto","index&id="+id);
+							/*---- End ----*/
+	}
+	
+
 	public Response actionEliminar() throws IOException, IllegalArgumentException, IllegalAccessException{
-		/*---- Insert your code here... ----*/								
+		/*---- Insert your code here... ----*/										
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
 		if(id != null && !id.equals("") ) {
 			Objeto obj = new Objeto();
@@ -91,7 +91,7 @@ public class ListaObjetoController extends Controller {
 			}
 		}
 		return this.redirect("kofax","ListaObjeto","index");
-						/*---- End ----*/
+							/*---- End ----*/
 	}
 	
 	/*---- Insert your actions here... ----*//*---- End ----*/
