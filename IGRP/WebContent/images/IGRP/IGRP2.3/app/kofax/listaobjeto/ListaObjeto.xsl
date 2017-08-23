@@ -5,6 +5,8 @@
         <html>
             <head>
                 <xsl:call-template name="IGRP-head"/>
+                <!-- FORM CSS INCLUDES -->
+                <link rel="stylesheet" type="text/css" href="{$path}/core/igrp/form/igrp.forms.css"/>
                 <!-- TOOLSBAR CSS INCLUDES -->
                 <link rel="stylesheet" type="text/css" href="{$path}/core/igrp/toolsbar/toolsbar.css"/>
                 <!-- TABLE CSS INCLUDES -->
@@ -19,10 +21,37 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-d5e13b57">
+                                    <div class="row" id="row-e6beaaef">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
+                                                <xsl:if test="rows/content/sectionheader_1">
+                                                    <section class="content-header gen-container-item " gen-class="" item-name="sectionheader_1">
+                                                        <h2>
+                                                            <xsl:value-of select="rows/content/sectionheader_1/fields/sectionheader_1_text/value"/>
+                                                        </h2>
+                                                    </section>
+                                                </xsl:if>
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
+                                                <xsl:if test="rows/content/form_1">
+                                                    <div class="box igrp-forms gen-container-item " gen-class="" item-name="form_1">
+                                                        <div class="box-body">
+                                                            <div role="form">
+                                                                <xsl:apply-templates mode="form-hidden-fields" select="rows/content/form_1/fields"/>
+                                                                <xsl:if test="rows/content/form_1/fields/objecto_pesquisar">
+                                                                    <div class="form-group col-sm-3   gen-fields-holder" item-name="objecto_pesquisar" item-type="text">
+                                                                        <label for="{rows/content/form_1/fields/objecto_pesquisar/@name}">
+                                                                            <span>
+                                                                                <xsl:value-of select="rows/content/form_1/fields/objecto_pesquisar/label"/>
+                                                                            </span>
+                                                                        </label>
+                                                                        <input type="text" value="{rows/content/form_1/fields/objecto_pesquisar/value}" class="form-control " id="{rows/content/form_1/fields/objecto_pesquisar/@name}" name="{rows/content/form_1/fields/objecto_pesquisar/@name}" maxlength="30" placeholder="Pesquisar Objecto"></input>
+                                                                    </div>
+                                                                </xsl:if>
+                                                            </div>
+                                                        </div>
+                                                        <xsl:apply-templates select="rows/content/form_1/tools-bar" mode="form-buttons"/>
+                                                    </div>
+                                                </xsl:if>
                                                 <xsl:if test="rows/content/toolsbar_1">
                                                     <div class="toolsbar-holder boxed gen-container-item " gen-structure="toolsbar" gen-fields=".btns-holder a.btn" gen-class="" item-name="toolsbar_1">
                                                         <div class="btns-holder  pull-right" role="group">
@@ -126,6 +155,8 @@
                     </div>
                     <xsl:call-template name="IGRP-bottom"/>
                 </form>
+                <!-- FORM JS INCLUDES -->
+                <script type="text/javascript" src="{$path}/core/igrp/form/igrp.forms.js"/>
                 <!-- TABLE JS INCLUDES -->
                 <script type="text/javascript" src="{$path}/core/igrp/table/igrp.table.js"/>
                 <script type="text/javascript" src="{$path}/core/igrp/table/bootstrap-contextmenu.js"/>
@@ -133,9 +164,10 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502712622559"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502712622559"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502712622559"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502712622559"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1502712622559"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503490494518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503490494518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503490494518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503490494518"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503490494519"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503490494520"/>
 </xsl:stylesheet>

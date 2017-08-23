@@ -1,10 +1,14 @@
 /*---------------------- Create Model ----------------------*/
 package nosi.webapps.kofax.pages.listaobjeto;
 import nosi.core.webapp.Model;
-
+import nosi.core.webapp.RParam;
 import java.util.ArrayList;
 
 public class ListaObjeto extends Model{		
+	@RParam(rParamName = "p_sectionheader_1_text")
+	private String sectionheader_1_text;
+	@RParam(rParamName = "p_objecto_pesquisar")
+	private String objecto_pesquisar;
 
 	private ArrayList<Table_1> table_1 = new ArrayList<>();
 	public void setTable_1(ArrayList<Table_1> table_1){
@@ -12,6 +16,20 @@ public class ListaObjeto extends Model{
 	}
 	public ArrayList<Table_1> gettable_1(){
 		return this.table_1;
+	}
+	
+	public void setSectionheader_1_text(String sectionheader_1_text){
+		this.sectionheader_1_text = sectionheader_1_text;
+	}
+	public String getSectionheader_1_text(){
+		return this.sectionheader_1_text;
+	}
+	
+	public void setObjecto_pesquisar(String objecto_pesquisar){
+		this.objecto_pesquisar = objecto_pesquisar;
+	}
+	public String getObjecto_pesquisar(){
+		return this.objecto_pesquisar;
 	}
 
 
@@ -27,7 +45,7 @@ public class ListaObjeto extends Model{
 		public String getObjeto(){
 			return this.objeto;
 		}
-		
+
 		public void setPagina(String pagina){
 			this.pagina = pagina;
 		}
