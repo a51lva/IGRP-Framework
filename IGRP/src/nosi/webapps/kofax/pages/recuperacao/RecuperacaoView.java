@@ -62,7 +62,7 @@ public class RecuperacaoView extends View {
 		tipo_documento.propertie().add("name","p_tipo_documento").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","false").add("change","false").add("disabled","false").add("right","false");
 		n_de_documento = new NumberField(model,"n_de_documento");
 		n_de_documento.setLabel("Nº de Documento");
-		n_de_documento.propertie().add("name","p_n_de_documento").add("type","number").add("min","").add("max","").add("maxlength","30").add("required","false").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
+		n_de_documento.propertie().add("name","p_n_de_documento").add("type","number").add("maxlength","30").add("required","false").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
 		localizacao_fisica = new SeparatorField(model,"localizacao_fisica");
 		localizacao_fisica.setLabel("Localização Física");
 		localizacao_fisica.propertie().add("name","p_localizacao_fisica").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
@@ -81,9 +81,9 @@ public class RecuperacaoView extends View {
 		adicionar_ficheiro = new SeparatorField(model,"adicionar_ficheiro");
 		adicionar_ficheiro.setLabel("Adicionar Ficheiro");
 		adicionar_ficheiro.propertie().add("name","p_adicionar_ficheiro").add("type","separator").add("maxlength","30").add("placeholder","").add("right","false");
-		imagem = new FileField(model,"imagem");
+		imagem = new TextField(model,"imagem");
 		imagem.setLabel("Imagem");
-		imagem.propertie().add("name","p_imagem").add("type","file").add("accept","").add("targetrend","").add("multiple","false").add("rendvalue","false").add("maxlength","30").add("required","true").add("disabled","false").add("right","false").add("class","default").add("min","").add("max","");
+		imagem.propertie().add("name","p_imagem").add("type","img").add("persist","true").add("img","").add("width","600").add("height","700").add("croppie","true").add("rounded","false").add("maxlength","30").add("placeholder","").add("right","false");
 		p_id = new HiddenField(model,"p_id");
 		p_id.setLabel("");
 		p_id.propertie().add("name","p_id").add("type","hidden").add("maxlength","30").add("tag","id");
@@ -98,14 +98,15 @@ public class RecuperacaoView extends View {
 		valor.propertie().add("name","p_valor").add("type","textarea").add("maxlength","30").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false").add("visible","true").add("desc","true");
 
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
-		btn_gravar = new IGRPButton("Gravar","kofax","Recuperacao","gravar","submit","success|fa-save","","");
+		btn_gravar = new IGRPButton("Gravar","kofax","Recuperacao","gravar","submit_ajax","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
 		
 	
 	}
 		
 	@Override
-	public void render(){		
+	public void render(){
+		
 
 		form_1.addField(identificacao);
 		form_1.addField(tipo_objeto);

@@ -359,7 +359,7 @@ public class PageController extends Controller {
 	
 	//Extracting reserve code inserted by programmer
 	public PrintWriter actionPreserveUrl() throws IOException{
-		Igrp.getInstance().getResponse().setContentType("text/xml");
+		Igrp.getInstance().getResponse().setContentType("application/xml");
 		String type = Igrp.getInstance().getRequest().getParameter("type");
 		String page = Igrp.getInstance().getRequest().getParameter("page");
 		String app = Igrp.getInstance().getRequest().getParameter("app");
@@ -402,7 +402,7 @@ public class PageController extends Controller {
 	
 	//View page with xml
 	public PrintWriter actionVisualizar() throws IOException{
-		Igrp.getInstance().getResponse().setContentType("text/xml");
+		Igrp.getInstance().getResponse().setContentType("application/xml");
 		String p_id = Igrp.getInstance().getRequest().getParameter("id");
 		Action ac = new Action().findOne(Integer.parseInt(p_id));	
 		if(ac!=null){			

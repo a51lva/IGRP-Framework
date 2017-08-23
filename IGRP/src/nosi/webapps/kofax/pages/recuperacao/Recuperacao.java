@@ -7,8 +7,6 @@ import java.util.ArrayList;
 public class Recuperacao extends Model{		
 	@RParam(rParamName = "p_identificacao")
 	private String identificacao;
-	@RParam(rParamName = "p_imagem")
-	private String imagem;
 	@RParam(rParamName = "p_tipo_objeto")
 	private int tipo_objeto;
 	@RParam(rParamName = "p_n_do_negocio")
@@ -33,18 +31,24 @@ public class Recuperacao extends Model{
 	private String livro;
 	@RParam(rParamName = "p_folha")
 	private String folha;
+	@RParam(rParamName = "p_adicionar_ficheiro")
+	private String adicionar_ficheiro;
+	@RParam(rParamName = "p_imagem")
+	private String imagem;
 	@RParam(rParamName = "p_id")
-	private int p_id;
-	@RParam(rParamName = "p_informacoes_adicionais")
-	private String informacoes_adicionais;
+	private String p_id;
+	@RParam(rParamName = "p_informacoes_adicionais_fk")
+	private String[] p_informacoes_adicionais_fk;
+	@RParam(rParamName = "p_informacoes_adicionais_fk_desc")
+	private String[] p_informacoes_adicionais_fk_desc;
 	@RParam(rParamName = "p_campo_fk")
 	private String[] p_campo_fk;
 	@RParam(rParamName = "p_campo_fk_desc")
 	private String[] p_campo_fk_desc;
-	@RParam(rParamName = "p_valor_fk_desc")
-	private String[] p_valor_fk_desc;
 	@RParam(rParamName = "p_valor_fk")
 	private String[] p_valor_fk;
+	@RParam(rParamName = "p_valor_fk_desc")
+	private String[] p_valor_fk_desc;
 
 	private ArrayList<Separatorlist_1> separatorlist_1 = new ArrayList<>();
 	public void setSeparatorlist_1(ArrayList<Separatorlist_1> separatorlist_1){
@@ -59,13 +63,6 @@ public class Recuperacao extends Model{
 	}
 	public String getIdentificacao(){
 		return this.identificacao;
-	}
-	
-	public void setImagem(String imagem){
-		this.imagem = imagem;
-	}
-	public String getImagem(){
-		return this.imagem;
 	}
 	
 	public void setData_de_registo(String data_de_registo){
@@ -124,12 +121,69 @@ public class Recuperacao extends Model{
 		return this.folha;
 	}
 	
-	public void setInformacoes_adicionais(String informacoes_adicionais){
-		this.informacoes_adicionais = informacoes_adicionais;
+	public void setAdicionar_ficheiro(String adicionar_ficheiro){
+		this.adicionar_ficheiro = adicionar_ficheiro;
 	}
-	public String getInformacoes_adicionais(){
-		return this.informacoes_adicionais;
+	public String getAdicionar_ficheiro(){
+		return this.adicionar_ficheiro;
 	}
+	
+	public void setImagem(String imagem){
+		this.imagem = imagem;
+	}
+	public String getImagem(){
+		return this.imagem;
+	}
+	
+	public void setP_id(String p_id){
+		this.p_id = p_id;
+	}
+	public String getP_id(){
+		return this.p_id;
+	}
+	
+	public void setP_informacoes_adicionais_fk(String[] p_informacoes_adicionais_fk){
+		this.p_informacoes_adicionais_fk = p_informacoes_adicionais_fk;
+	}
+	public String[] getP_informacoes_adicionais_fk(){
+		return this.p_informacoes_adicionais_fk;
+	}
+	
+	public void setP_informacoes_adicionais_fk_desc(String[] p_informacoes_adicionais_fk_desc){
+		this.p_informacoes_adicionais_fk_desc = p_informacoes_adicionais_fk_desc;
+	}
+	public String[] getP_informacoes_adicionais_fk_desc(){
+		return this.p_informacoes_adicionais_fk_desc;
+	}
+	
+	public void setP_campo_fk(String[] p_campo_fk){
+		this.p_campo_fk = p_campo_fk;
+	}
+	public String[] getP_campo_fk(){
+		return this.p_campo_fk;
+	}
+	
+	public void setP_campo_fk_desc(String[] p_campo_fk_desc){
+		this.p_campo_fk_desc = p_campo_fk_desc;
+	}
+	public String[] getP_campo_fk_desc(){
+		return this.p_campo_fk_desc;
+	}
+	
+	public void setP_valor_fk(String[] p_valor_fk){
+		this.p_valor_fk = p_valor_fk;
+	}
+	public String[] getP_valor_fk(){
+		return this.p_valor_fk;
+	}
+	
+	public void setP_valor_fk_desc(String[] p_valor_fk_desc){
+		this.p_valor_fk_desc = p_valor_fk_desc;
+	}
+	public String[] getP_valor_fk_desc(){
+		return this.p_valor_fk_desc;
+	}
+
 
 	public int getTipo_objeto() {
 		return tipo_objeto;
@@ -155,36 +209,7 @@ public class Recuperacao extends Model{
 	public void setN_de_documento(int n_de_documento) {
 		this.n_de_documento = n_de_documento;
 	}
-	public int getP_id() {
-		return p_id;
-	}
-	public void setP_id(int p_id) {
-		this.p_id = p_id;
-	}
-	public String[] getP_campo_fk() {
-		return p_campo_fk;
-	}
-	public void setP_campo_fk(String[] p_campo_fk) {
-		this.p_campo_fk = p_campo_fk;
-	}
-	public String[] getP_campo_fk_desc() {
-		return p_campo_fk_desc;
-	}
-	public void setP_campo_fk_desc(String[] p_campo_fk_desc) {
-		this.p_campo_fk_desc = p_campo_fk_desc;
-	}
-	public String[] getP_valor_fk_desc() {
-		return p_valor_fk_desc;
-	}
-	public void setP_valor_fk_desc(String[] p_valor_fk_desc) {
-		this.p_valor_fk_desc = p_valor_fk_desc;
-	}
-	public String[] getP_valor_fk() {
-		return p_valor_fk;
-	}
-	public void setP_valor_fk(String[] p_valor_fk) {
-		this.p_valor_fk = p_valor_fk;
-	}
+
 
 	public static class Separatorlist_1{
 		private Pair informacoes_adicionais;
@@ -214,6 +239,11 @@ public class Recuperacao extends Model{
 			public void setValue(String value) {
 				this.value = value;
 			}
+			
+			@Override
+			public String toString() {
+				return this.key + "_" + this.value;
+			}
 		}
  		
 		public void setInformacoes_adicionais(Pair informacoes_adicionais){
@@ -238,5 +268,17 @@ public class Recuperacao extends Model{
 		}
 
 	}
+
+
+	@Override
+	public String toString() {
+		return "Recuperacao [tipo_objeto=" + tipo_objeto + ", n_do_negocio=" + n_do_negocio + ", n_de_processo="
+				+ n_de_processo + ", data_de_registo=" + data_de_registo + ", nome=" + nome + ", tipo_documento="
+				+ tipo_documento + ", n_de_documento=" + n_de_documento + ", localizacao_fisica=" + localizacao_fisica
+				+ ", estante=" + estante + ", pasta=" + pasta + ", livro=" + livro + ", folha=" + folha + ", imagem="
+				+ imagem + ", p_id=" + p_id + "]";
+	}
+	
+	
 }
 /*-------------------------*/
