@@ -54,7 +54,7 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	private String xml;
 	@Column(nullable=false)
 	@Lob
-	private String imagem;
+	private byte[] imagem;
 	
 	public Dados(){}
 
@@ -62,7 +62,7 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 	
 	public Dados(Objeto objeto, String referencia, Integer nr_processo, String nome, String tipo_documento,
 			Integer nr_documento, String estante, String pasta, String livro, String folha,
-			String dt_registo, String xml, String imagem) {
+			String dt_registo, String xml, byte[] imagem) {
 		super();
 		this.objeto = objeto;
 		this.referencia = referencia;
@@ -183,11 +183,11 @@ public class Dados extends BaseActiveRecord<Dados> implements Serializable{
 		this.xml = xml;
 	}
 
-	public String getImagem() {
+	public byte[] getImagem() {
 		return imagem;
 	}
 
-	public void setImagem(String imagem) {
+	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
 	}
 
