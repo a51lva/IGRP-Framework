@@ -3,6 +3,8 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.agendar;
+/*---- Import your packages here... ----*/
+
 import nosi.core.gui.fields.HiddenField;
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.FlashMessage;
@@ -24,16 +26,15 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import nosi.core.webapp.Response;
-/*---- Import your packages here... ----*/
+
 import nosi.webapps.agenda.dao.Entidade;
 import nosi.webapps.agenda.dao.Fault;
 import nosi.webapps.agenda.dao.Marcacao;
-import nosi.webapps.agenda.dao.Requisitos;
 import nosi.webapps.agenda.dao.Balcao;
 import nosi.webapps.agenda.dao.Servicos;
 import nosi.webapps.agenda.helper.RestRequestHelper;
 import nosi.webapps.agenda.pages.agendar.Agendar.Separatorlist_2;
-import nosi.webapps.agenda.pages.agendar.Agendar.Table_1;
+
 /*---- End ----*/
 
 public class AgendarController extends Controller {		

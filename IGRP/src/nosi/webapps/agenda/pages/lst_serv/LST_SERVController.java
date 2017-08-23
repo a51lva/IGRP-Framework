@@ -3,6 +3,8 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.lst_serv;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
 
@@ -16,7 +18,7 @@ import nosi.core.webapp.Response;
 import nosi.webapps.agenda.dao.Entidade;
 import nosi.webapps.agenda.dao.Servicos;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class LST_SERVController extends Controller {		
 

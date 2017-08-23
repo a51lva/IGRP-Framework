@@ -1,10 +1,12 @@
 /*Create Controller*/
 package nosi.webapps.kofax.pages.novoobjeto;
+
+
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
 import java.io.IOException;
-
-/*---- Import your packages here... ----*/
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -16,6 +18,7 @@ import nosi.core.webapp.helpers.Permission;
 import nosi.webapps.igrp.dao.Organization;
 import nosi.webapps.kofax.dao.Campos;
 import nosi.webapps.kofax.dao.Objeto;
+
 /*---- End ----*/
 
 public class NovoObjetoController extends Controller {		

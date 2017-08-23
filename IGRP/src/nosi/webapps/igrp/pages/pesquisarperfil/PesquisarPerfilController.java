@@ -3,6 +3,8 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.pesquisarperfil;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
 import nosi.core.webapp.Response;
@@ -12,7 +14,7 @@ import nosi.webapps.igrp.dao.ProfileType;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+/*---- End ----*/
 
 public class PesquisarPerfilController extends Controller {		
 

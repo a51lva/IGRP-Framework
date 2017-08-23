@@ -3,13 +3,14 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.especialidade;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
-
 import java.io.IOException;
 import nosi.core.webapp.Response;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class EspecialidadeController extends Controller {		
 

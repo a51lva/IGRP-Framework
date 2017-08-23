@@ -8,6 +8,8 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.page;
+/*---- Import your packages here... ----*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +36,7 @@ import nosi.webapps.igrp.dao.Action;
 import nosi.webapps.igrp.dao.Application;
 import nosi.webapps.igrp.dao.Transaction;
 
+/*---- End ----*/
 public class PageController extends Controller {		
 
 	public PrintWriter actionListDomains() throws IOException{

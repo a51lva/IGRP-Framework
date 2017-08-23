@@ -3,6 +3,8 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.lst_entidade;
+/*---- Import your packages here... ----*/
+
 import nosi.core.config.Config;
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
@@ -14,7 +16,7 @@ import java.util.List;
 import nosi.core.webapp.Response;
 import nosi.webapps.agenda.dao.Entidade;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class LST_ENTIDADEController extends Controller {		
 

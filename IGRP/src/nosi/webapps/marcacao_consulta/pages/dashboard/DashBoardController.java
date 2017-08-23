@@ -3,13 +3,15 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.dashboard;
+
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
-
-/*---- Import your packages here... ----*/
 import nosi.core.webapp.Response;
 import nosi.webapps.marcacao_consulta.dao.Consulta;
+
 /*---- End ----*/
 
 public class DashBoardController extends Controller {		
