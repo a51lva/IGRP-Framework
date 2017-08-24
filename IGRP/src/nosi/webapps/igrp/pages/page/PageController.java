@@ -411,6 +411,7 @@ public class PageController extends Controller {
 		Action ac = new Action().findOne(Integer.parseInt(p_id));	
 		if(ac!=null){			
 			String filename = Config.getResolvePathXsl(ac.getApplication().getDad(), ac.getPage(), ac.getVersion())+"/"+ac.getPage()+".xml";
+			System.out.println(filename);
 			ServletContext context = Igrp.getInstance().getServlet().getServletContext();
 			InputStream inputStrem = context.getResourceAsStream(filename);
 	        if (inputStrem != null) {
