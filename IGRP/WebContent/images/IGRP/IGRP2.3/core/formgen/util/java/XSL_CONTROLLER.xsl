@@ -30,8 +30,8 @@
 		<xsl:value-of select="$newline"/>
      	<xsl:value-of select="$begin_reserve_code_controller_import"></xsl:value-of>		
 		<xsl:choose>
-     		<xsl:when test="$url !=''">
-				<xsl:value-of select="$your_code"/>	
+     		<xsl:when test="$your_code !=''">
+				<xsl:value-of select="$your_code"/>		
      		</xsl:when>
      		<xsl:otherwise>
      			<xsl:value-of select="$newline"/>
