@@ -3,21 +3,20 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.agenda_presenca;
-import nosi.core.config.Config;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import nosi.core.webapp.Response;
 import nosi.core.webapp.helpers.IgrpHelper;
 import nosi.webapps.agenda.dao.Balcao;
 import nosi.webapps.agenda.dao.Entidade;
 import nosi.webapps.agenda.dao.Marcacao;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class AGENDA_PRESENCAController extends Controller {		
 

@@ -3,9 +3,10 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.listarutente;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import nosi.core.webapp.Response;
 import nosi.webapps.marcacao_consulta.dao.Utente;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class ListarUtenteController extends Controller {		
 
