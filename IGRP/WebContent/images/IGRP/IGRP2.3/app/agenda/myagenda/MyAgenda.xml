@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="images/IGRP/IGRP2.3/app/agenda/myagenda/MyAgenda.xsl" type="text/xsl"?>
 <rows>
-<link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
+    <link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
     <site>
         <welcome_note>Ola</welcome_note>
         <footer_note>2011 - Copyright NOSI</footer_note>
@@ -38,5 +38,13 @@
             <lang>pt</lang>
             <dataUrl>/IGRP/images/IGRP/IGRP2.3/core/calendar/3.0.1/data/calendar.json</dataUrl>
         </calendar_1>
+        <calendar_2 type="calendar" xml-type="calendar" gen-type="container" gen-group="">
+            <lang>pt</lang>
+            <dataUrl>/IGRP/images/IGRP/IGRP2.3/core/calendar/3.0.1/data/calendar.json</dataUrl>
+        </calendar_2>
+        <calendar_3 type="calendar" xml-type="calendar" gen-type="container" gen-group="">
+            <lang>pt</lang>
+            <dataUrl>/IGRP/images/IGRP/IGRP2.3/core/calendar/3.0.1/data/calendar.json</dataUrl>
+        </calendar_3>
     </content>
 </rows>

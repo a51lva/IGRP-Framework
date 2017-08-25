@@ -115,8 +115,8 @@ public class CONFIG_BALCAOController extends Controller {
 		    	b.setId(Integer.parseInt(id));
 		    	b.setEstado(Igrp.getInstance().getRequest().getParameter("estado"));
 		    }
-		    int status = b.getId()!=null?Balcao.update(b):Balcao.insert(b);
-		    if(status == 200 || status == 202) {
+		    b = b.getId()!=null?Balcao.update(b):Balcao.insert(b);
+		    if(b!=null) {
 	        	Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 	        }
 	        else {

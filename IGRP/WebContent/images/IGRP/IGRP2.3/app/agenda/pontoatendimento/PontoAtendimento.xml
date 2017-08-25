@@ -72,16 +72,12 @@
         </form_2>
         <table_1 type="table" xml-type="table" gen-type="container" gen-group="true">
             <fields>
-                <organica name="p_organica" type="link" target="_self" target_fields="" action="index" page="AddServicos" app="agenda" class="link" btnSize="[object Object]" iconColor="#333" iconClass="" img="fa-link" maxlength="300" align="left" lookup_parser="false" iskey="false" desc="true">
-                    <label>Orgânica</label>
-                </organica>
-                <ponto_de_atendimento name="p_ponto_de_atendimento" type="text" maxlength="300" align="left" lookup_parser="false" iskey="false">
-                    <label>Ponto de Atendimento</label>
-                </ponto_de_atendimento>
-                <id_organica_lst name="p_id_organica_lst" type="hidden" maxlength="30" tag="id_organica_lst"/>
-                <id_entidade_lst name="p_id_entidade_lst" type="hidden" maxlength="30" tag="id_entidade_lst"/>
-                <id_aplicacao_lst name="p_id_aplicacao_lst" type="hidden" maxlength="30" tag="id_aplicacao_lst"/>
-                <id_balcao name="p_id_balcao" type="hidden" maxlength="30" tag="id_balcao"/>
+                <ponto_atendimento name="p_ponto_atendimento" type="link" target="_self" target_fields="" action="index" page="PontoAtendimento" app="agenda" class="link" btnSize="" iconColor="#333" iconClass="" img="fa-link" maxlength="30" align="left" lookup_parser="false" iskey="false" desc="true">
+                    <label>Ponto Atendimento</label>
+                </ponto_atendimento>
+                <estado_list name="p_estado_list" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Estado</label>
+                </estado_list>
             </fields>
             <table>
                 <value>
@@ -90,65 +86,45 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <organica name="p_organica" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</organica>
-                        <organica_desc name="p_organica_desc">Orgânica</organica_desc>
-                        <ponto_de_atendimento name="p_ponto_de_atendimento">Adipiscing consectetur natus adipiscing doloremque</ponto_de_atendimento>
-                        <id_organica_lst name="p_id_organica_lst" tag="id_organica_lst">1</id_organica_lst>
-                        <id_entidade_lst name="p_id_entidade_lst" tag="id_entidade_lst">1</id_entidade_lst>
-                        <id_aplicacao_lst name="p_id_aplicacao_lst" tag="id_aplicacao_lst">1</id_aplicacao_lst>
-                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
+                        <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
+                        <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
+                        <estado_list name="p_estado_list">Sit ipsum sit aliqua elit</estado_list>
                     </row>
                     <row>
                         <context-menu>
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <organica name="p_organica" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</organica>
-                        <organica_desc name="p_organica_desc">Orgânica</organica_desc>
-                        <ponto_de_atendimento name="p_ponto_de_atendimento">Unde aliqua omnis elit adipiscing</ponto_de_atendimento>
-                        <id_organica_lst name="p_id_organica_lst" tag="id_organica_lst">1</id_organica_lst>
-                        <id_entidade_lst name="p_id_entidade_lst" tag="id_entidade_lst">1</id_entidade_lst>
-                        <id_aplicacao_lst name="p_id_aplicacao_lst" tag="id_aplicacao_lst">1</id_aplicacao_lst>
-                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
+                        <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
+                        <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
+                        <estado_list name="p_estado_list">Labore laudantium sed officia</estado_list>
                     </row>
                     <row>
                         <context-menu>
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <organica name="p_organica" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</organica>
-                        <organica_desc name="p_organica_desc">Orgânica</organica_desc>
-                        <ponto_de_atendimento name="p_ponto_de_atendimento">Deserunt mollit perspiciatis mollit aliqua</ponto_de_atendimento>
-                        <id_organica_lst name="p_id_organica_lst" tag="id_organica_lst">1</id_organica_lst>
-                        <id_entidade_lst name="p_id_entidade_lst" tag="id_entidade_lst">1</id_entidade_lst>
-                        <id_aplicacao_lst name="p_id_aplicacao_lst" tag="id_aplicacao_lst">1</id_aplicacao_lst>
-                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
+                        <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
+                        <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
+                        <estado_list name="p_estado_list">Accusantium dolor anim ut sit</estado_list>
                     </row>
                     <row>
                         <context-menu>
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <organica name="p_organica" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</organica>
-                        <organica_desc name="p_organica_desc">Orgânica</organica_desc>
-                        <ponto_de_atendimento name="p_ponto_de_atendimento">Stract sit laudantium sit magna</ponto_de_atendimento>
-                        <id_organica_lst name="p_id_organica_lst" tag="id_organica_lst">1</id_organica_lst>
-                        <id_entidade_lst name="p_id_entidade_lst" tag="id_entidade_lst">1</id_entidade_lst>
-                        <id_aplicacao_lst name="p_id_aplicacao_lst" tag="id_aplicacao_lst">1</id_aplicacao_lst>
-                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
+                        <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
+                        <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
+                        <estado_list name="p_estado_list">Unde mollit accusantium sit lo</estado_list>
                     </row>
                     <row>
                         <context-menu>
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <organica name="p_organica" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</organica>
-                        <organica_desc name="p_organica_desc">Orgânica</organica_desc>
-                        <ponto_de_atendimento name="p_ponto_de_atendimento">Unde deserunt sed amet officia</ponto_de_atendimento>
-                        <id_organica_lst name="p_id_organica_lst" tag="id_organica_lst">1</id_organica_lst>
-                        <id_entidade_lst name="p_id_entidade_lst" tag="id_entidade_lst">1</id_entidade_lst>
-                        <id_aplicacao_lst name="p_id_aplicacao_lst" tag="id_aplicacao_lst">1</id_aplicacao_lst>
-                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
+                        <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
+                        <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
+                        <estado_list name="p_estado_list">Sed voluptatem totam officia s</estado_list>
                     </row>
                 </value>
                 <context-menu>
@@ -170,7 +146,7 @@
                 <app>agenda</app>
                 <page>PontoAtendimento</page>
                 <link>index</link>
-                <target>submit_form</target>
+                <target>submit</target>
                 <img>success|fa-save</img>
                 <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</parameter>
             </item>
@@ -179,7 +155,7 @@
             <fields>
                 <ponto name="p_ponto" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Ponto de Atendimento</label>
-                    <value>Anim amet ut adipiscing rem</value>
+                    <value>Natus perspiciatis magna elit voluptatem</value>
                 </ponto>
                 <n_de_servicos name="p_n_de_servicos" type="select" multiple="false" domain="" maxlength="2" required="true" change="false" disabled="false" right="false">
                     <label>Nº de Serviços</label>
@@ -205,11 +181,11 @@
                 </n_de_servicos>
                 <localizacao name="p_localizacao" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Localização</label>
-                    <value>Consectetur sit elit ipsum omnis</value>
+                    <value>Mollit doloremque labore perspiciatis unde</value>
                 </localizacao>
                 <fuso_horario name="p_fuso_horario" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Fuso Horário</label>
-                    <value>Mollit rem accusantium ut sit</value>
+                    <value>Ut labore natus omnis anim</value>
                 </fuso_horario>
                 <confirmacao_automatica name="p_confirmacao_automatica" type="radiolist" domain="YES_NO" maxlength="30" required="true" change="false" readonly="false" disabled="false" child_size="12" right="false">
                     <label>Confirmação Automática</label>
@@ -224,10 +200,6 @@
                         </option>
                     </list>
                 </confirmacao_automatica>
-                <plaintext_1 name="p_plaintext_1" type="plaintext" clear="false" maxlength="30" right="false">
-                    <label>Plaintext</label>
-                    <value>Accusantium officia aliqua ips</value>
-                </plaintext_1>
                 <horario_de_atendimento name="p_horario_de_atendimento" type="separator" maxlength="30" placeholder="" right="false">
                     <label>Horário de Atendimento</label>
                 </horario_de_atendimento>
@@ -239,12 +211,8 @@
                     <label>Hora Fim</label>
                     <value/>
                 </hora_fim>
-                <hidden name="p_id" type="hidden" maxlength="30" tag="id"/>
-                <hidden name="p_id_organica" type="hidden" maxlength="30" tag="id_organica"/>
-                <hidden name="p_id_entidade" type="hidden" maxlength="30" tag="id_entidade"/>
-                <hidden name="p_id_aplicacao" type="hidden" maxlength="30" tag="id_aplicacao"/>
-                <hidden name="p_id_localizacao" type="hidden" maxlength="30" tag="id_localizacao"/>
-                <hidden name="p_cordenadas" type="hidden" maxlength="200" tag="cordenadas"/>
+                <hidden name="p_id_ponto_atendimento" type="hidden" maxlength="30" tag="id_ponto_atendimento"/>
+                <hidden name="p_estado" type="hidden" maxlength="30" tag="estado"/>
             </fields>
         </form_1>
         <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
@@ -253,18 +221,18 @@
                 <app>agenda</app>
                 <page>AddServicos</page>
                 <link>index</link>
-                <target>submit_popup</target>
+                <target>_blank</target>
                 <img>success|fa-plus-square</img>
                 <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</parameter>
             </item>
             <item type="specific" code="" rel="configurar">
                 <title>Configurar</title>
                 <app>agenda</app>
-                <page>AddServicos</page>
+                <page>REQ_SERVICOS</page>
                 <link>index</link>
-                <target>submit_popup</target>
+                <target>_blank</target>
                 <img>info|fa-certificate</img>
-                <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</parameter>
+                <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/req_servicos/REQ_SERVICOS.xsl</parameter>
             </item>
         </toolsbar_1>
         <table_2 type="table" xml-type="table" gen-type="container" gen-group="true">
@@ -272,7 +240,9 @@
                 <servicos name="p_servicos" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
                     <label>Serviços</label>
                 </servicos>
-                <id_serv_balcao name="p_id_serv_balcao" type="hidden" maxlength="30" tag="id_serv_balcao"/>
+                <id_servico_check name="p_id_servico_check" type="checkbox" maxlength="30" align="left" lookup_parser="false" iskey="false" check="true" desc="true">
+                    <label>Id_servico_check</label>
+                </id_servico_check>
                 <id_servico name="p_id_servico" type="hidden" maxlength="30" tag="id_servico"/>
             </fields>
             <table>
@@ -282,8 +252,9 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Dolor rem deserunt sit accusan</servicos>
-                        <id_serv_balcao name="p_id_serv_balcao" tag="id_serv_balcao">1</id_serv_balcao>
+                        <servicos name="p_servicos">Sit lorem dolor anim ut</servicos>
+                        <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
+                        <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
                     </row>
                     <row>
@@ -291,8 +262,9 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Amet magna omnis officia dolor</servicos>
-                        <id_serv_balcao name="p_id_serv_balcao" tag="id_serv_balcao">1</id_serv_balcao>
+                        <servicos name="p_servicos">Stract iste officia natus ipsu</servicos>
+                        <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
+                        <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
                     </row>
                     <row>
@@ -300,8 +272,9 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Ipsum omnis totam sit aliqua</servicos>
-                        <id_serv_balcao name="p_id_serv_balcao" tag="id_serv_balcao">1</id_serv_balcao>
+                        <servicos name="p_servicos">Voluptatem labore iste totam r</servicos>
+                        <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
+                        <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
                     </row>
                     <row>
@@ -309,8 +282,9 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Omnis officia elit sit totam</servicos>
-                        <id_serv_balcao name="p_id_serv_balcao" tag="id_serv_balcao">1</id_serv_balcao>
+                        <servicos name="p_servicos">Ut aperiam omnis sit officia</servicos>
+                        <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
+                        <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
                     </row>
                     <row>
@@ -318,8 +292,9 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Accusantium adipiscing officia</servicos>
-                        <id_serv_balcao name="p_id_serv_balcao" tag="id_serv_balcao">1</id_serv_balcao>
+                        <servicos name="p_servicos">Aliqua omnis mollit lorem dolo</servicos>
+                        <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
+                        <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
                     </row>
                 </value>

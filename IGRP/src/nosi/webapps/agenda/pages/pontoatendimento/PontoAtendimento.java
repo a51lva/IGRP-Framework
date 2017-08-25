@@ -19,26 +19,16 @@ public class PontoAtendimento extends Model{
 	private String fuso_horario;
 	@RParam(rParamName = "p_confirmacao_automatica")
 	private String confirmacao_automatica;
-	@RParam(rParamName = "p_plaintext_1")
-	private String plaintext_1;
 	@RParam(rParamName = "p_horario_de_atendimento")
 	private String horario_de_atendimento;
 	@RParam(rParamName = "p_hora_inicio")
 	private String hora_inicio;
 	@RParam(rParamName = "p_hora_fim")
 	private String hora_fim;
-	@RParam(rParamName = "p_id")
-	private String p_id;
-	@RParam(rParamName = "p_id_organica")
-	private String p_id_organica;
-	@RParam(rParamName = "p_id_entidade")
-	private String p_id_entidade;
-	@RParam(rParamName = "p_id_aplicacao")
-	private String p_id_aplicacao;
-	@RParam(rParamName = "p_id_localizacao")
-	private String p_id_localizacao;
-	@RParam(rParamName = "p_cordenadas")
-	private String p_cordenadas;
+	@RParam(rParamName = "p_id_ponto_atendimento")
+	private String p_id_ponto_atendimento;
+	@RParam(rParamName = "p_estado")
+	private String p_estado;
 
 	private ArrayList<Table_1> table_1 = new ArrayList<>();
 	public void setTable_1(ArrayList<Table_1> table_1){
@@ -105,13 +95,6 @@ public class PontoAtendimento extends Model{
 		return this.confirmacao_automatica;
 	}
 	
-	public void setPlaintext_1(String plaintext_1){
-		this.plaintext_1 = plaintext_1;
-	}
-	public String getPlaintext_1(){
-		return this.plaintext_1;
-	}
-	
 	public void setHorario_de_atendimento(String horario_de_atendimento){
 		this.horario_de_atendimento = horario_de_atendimento;
 	}
@@ -133,102 +116,43 @@ public class PontoAtendimento extends Model{
 		return this.hora_fim;
 	}
 	
-	public void setP_id(String p_id){
-		this.p_id = p_id;
+	public void setP_id_ponto_atendimento(String p_id_ponto_atendimento){
+		this.p_id_ponto_atendimento = p_id_ponto_atendimento;
 	}
-	public String getP_id(){
-		return this.p_id;
-	}
-	
-	public void setP_id_organica(String p_id_organica){
-		this.p_id_organica = p_id_organica;
-	}
-	public String getP_id_organica(){
-		return this.p_id_organica;
+	public String getP_id_ponto_atendimento(){
+		return this.p_id_ponto_atendimento;
 	}
 	
-	public void setP_id_entidade(String p_id_entidade){
-		this.p_id_entidade = p_id_entidade;
+	public void setP_estado(String p_estado){
+		this.p_estado = p_estado;
 	}
-	public String getP_id_entidade(){
-		return this.p_id_entidade;
-	}
-	
-	public void setP_id_aplicacao(String p_id_aplicacao){
-		this.p_id_aplicacao = p_id_aplicacao;
-	}
-	public String getP_id_aplicacao(){
-		return this.p_id_aplicacao;
-	}
-	
-	public void setP_id_localizacao(String p_id_localizacao){
-		this.p_id_localizacao = p_id_localizacao;
-	}
-	public String getP_id_localizacao(){
-		return this.p_id_localizacao;
-	}
-	
-	public void setP_cordenadas(String p_cordenadas){
-		this.p_cordenadas = p_cordenadas;
-	}
-	public String getP_cordenadas(){
-		return this.p_cordenadas;
+	public String getP_estado(){
+		return this.p_estado;
 	}
 
 
 	public static class Table_1{
-		private String organica;
-		private String ponto_de_atendimento;
-		private String p_id_organica_lst;
-		private String p_id_entidade_lst;
-		private String p_id_aplicacao_lst;
-		private String p_id_balcao;
-		public void setOrganica(String organica){
-			this.organica = organica;
+		private String ponto_atendimento;
+		private String estado_list;
+		public void setPonto_atendimento(String ponto_atendimento){
+			this.ponto_atendimento = ponto_atendimento;
 		}
-		public String getOrganica(){
-			return this.organica;
+		public String getPonto_atendimento(){
+			return this.ponto_atendimento;
 		}
 
-		public void setPonto_de_atendimento(String ponto_de_atendimento){
-			this.ponto_de_atendimento = ponto_de_atendimento;
+		public void setEstado_list(String estado_list){
+			this.estado_list = estado_list;
 		}
-		public String getPonto_de_atendimento(){
-			return this.ponto_de_atendimento;
-		}
-
-		public void setP_id_organica_lst(String p_id_organica_lst){
-			this.p_id_organica_lst = p_id_organica_lst;
-		}
-		public String getP_id_organica_lst(){
-			return this.p_id_organica_lst;
-		}
-
-		public void setP_id_entidade_lst(String p_id_entidade_lst){
-			this.p_id_entidade_lst = p_id_entidade_lst;
-		}
-		public String getP_id_entidade_lst(){
-			return this.p_id_entidade_lst;
-		}
-
-		public void setP_id_aplicacao_lst(String p_id_aplicacao_lst){
-			this.p_id_aplicacao_lst = p_id_aplicacao_lst;
-		}
-		public String getP_id_aplicacao_lst(){
-			return this.p_id_aplicacao_lst;
-		}
-
-		public void setP_id_balcao(String p_id_balcao){
-			this.p_id_balcao = p_id_balcao;
-		}
-		public String getP_id_balcao(){
-			return this.p_id_balcao;
+		public String getEstado_list(){
+			return this.estado_list;
 		}
 
 	}
 	public static class Table_2{
 		private String servicos;
-		private String p_id_serv_balcao;
+		private int id_servico_check;
+		private int id_servico_check_check;
 		private String p_id_servico;
 		public void setServicos(String servicos){
 			this.servicos = servicos;
@@ -237,11 +161,17 @@ public class PontoAtendimento extends Model{
 			return this.servicos;
 		}
 
-		public void setP_id_serv_balcao(String p_id_serv_balcao){
-			this.p_id_serv_balcao = p_id_serv_balcao;
+		public void setId_servico_check(int id_servico_check){
+			this.id_servico_check = id_servico_check;
 		}
-		public String getP_id_serv_balcao(){
-			return this.p_id_serv_balcao;
+		public int getId_servico_check(){
+			return this.id_servico_check;
+		}
+		public void setId_servico_check_check(int id_servico_check_check){
+			this.id_servico_check_check = id_servico_check_check;
+		}
+		public int getId_servico_check_check(){
+			return this.id_servico_check_check;
 		}
 
 		public void setP_id_servico(String p_id_servico){

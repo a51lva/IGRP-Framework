@@ -4,7 +4,6 @@
 
 package nosi.webapps.agenda.pages.myagenda;
 /*---- Import your packages here... ----*/
-
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 import nosi.core.webapp.Response;

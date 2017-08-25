@@ -19,10 +19,33 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-fd81556f">
+                                    <div class="row">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="row-6b951602">
+                                        <div class="gen-column col-sm-12">
+                                            <div class="gen-inner">
+                                                <xsl:if test="rows/content/calendar_3">
+                                                    <div class="box gen-container-item " gen-class="" item-name="calendar_3">
+                                                        <div class="box-body">
+                                                            <xsl:apply-templates mode="IGRP-calendar" select="rows/content/calendar_3">
+                                                                <xsl:with-param name="id" select="'calendar_3'"/>
+                                                                <xsl:with-param name="lang" select="'pt'"/>
+                                                                <xsl:with-param name="dataUrl" select="rows/content/calendar_3/dataUrl"/>
+                                                            </xsl:apply-templates>
+                                                        </div>
+                                                    </div>
+                                                </xsl:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="row-6cd07fc4">
+                                        <div class="gen-column col-sm-6">
+                                            <div class="gen-inner">
                                                 <xsl:if test="rows/content/calendar_1">
                                                     <div class="box gen-container-item " gen-class="" item-name="calendar_1">
                                                         <div class="box-body">
@@ -30,6 +53,21 @@
                                                                 <xsl:with-param name="id" select="'calendar_1'"/>
                                                                 <xsl:with-param name="lang" select="'pt'"/>
                                                                 <xsl:with-param name="dataUrl" select="rows/content/calendar_1/dataUrl"/>
+                                                            </xsl:apply-templates>
+                                                        </div>
+                                                    </div>
+                                                </xsl:if>
+                                            </div>
+                                        </div>
+                                        <div class="gen-column col-sm-6">
+                                            <div class="gen-inner">
+                                                <xsl:if test="rows/content/calendar_2">
+                                                    <div class="box gen-container-item " gen-class="" item-name="calendar_2">
+                                                        <div class="box-body">
+                                                            <xsl:apply-templates mode="IGRP-calendar" select="rows/content/calendar_2">
+                                                                <xsl:with-param name="id" select="'calendar_2'"/>
+                                                                <xsl:with-param name="lang" select="'pt'"/>
+                                                                <xsl:with-param name="dataUrl" select="rows/content/calendar_2/dataUrl"/>
                                                             </xsl:apply-templates>
                                                         </div>
                                                     </div>
@@ -52,9 +90,9 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502366077008"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502366077008"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502366077008"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502366077008"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-calendar.tmpl.xsl?v=1502366077008"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503665533789"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503665533789"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503665533789"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503665533789"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-calendar.tmpl.xsl?v=1503665533789"/>
 </xsl:stylesheet>
