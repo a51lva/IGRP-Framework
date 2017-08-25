@@ -22,7 +22,7 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-49226c0a">
+                                    <div class="row" id="row-f8a4467d">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
@@ -31,7 +31,7 @@
                                                         <div class="box-body" gen-preserve-content="true">
                                                             <xsl:apply-templates mode="form-hidden-fields" select="rows/content/box_1/fields"/>
                                                             <div>
-                                                                <div class="row" id="row-7c1c6984">
+                                                                <div class="row" id="row-6502c49d">
                                                                     <div class="gen-column col-sm-6">
                                                                         <div class="gen-inner">
                                                                             <xsl:if test="rows/content/page_title">
@@ -68,7 +68,7 @@
                                                             <div role="form">
                                                                 <xsl:apply-templates mode="form-hidden-fields" select="rows/content/form_1/fields"/>
                                                                 <xsl:if test="rows/content/form_1/fields/nome">
-                                                                    <div class="form-group col-sm-3   gen-fields-holder" item-name="nome" item-type="text" required="required">
+                                                                    <div class="form-group col-sm-6   gen-fields-holder" item-name="nome" item-type="text" required="required">
                                                                         <label for="{rows/content/form_1/fields/nome/@name}">
                                                                             <span>
                                                                                 <xsl:value-of select="rows/content/form_1/fields/nome/label"/>
@@ -77,13 +77,13 @@
                                                                         <input type="text" value="{rows/content/form_1/fields/nome/value}" class="form-control " id="{rows/content/form_1/fields/nome/@name}" name="{rows/content/form_1/fields/nome/@name}" required="required" maxlength="100" placeholder=""></input>
                                                                     </div>
                                                                 </xsl:if>
-                                                                <xsl:if test="rows/content/form_1/fields/aplicacao">
-                                                                    <div class="col-sm-3 form-group  gen-fields-holder" item-name="aplicacao" item-type="select" required="required">
-                                                                        <label for="{rows/content/form_1/fields/aplicacao/@name}">
-                                                                            <xsl:value-of select="rows/content/form_1/fields/aplicacao/label"/>
+                                                                <xsl:if test="rows/content/form_1/fields/organica">
+                                                                    <div class="col-sm-5 form-group  gen-fields-holder" item-name="organica" item-type="select" required="required">
+                                                                        <label for="{rows/content/form_1/fields/organica/@name}">
+                                                                            <xsl:value-of select="rows/content/form_1/fields/organica/label"/>
                                                                         </label>
-                                                                        <select class="form-control select2 " id="form_1_aplicacao" name="{rows/content/form_1/fields/aplicacao/@name}" required="required">
-                                                                            <xsl:for-each select="rows/content/form_1/fields/aplicacao/list/option">
+                                                                        <select class="form-control select2 " id="form_1_organica" name="{rows/content/form_1/fields/organica/@name}" required="required">
+                                                                            <xsl:for-each select="rows/content/form_1/fields/organica/list/option">
                                                                                 <option value="{value}" label="{text}">
                                                                                     <xsl:if test="@selected='true'">
                                                                                         <xsl:attribute name="selected">selected</xsl:attribute>
@@ -118,9 +118,9 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1502372136093"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1502372136093"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1502372136093"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1502372136093"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1502372136093"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503676741018"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503676741019"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503676741019"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503676741019"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503676741022"/>
 </xsl:stylesheet>

@@ -27,6 +27,8 @@ public class Entidade {
 	
 	private String nome_entidade;
 	
+	private int id_organica; 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,7 +47,14 @@ public class Entidade {
 	public void setNome_entidade(String nome_entidade) {
 		this.nome_entidade = nome_entidade;
 	}
-
+	
+	public int getId_organica() {
+		return id_organica;
+	}
+	public void setId_organica(int id_organica) {
+		this.id_organica = id_organica;
+	}
+	
 	@Override
 	public String toString() {
 		return "Entidade [id=" + id + ", estado=" + estado + ", nome_entidade="
