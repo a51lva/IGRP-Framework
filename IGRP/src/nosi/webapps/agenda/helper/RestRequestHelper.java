@@ -61,7 +61,7 @@ public final class RestRequestHelper{
 		return gson.fromJson(jsonResult, type);
 	}
 	
-	public static <T> List convertJsonToListDao(String jsonResult, T type) {
+	public static <T> List convertJsonToListDao(String jsonResult, Type type) {
 		List list = null;
 		String wrapName = "value";
 		try {
@@ -69,7 +69,7 @@ public final class RestRequestHelper{
 			if(jsonObject.has(wrapName)) {
 				JSONArray aux = jsonObject.getJSONArray(wrapName);
 				Gson gson = new Gson();
-				list = gson.fromJson(aux.toString(), new TypeToken<List<T>>(){}.getType());
+				list = gson.fromJson(aux.toString(), type);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

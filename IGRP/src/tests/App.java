@@ -32,7 +32,7 @@ public final class App {
 	private App() {}
 	
 	public static void main(String []args) {
-		makePostRequest();
+		makeGetRequest();
 	}
 	
 	public static void makePostRequest() {
@@ -75,7 +75,7 @@ public final class App {
 		 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));
         
-        String url = RestRequestHelper.baseUrl + "/ag_t_entidade";
+        String url = RestRequestHelper.baseUrl + "/ag_t_entidades";
         
         WebResource resource = client.resource(url);
         
@@ -85,8 +85,10 @@ public final class App {
    	    
    	 	
         if(response.getStatus() == 200) {
-        	List<Entidade> entidade = RestRequestHelper.convertJsonToListDao(jsonResult, Entidade.class);
-        	System.out.println(entidade.get(1));
+        	List<Entidade> entidade = RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
+        	for(Entidade obj : entidade) {
+        		System.out.println(obj);
+        	}
         }
         else {
        	 System.out.println("Error");

@@ -104,7 +104,7 @@ public class Servicos {
 			 
 	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
 	        
-	        String url = RestRequestHelper.baseUrl + "/servicos";
+	        String url = RestRequestHelper.baseUrl + "/ag_t_servicos";
 	        
 	        WebResource resource = client.resource(url);
 	        
@@ -113,7 +113,7 @@ public class Servicos {
 	   	 	String jsonResult = response.getEntity(String.class);
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Servicos>) RestRequestHelper.convertJsonToDaoColl(jsonResult, "Servicos", "Servico", new TypeToken<List<Servicos>>(){}.getType());
+		        aux = RestRequestHelper.convertJsonToListDao(jsonResult, Servicos.class);
 	        }
 	        else {
 	       	 System.out.println("Error");
@@ -123,7 +123,6 @@ public class Servicos {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 		return aux != null ? aux : new ArrayList<Servicos>();
 	}
 	
