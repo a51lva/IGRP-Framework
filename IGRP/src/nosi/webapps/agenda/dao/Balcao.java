@@ -29,7 +29,7 @@ public class Balcao {
 	private int nr_servicos;
 	private int confirmacao;
 	private String estado;
-	private String nome_entidade;
+	private String nome_balcao;
 	
 	public Integer getId() {
 		return id;
@@ -86,32 +86,45 @@ public class Balcao {
 		this.estado = estado;
 	}
 	
-	public String toString(){
-		return "[id="+id+", localizacao="+localizacao+",nr_servico="+nr_servicos+",confirmacao="+confirmacao+",estado="+estado+",hr_inicio="+hr_inicio+",hr_fim="+hr_fim+"]";
+	public String getNome_balcao() {
+		return nome_balcao;
+	}
+	public void setNome_balcao(String nome_balcao) {
+		this.nome_balcao = nome_balcao;
 	}
 	
-	public static int insert(Balcao b){
+	
+	
+	@Override
+	public String toString() {
+		return "Balcao [id=" + id + ", id_entidade=" + id_entidade + ", fusohorario=" + fusohorario + ", localizacao="
+				+ localizacao + ", hr_inicio=" + hr_inicio + ", hr_fim=" + hr_fim + ", nr_servicos=" + nr_servicos
+				+ ", confirmacao=" + confirmacao + ", estado=" + estado + ", nome_balcao=" + nome_balcao + "]";
+	}
+	public static Balcao insert(Balcao b){
 		ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/balcoes";	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes";	        
         WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.createJsonPostData("_postbalcoes", b);
-        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
-        		.post(ClientResponse.class, content);			
+		String content = RestRequestHelper.convertDaoToJson(b);
+        ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
+        		.post(ClientResponse.class, content);		
+        String jsonResult = response.getEntity(String.class);
        client.destroy();
-       return response.getStatus();
+       return response.getStatus()==201?RestRequestHelper.convertJsonToDao(jsonResult, Balcao.class):null;
 	}	
 
-	public static int update(Balcao b){
+	public static Balcao update(Balcao b){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/balcao";	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes("+b.getId()+")";	        
         WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.createJsonPostData("_putbalcao_id", b);
-		ClientResponse response = resource.path(String.valueOf(b.getId())).accept(MediaType.APPLICATION_JSON).type("application/json")
-        		.put(ClientResponse.class, content);			
- 	    client.destroy();
-	    return response.getStatus();
+		String content = RestRequestHelper.convertDaoToJson(b);
+		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
+        		.put(ClientResponse.class, content);		
+        String jsonResult = response.getEntity(String.class);
+       client.destroy();
+       return response.getStatus()==201?RestRequestHelper.convertJsonToDao(jsonResult, Balcao.class):null;
 	}
 	
 	public static List<Balcao> getAllBalcao(String nome_entidade){
@@ -146,16 +159,15 @@ public class Balcao {
 		try {
 			ClientConfig config = new DefaultClientConfig();			 
 	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-	        String url = RestRequestHelper.baseUrl + "/balcoes";	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes";	        
 	        WebResource resource = client.resource(url);	        
 	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Balcao>) RestRequestHelper.convertJsonToDaoColl(jsonResult, "Balcoes", "Balcao", new TypeToken<List<Balcao>>(){}.getType());
+		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult,Balcao.class);
 	        }
 	        else {
-	       	 System.out.println("Error");
-	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
+	       	 	System.err.println("Error");
 	        }
 	       client.destroy();
 		}catch(Exception e){
@@ -168,24 +180,18 @@ public class Balcao {
 	public static Balcao getBalcao(int id){
 		Balcao aux = null;
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/balcoes";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.path(String.valueOf(id)).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes("+id+")";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	    
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (Balcao) RestRequestHelper.convertJsonToDao(jsonResult, "Balcoes", "Balcao", new TypeToken<List<Balcao>>(){}.getType());
+	        	aux = (Balcao) RestRequestHelper.convertJsonToDao(jsonResult, Balcao.class);
 	        }
 	        else {
-	       	 System.out.println("Error");
-	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
+	       	 	System.err.println("Error");
 	        }
 	       client.destroy();
 		}catch(Exception e){

@@ -95,8 +95,8 @@ public class LST_BALCAOController extends Controller {
 				for(String id:p_ids){
 					Balcao b = Balcao.getBalcao(Integer.parseInt(id));
 					b.setEstado("INATIVO");
-					int status = Balcao.update(b);
-					x = status==200 || status==202;
+					b = Balcao.update(b);
+					x = b!=null;
 				}
 			}
 			if(x){
