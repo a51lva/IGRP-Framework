@@ -113,7 +113,7 @@ public class Servicos {
 	   	 	String jsonResult = response.getEntity(String.class);
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = RestRequestHelper.convertJsonToListDao(jsonResult, Servicos.class);
+		        aux = RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Servicos>>(){}.getType());
 	        }
 	        else {
 	       	 System.out.println("Error");
