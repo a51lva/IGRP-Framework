@@ -31,11 +31,7 @@ public class RecuperacaoController extends Controller {
 		/*---- Insert your code here... ----*/						
 		Recuperacao model = new Recuperacao();
 		RecuperacaoView view = new RecuperacaoView(model);
-		Dados d = new Dados().findOne(1);
-	    BufferedImage img = ImageIO.read(new ByteArrayInputStream(d.getImagem()));
-	    ImageIcon imageIcon = new ImageIcon(d.getImagem());
-		model.setImagem(img.toString());
-		view.imagem.setValue(imageIcon);
+		
 		view.tipo_objeto.setValue(IgrpHelper.toMap(new Objeto().find().andWhere("organica", "=", Permission.getCurrentOrganization()).all(), "id", "objeto"));
 		HashMap<Integer,String> td = new HashMap<>();
 		td.put(1, "Passaporte");

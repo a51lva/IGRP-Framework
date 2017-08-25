@@ -23,13 +23,9 @@ public class Entidade {
 	@Expose(serialize = false, deserialize = true)
 	private Integer id;
 	
-	private int id_aplicacao;
-	
 	private String estado;
 	
 	private String nome_entidade;
-	
-	private String nome;//nome aplicacao
 	
 	public Integer getId() {
 		return id;
@@ -37,13 +33,6 @@ public class Entidade {
 	public void setId(Integer id) {
 		this.id = id;
 	}	
-	
-	public int getId_aplicacao() {
-		return id_aplicacao;
-	}
-	public void setId_aplicacao(int id_aplicacao) {
-		this.id_aplicacao = id_aplicacao;
-	}
 	public String getEstado() {
 		return estado;
 	}
@@ -56,15 +45,10 @@ public class Entidade {
 	public void setNome_entidade(String nome_entidade) {
 		this.nome_entidade = nome_entidade;
 	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 	@Override
 	public String toString() {
-		return "Entidade [id=" + id + ", id_aplicacao=" + id_aplicacao + ", estado=" + estado + ", nome_entidade="
+		return "Entidade [id=" + id + ", estado=" + estado + ", nome_entidade="
 				+ nome_entidade + "]";
 	}
 	
