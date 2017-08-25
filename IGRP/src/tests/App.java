@@ -45,7 +45,7 @@ public final class App {
         WebResource resource = client.resource(url);
         
         Entidade entidade = new Entidade();
-        entidade.setNome_entidade("EntidadeTeste100");
+        entidade.setNome_entidade("EntidadeTeste100 isaias");
         entidade.setEstado("ATIVO");
         
 		String content = RestRequestHelper.convertDaoToJson(entidade);
@@ -57,8 +57,9 @@ public final class App {
 		
    	 	String jsonResult = response.getEntity(String.class);
    	 	
-        if(response.getStatus() == 200) {
-        	System.out.println(jsonResult);
+        if(response.getStatus() == 200 || response.getStatus() == 201) {
+        	System.out.println(RestRequestHelper.convertJsonToDao(jsonResult, Entidade.class));
+        	
         }
         else {
         	System.out.println(RestRequestHelper.convertJsonToDao(jsonResult, ODFault.class).getError());

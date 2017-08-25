@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="images/IGRP/IGRP2.3/app/agenda/lst_entidade/LST_ENTIDADE.xsl" type="text/xsl"?>
 <rows>
-<link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
+    <link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
     <site>
         <welcome_note>Ola</welcome_note>
         <footer_note>2011 - Copyright NOSI</footer_note>
@@ -38,41 +38,19 @@
             <fields>
                 <entidade name="p_entidade" type="text" maxlength="100" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Entidade</label>
-                    <value>Magna ut totam aliqua stract</value>
+                    <value>Aliqua iste perspiciatis lorem mollit</value>
                 </entidade>
-                <aplicacao name="p_aplicacao" type="select" multiple="false" maxlength="30" required="false" change="false" disabled="false" right="false" domain="">
-                    <label>Aplicação</label>
-                    <list>
-                        <option/>
-                        <option>
-                            <text>Option 1</text>
-                            <value>1</value>
-                        </option>
-                        <option>
-                            <text>Option 2</text>
-                            <value>2</value>
-                        </option>
-                        <option>
-                            <text>Option 3</text>
-                            <value>3</value>
-                        </option>
-                        <option>
-                            <text>Option 4</text>
-                            <value>4</value>
-                        </option>
-                    </list>
-                </aplicacao>
             </fields>
         </form_1>
         <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
             <item type="specific" code="" rel="nova_entidade">
                 <title>Nova Entidade</title>
-                <app>agenda</app>
-                <page>AddServicos</page>
-                <link>index</link>
+                <app/>
+                <page/>
+                <link/>
                 <target>modal</target>
                 <img>success|fa-plus-square</img>
-                <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</parameter>
+                <parameter>undefined</parameter>
             </item>
         </toolsbar_1>
         <table_1 type="table" xml-type="table" title="Table" gen-type="container" gen-group="true">
@@ -80,9 +58,9 @@
                 <entidade name="p_entidade" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
                     <label>Entidade</label>
                 </entidade>
-                <aplicacao name="p_aplicacao" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
-                    <label>Aplicação</label>
-                </aplicacao>
+                <estado name="p_estado" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Estado</label>
+                </estado>
                 <id name="p_id" type="hidden" maxlength="30" tag="id"/>
                 <table_1_filter name="p_table_1_filter" type="text" maxlength="100">
                     <value/>
@@ -95,8 +73,8 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <entidade name="p_entidade">Anim natus aliqua omnis elit</entidade>
-                        <aplicacao name="p_aplicacao">Officia ut totam accusantium m</aplicacao>
+                        <entidade name="p_entidade">Anim unde ipsum mollit aliqua</entidade>
+                        <estado name="p_estado">Totam elit natus totam amet</estado>
                         <id name="p_id" tag="id">1</id>
                     </row>
                     <row>
@@ -104,8 +82,8 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <entidade name="p_entidade">Anim laudantium magna mollit n</entidade>
-                        <aplicacao name="p_aplicacao">Rem ipsum iste stract sed</aplicacao>
+                        <entidade name="p_entidade">Laudantium officia deserunt si</entidade>
+                        <estado name="p_estado">Doloremque voluptatem sed rem</estado>
                         <id name="p_id" tag="id">1</id>
                     </row>
                     <row>
@@ -113,8 +91,8 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <entidade name="p_entidade">Elit sed unde consectetur accu</entidade>
-                        <aplicacao name="p_aplicacao">Accusantium sed voluptatem ape</aplicacao>
+                        <entidade name="p_entidade">Natus elit adipiscing sed rem</entidade>
+                        <estado name="p_estado">Perspiciatis natus aperiam rem</estado>
                         <id name="p_id" tag="id">1</id>
                     </row>
                     <row>
@@ -122,8 +100,8 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <entidade name="p_entidade">Mollit dolor totam ut doloremq</entidade>
-                        <aplicacao name="p_aplicacao">Labore aliqua amet adipiscing</aplicacao>
+                        <entidade name="p_entidade">Amet voluptatem aperiam aliqua</entidade>
+                        <estado name="p_estado">Magna sed aperiam lorem deseru</estado>
                         <id name="p_id" tag="id">1</id>
                     </row>
                     <row>
@@ -131,8 +109,8 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <entidade name="p_entidade">Labore totam accusantium sit i</entidade>
-                        <aplicacao name="p_aplicacao">Amet accusantium laudantium an</aplicacao>
+                        <entidade name="p_entidade">Amet aperiam doloremque deseru</entidade>
+                        <estado name="p_estado">Anim accusantium perspiciatis</estado>
                         <id name="p_id" tag="id">1</id>
                     </row>
                 </value>

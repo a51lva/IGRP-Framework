@@ -11,7 +11,7 @@ public class LST_ENTIDADEView extends View {
 	
 	
 	public Field entidade;
-	public Field aplicacao;
+	public Field estado;
 	public Field p_id;
 	public Field table_1_filter;
 	public IGRPForm form_1;
@@ -30,9 +30,9 @@ public class LST_ENTIDADEView extends View {
 		entidade = new TextField(model,"entidade");
 		entidade.setLabel("Entidade");
 		entidade.propertie().add("name","p_entidade").add("type","text").add("maxlength","100").add("required","false").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
-		aplicacao = new ListField(model,"aplicacao");
-		aplicacao.setLabel("AplicaÃ§Ã£o");
-		aplicacao.propertie().add("name","p_aplicacao").add("type","select").add("multiple","false").add("maxlength","30").add("required","false").add("change","false").add("disabled","false").add("right","false").add("domain","");
+		estado = new TextField(model,"estado");
+		estado.setLabel("Estado");
+		estado.propertie().add("name","p_estado").add("type","text").add("maxlength","30").add("align","left").add("lookup_parser","false").add("iskey","false");
 		p_id = new HiddenField(model,"p_id");
 		p_id.setLabel("");
 		p_id.propertie().add("name","p_id").add("type","hidden").add("maxlength","30").add("tag","id");
@@ -43,9 +43,9 @@ public class LST_ENTIDADEView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_nova_entidade = new IGRPButton("Nova Entidade","agenda","LST_ENTIDADE","nova_entidade","modal","success|fa-plus-square","","");
 		btn_nova_entidade.propertie.add("type","specific").add("code","").add("rel","nova_entidade");
-		btn_servicos = new IGRPButton("Serviços","agenda","LST_ENTIDADE","servicos","modal","info|fa-server","","");
+		btn_servicos = new IGRPButton("Serviï¿½os","agenda","LST_ENTIDADE","servicos","modal","info|fa-server","","");
 		btn_servicos.propertie.add("type","specific").add("code","").add("class","info").add("rel","servicos");
-		btn_balcoes = new IGRPButton("Balcões","agenda","LST_ENTIDADE","balcoes","modal","success|fa-sitemap","","");
+		btn_balcoes = new IGRPButton("Balcï¿½es","agenda","LST_ENTIDADE","balcoes","modal","success|fa-sitemap","","");
 		btn_balcoes.propertie.add("type","specific").add("code","").add("class","success").add("rel","balcoes");
 		btn_agenda = new IGRPButton("Agenda","agenda","LST_ENTIDADE","agenda","modal","warning|fa-calendar","","");
 		btn_agenda.propertie.add("type","specific").add("code","").add("class","warning").add("rel","agenda");
@@ -57,16 +57,15 @@ public class LST_ENTIDADEView extends View {
 	public void render(){
 		
 		form_1.addField(entidade);
-		form_1.addField(aplicacao);
 
 
 		table_1.addField(entidade);
-		table_1.addField(aplicacao);
+		table_1.addField(estado);
 		table_1.addField(p_id);
 		table_1.addField(table_1_filter);
 
 		toolsbar_1.addButton(btn_nova_entidade);
-		//table_1.addButton(btn_servicos);
+		table_1.addButton(btn_servicos);
 		table_1.addButton(btn_balcoes);
 		table_1.addButton(btn_agenda);
 		this.addToPage(form_1);
