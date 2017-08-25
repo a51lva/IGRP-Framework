@@ -103,7 +103,7 @@ public class Entidade {
 	        
 	   	 	String jsonResult = response.getEntity(String.class);
 	        if(response.getStatus() == 200) {
-		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, Entidade.class);
+		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
 	        }
 	        else {
 	       	 System.out.println("Error");
@@ -136,7 +136,7 @@ public class Entidade {
 	   	 	String jsonResult = response.getEntity(String.class);
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult, Balcao.class);
+		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Balcao>>(){}.getType());
 	        }
 	        else {
 	       	 System.out.println("Error");
@@ -168,7 +168,7 @@ public class Entidade {
 	   	 	String jsonResult = response.getEntity(String.class);
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Servicos>) RestRequestHelper.convertJsonToListDao(jsonResult, Servicos.class);
+		        aux = (List<Servicos>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Servicos>>(){}.getType());
 	        }
 	        else {
 	       	 System.out.println("Error");
