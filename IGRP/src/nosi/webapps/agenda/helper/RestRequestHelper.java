@@ -9,12 +9,17 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.client.urlconnection.HTTPSProperties;
 import java.lang.reflect.Type;
+
+import nosi.webapps.agenda.dao.Entidade;
 import nosi.webapps.agenda.dao.Fault;
 /**
  * Marcel Iekiny
@@ -22,7 +27,7 @@ import nosi.webapps.agenda.dao.Fault;
  */
 public final class RestRequestHelper{
 
-	public static final String baseUrl = "https://0ext.com/services/DSN_Agenda";
+	public static final String baseUrl = "https://0ext.com/odata/AgendaService/Agenda";
 
 	private RestRequestHelper() {}
 	
@@ -51,23 +56,26 @@ public final class RestRequestHelper{
 		return list != null ? list.get(0) : list; // :-)
 	}
 	
-	// Convert the JSON result to a list of DAO objects
-	//public static <T> List<T> convertJsonToDaoColl(String jsonResult, String groupName, String resourceName, Class<T> daoClass /*param. not used*/){
-		/*List<T> list = null;
+	public static <T> T convertJsonToDao(String jsonResult, Class<T> type) {
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResult, type);
+	}
+	
+	public static <T> List convertJsonToListDao(String jsonResult, T type) {
+		List list = null;
+		String wrapName = "value";
 		try {
 			JSONObject jsonObject = new JSONObject(jsonResult);
-			JSONArray jsonArray = jsonObject.getJSONObject(groupName).getJSONArray(resourceName);
-			String result = jsonArray.toString();
-			Gson gson = new Gson();
-			Type type = new TypeToken<List<T>>(){}.getType();
-			list = (List<T> ) gson.fromJson(result, new TypeToken<List<T>>(){}.getType());
-			
+			if(jsonObject.has(wrapName)) {
+				JSONArray aux = jsonObject.getJSONArray(wrapName);
+				Gson gson = new Gson();
+				list = gson.fromJson(aux.toString(), new TypeToken<List<T>>(){}.getType());
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
-	*/
 	
 	// Convert the json result to Fault object
 	public static Fault convertToDefaultFault(String jsonResult) {
