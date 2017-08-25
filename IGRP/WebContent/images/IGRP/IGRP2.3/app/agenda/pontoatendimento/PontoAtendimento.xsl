@@ -14,6 +14,8 @@
                 <!-- SELECT CSS INCLUDES -->
                 <link rel="stylesheet" type="text/css" href="{$path}/plugins/select2/select2.min.css"/>
                 <link rel="stylesheet" type="text/css" href="{$path}/plugins/select2/select2.style.css"/>
+                <!-- DATE CSS INCLUDES -->
+                <link rel="stylesheet" type="text/css" href="{$path}/plugins/datetimepicker/css/datetimepicker.css"/>
                 <style>#map{  width: 100%;  height: 250px;}</style>
             </head>
             <body class="{$bodyClass} sidebar-off">
@@ -31,7 +33,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" id="row-f0c83193">
+                                    <div class="row" id="row-1e32a4ea">
                                         <div class="gen-column col-sm-4">
                                             <div class="gen-inner">
                                                 <xsl:if test="rows/content/page_title">
@@ -51,7 +53,7 @@
                                                                         <label for="{rows/content/form_2/fields/entidade/@name}">
                                                                             <xsl:value-of select="rows/content/form_2/fields/entidade/label"/>
                                                                         </label>
-                                                                        <select class="form-control select2 " id="form_2_entidade" name="{rows/content/form_2/fields/entidade/@name}" required="required">
+                                                                        <select class="form-control select2 IGRP_change" id="form_2_entidade" name="{rows/content/form_2/fields/entidade/@name}" required="required">
                                                                             <xsl:for-each select="rows/content/form_2/fields/entidade/list/option">
                                                                                 <option value="{value}" label="{text}">
                                                                                     <xsl:if test="@selected='true'">
@@ -98,19 +100,19 @@
                                                                     <xsl:for-each select="rows/content/table_1/table/value/row[not(@total='yes')]">
                                                                         <tr>
                                                                             <xsl:apply-templates mode="context-param" select="context-menu"/>
-                                                                            <input type="hidden" name="p_id_organica_lst_fk" value="{id_organica_lst}"/>
-                                                                            <input type="hidden" name="p_id_organica_lst_fk_desc" value="{id_organica_lst_desc}"/>
-                                                                            <input type="hidden" name="p_id_entidade_lst_fk" value="{id_entidade_lst}"/>
-                                                                            <input type="hidden" name="p_id_entidade_lst_fk_desc" value="{id_entidade_lst_desc}"/>
-                                                                            <input type="hidden" name="p_id_aplicacao_lst_fk" value="{id_aplicacao_lst}"/>
-                                                                            <input type="hidden" name="p_id_aplicacao_lst_fk_desc" value="{id_aplicacao_lst_desc}"/>
-                                                                            <input type="hidden" name="p_id_balcao_fk" value="{id_balcao}"/>
-                                                                            <input type="hidden" name="p_id_balcao_fk_desc" value="{id_balcao_desc}"/>
+                                                                            <input name="p_id_organica_lst_fk" value="{id_organica_lst}" type="hidden"/>
+                                                                            <input name="p_id_organica_lst_fk_desc" value="{id_organica_lst_desc}" type="hidden"/>
+                                                                            <input name="p_id_entidade_lst_fk" value="{id_entidade_lst}" type="hidden"/>
+                                                                            <input name="p_id_entidade_lst_fk_desc" value="{id_entidade_lst_desc}" type="hidden"/>
+                                                                            <input name="p_id_aplicacao_lst_fk" value="{id_aplicacao_lst}" type="hidden"/>
+                                                                            <input name="p_id_aplicacao_lst_fk_desc" value="{id_aplicacao_lst_desc}" type="hidden"/>
+                                                                            <input name="p_id_balcao_fk" value="{id_balcao}" type="hidden"/>
+                                                                            <input name="p_id_balcao_fk_desc" value="{id_balcao_desc}" type="hidden"/>
                                                                             <xsl:if test="organica">
                                                                                 <td align="left" data-row="{position()}" data-title="{../../label/organica}" class="link" item-name="organica">
                                                                                     <xsl:choose>
                                                                                         <xsl:when test="organica != ''">
-                                                                                            <a href="{organica}" class="link bClick btn btn-link " target-fields="" target="_self" name="organica">
+                                                                                            <a href="{organica}" class="link bClick btn btn-link [object Object]" target-fields="" target="_self" name="organica">
                                                                                                 <i class="fa fa-link"/>
                                                                                                 <span>
                                                                                                     <xsl:value-of select="organica_desc"/>
@@ -213,7 +215,7 @@
                                                                     </div>
                                                                 </xsl:if>
                                                                 <xsl:if test="rows/content/form_1/fields/confirmacao_automatica">
-                                                                    <div class="col-sm-3  gen-fields-holder" item-name="confirmacao_automatica" item-type="radiolist" required="required">
+                                                                    <div class="col-sm-4  gen-fields-holder" item-name="confirmacao_automatica" item-type="radiolist" required="required">
                                                                         <div class="form-group radiolist clear" required="required">
                                                                             <label>
                                                                                 <span>
@@ -248,42 +250,38 @@
                                                                         </span>
                                                                     </div>
                                                                 </xsl:if>
-                                                                <xsl:if test="rows/content/form_1/fields/inicio">
-                                                                    <div class="col-sm-3 form-group  gen-fields-holder" item-name="inicio" item-type="select" required="required">
-                                                                        <label for="{rows/content/form_1/fields/inicio/@name}">
-                                                                            <xsl:value-of select="rows/content/form_1/fields/inicio/label"/>
+                                                                <xsl:if test="rows/content/form_1/fields/hora_inicio">
+                                                                    <div class="form-group col-sm-4  gen-fields-holder" item-name="hora_inicio" item-type="date" required="required">
+                                                                        <label for="{rows/content/form_1/fields/hora_inicio/@name}">
+                                                                            <span>
+                                                                                <xsl:value-of select="rows/content/form_1/fields/hora_inicio/label"/>
+                                                                            </span>
                                                                         </label>
-                                                                        <select class="form-control select2 " id="form_1_inicio" name="{rows/content/form_1/fields/inicio/@name}" required="required">
-                                                                            <xsl:for-each select="rows/content/form_1/fields/inicio/list/option">
-                                                                                <option value="{value}" label="{text}">
-                                                                                    <xsl:if test="@selected='true'">
-                                                                                        <xsl:attribute name="selected">selected</xsl:attribute>
-                                                                                    </xsl:if>
-                                                                                    <span>
-                                                                                        <xsl:value-of select="text"/>
-                                                                                    </span>
-                                                                                </option>
-                                                                            </xsl:for-each>
-                                                                        </select>
+                                                                        <div class="input-group">
+                                                                            <input type="text" value="{rows/content/form_1/fields/hora_inicio/value}" class="form-control gen-date " id="form_1-hora_inicio" name="{rows/content/form_1/fields/hora_inicio/@name}" required="required" format="IGRP_timePicker" maxlength="30"/>
+                                                                            <span class="input-group-btn gen-date-icon">
+                                                                                <span class="btn btn-default">
+                                                                                    <i class="fa fa-calendar"/>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </xsl:if>
-                                                                <xsl:if test="rows/content/form_1/fields/fim">
-                                                                    <div class="col-sm-3 form-group  gen-fields-holder" item-name="fim" item-type="select" required="required">
-                                                                        <label for="{rows/content/form_1/fields/fim/@name}">
-                                                                            <xsl:value-of select="rows/content/form_1/fields/fim/label"/>
+                                                                <xsl:if test="rows/content/form_1/fields/hora_fim">
+                                                                    <div class="form-group col-sm-4  gen-fields-holder" item-name="hora_fim" item-type="date" required="required">
+                                                                        <label for="{rows/content/form_1/fields/hora_fim/@name}">
+                                                                            <span>
+                                                                                <xsl:value-of select="rows/content/form_1/fields/hora_fim/label"/>
+                                                                            </span>
                                                                         </label>
-                                                                        <select class="form-control select2 " id="form_1_fim" name="{rows/content/form_1/fields/fim/@name}" required="required">
-                                                                            <xsl:for-each select="rows/content/form_1/fields/fim/list/option">
-                                                                                <option value="{value}" label="{text}">
-                                                                                    <xsl:if test="@selected='true'">
-                                                                                        <xsl:attribute name="selected">selected</xsl:attribute>
-                                                                                    </xsl:if>
-                                                                                    <span>
-                                                                                        <xsl:value-of select="text"/>
-                                                                                    </span>
-                                                                                </option>
-                                                                            </xsl:for-each>
-                                                                        </select>
+                                                                        <div class="input-group">
+                                                                            <input type="text" value="{rows/content/form_1/fields/hora_fim/value}" class="form-control gen-date " id="form_1-hora_fim" name="{rows/content/form_1/fields/hora_fim/@name}" required="required" format="IGRP_timePicker" maxlength="30"/>
+                                                                            <span class="input-group-btn gen-date-icon">
+                                                                                <span class="btn btn-default">
+                                                                                    <i class="fa fa-calendar"/>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </xsl:if>
                                                             </div>
@@ -322,10 +320,10 @@
                                                                     <xsl:for-each select="rows/content/table_2/table/value/row[not(@total='yes')]">
                                                                         <tr>
                                                                             <xsl:apply-templates mode="context-param" select="context-menu"/>
-                                                                            <input type="hidden" name="p_id_serv_balcao_fk" value="{id_serv_balcao}"/>
-                                                                            <input type="hidden" name="p_id_serv_balcao_fk_desc" value="{id_serv_balcao_desc}"/>
-                                                                            <input type="hidden" name="p_id_servico_fk" value="{id_servico}"/>
-                                                                            <input type="hidden" name="p_id_servico_fk_desc" value="{id_servico_desc}"/>
+                                                                            <input name="p_id_serv_balcao_fk" value="{id_serv_balcao}" type="hidden"/>
+                                                                            <input name="p_id_serv_balcao_fk_desc" value="{id_serv_balcao_desc}" type="hidden"/>
+                                                                            <input name="p_id_servico_fk" value="{id_servico}" type="hidden"/>
+                                                                            <input name="p_id_servico_fk_desc" value="{id_servico_desc}" type="hidden"/>
                                                                             <xsl:if test="servicos">
                                                                                 <td align="left" data-row="{position()}" data-title="{../../fields/servicos/label}" class="text" item-name="servicos">
                                                                                     <span class="">
@@ -348,7 +346,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" id="row-6a183acd">
+                                    <div class="row" id="row-6dd0aa7f">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner"/></div>
                                     </div>
@@ -367,6 +365,9 @@
                 <!-- SELECT JS INCLUDES -->
                 <script type="text/javascript" src="{$path}/plugins/select2/select2.full.min.js"/>
                 <script type="text/javascript" src="{$path}/plugins/select2/select2.init.js"/>
+                <!-- DATE JS INCLUDES -->
+                <script type="text/javascript" src="{$path}/plugins/datetimepicker/js/datetimepicker.js"/>
+                <script type="text/javascript" src="{$path}/plugins/datetimepicker/js/dtp.init.js"/>
                 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCn_ZYYXFtUTGjiyhf3Y_TxWl52sk2OS7w"/>
                 <script type="text/javascript" src="{$path}/app/SA/js/googleMaps.js"/>
                 <!-- RULES -->
@@ -376,10 +377,10 @@ $.IGRP.rules.set({"p_entidade":[{"name":"remote list","events":"change","isTable
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503578416133"/>
-    <xsl:include href="../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503578416133"/>
-    <xsl:include href="../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503578416133"/>
-    <xsl:include href="../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503578416133"/>
-    <xsl:include href="../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503578416133"/>
-    <xsl:include href="../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503578416133"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503580543977"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503580543978"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503580543978"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503580543978"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503580543978"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503580543978"/>
 </xsl:stylesheet>

@@ -23,10 +23,10 @@ public class PontoAtendimento extends Model{
 	private String plaintext_1;
 	@RParam(rParamName = "p_horario_de_atendimento")
 	private String horario_de_atendimento;
-	@RParam(rParamName = "p_inicio")
-	private String inicio;
-	@RParam(rParamName = "p_fim")
-	private String fim;
+	@RParam(rParamName = "p_hora_inicio")
+	private String hora_inicio;
+	@RParam(rParamName = "p_hora_fim")
+	private String hora_fim;
 	@RParam(rParamName = "p_id")
 	private String p_id;
 	@RParam(rParamName = "p_id_organica")
@@ -119,18 +119,18 @@ public class PontoAtendimento extends Model{
 		return this.horario_de_atendimento;
 	}
 	
-	public void setInicio(String inicio){
-		this.inicio = inicio;
+	public void setHora_inicio(String hora_inicio){
+		this.hora_inicio = hora_inicio;
 	}
-	public String getInicio(){
-		return this.inicio;
+	public String getHora_inicio(){
+		return this.hora_inicio;
 	}
 	
-	public void setFim(String fim){
-		this.fim = fim;
+	public void setHora_fim(String hora_fim){
+		this.hora_fim = hora_fim;
 	}
-	public String getFim(){
-		return this.fim;
+	public String getHora_fim(){
+		return this.hora_fim;
 	}
 	
 	public void setP_id(String p_id){
