@@ -3,18 +3,17 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.listamedico;
-import nosi.core.webapp.Controller;
-
-import java.io.IOException;
-
-import nosi.core.webapp.Response;
-
 /*---- Import your packages here... ----*/
+
+import nosi.core.webapp.Controller;
+import java.io.IOException;
+import nosi.core.webapp.Response;
 import java.util.ArrayList;
 import java.util.Collection;
 import nosi.webapps.marcacao_consulta.dao.Especialidade;
 import nosi.webapps.marcacao_consulta.dao.Medico;
 import nosi.core.webapp.Igrp;
+
 /*---- End ----*/
 
 public class ListaMedicoController extends Controller {		

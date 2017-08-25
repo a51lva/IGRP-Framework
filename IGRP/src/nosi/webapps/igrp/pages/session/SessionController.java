@@ -3,6 +3,7 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.session;
+/*---- Import your packages here... ----*/
 
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
@@ -17,6 +18,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+/*---- End ----*/
 public class SessionController extends Controller {		
 
 	public Response actionIndex(@RParam(rParamName = "dad") String dad) throws IOException, IllegalArgumentException, IllegalAccessException, ParseException{

@@ -3,6 +3,8 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.agenda;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.FlashMessage;
 import nosi.core.webapp.Igrp;
@@ -29,7 +31,7 @@ import nosi.webapps.agenda.dao.Servicos;
 import nosi.webapps.agenda.helper.RestRequestHelper;
 import nosi.webapps.agenda.pages.agenda.Agenda.Separatorlist_1;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class AgendaController extends Controller {		
 

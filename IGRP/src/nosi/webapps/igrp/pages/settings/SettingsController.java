@@ -3,6 +3,7 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.settings;
+/*---- Import your packages here... ----*/
 
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.FlashMessage;
@@ -17,6 +18,7 @@ import nosi.webapps.igrp.dao.Organization;
 import nosi.webapps.igrp.dao.ProfileType;
 import nosi.webapps.igrp.dao.User;
 
+/*---- End ----*/
 public class SettingsController extends Controller {		
 
 public Response actionIndex() throws IOException, IllegalArgumentException, IllegalAccessException{

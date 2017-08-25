@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xdb="http://xmlns.oracle.com/xdb" >
-
-    <xsl:output method="text" encoding="UTF-8" indent="no" />
-    <xsl:preserve-space elements="*"/>
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <!-- Join all templates to create controller -->
     <xsl:template name="create-controller">
@@ -34,8 +30,8 @@
 		<xsl:value-of select="$newline"/>
      	<xsl:value-of select="$begin_reserve_code_controller_import"></xsl:value-of>		
 		<xsl:choose>
-     		<xsl:when test="$url !=''">
-				<xsl:value-of select="$your_code"/>	
+     		<xsl:when test="$your_code !=''">
+				<xsl:value-of select="$your_code"/>		
      		</xsl:when>
      		<xsl:otherwise>
      			<xsl:value-of select="$newline"/>

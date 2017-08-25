@@ -3,18 +3,19 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.consultapendente;
+
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import nosi.core.webapp.Response;
 import nosi.core.webapp.helpers.DateHelper;
 import nosi.webapps.marcacao_consulta.dao.Consulta;
 import nosi.webapps.marcacao_consulta.dao.Utente;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class ConsultaPendenteController extends Controller {		
 

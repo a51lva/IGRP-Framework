@@ -3,8 +3,9 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.config_balcao;
-import java.io.IOException;
 /*---- Import your packages here... ----*/
+
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import nosi.core.webapp.RParam;
 import nosi.core.webapp.Response;
 import nosi.webapps.agenda.dao.Balcao;
 import nosi.webapps.agenda.dao.Entidade;
+
 /*---- End ----*/
 
 public class CONFIG_BALCAOController extends Controller {		

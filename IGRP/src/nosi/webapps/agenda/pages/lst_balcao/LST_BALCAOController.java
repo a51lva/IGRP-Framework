@@ -3,15 +3,17 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.lst_balcao;
+/*---- Import your packages here... ----*/
+
 import nosi.core.config.Config;
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 import nosi.core.webapp.Response;
-/*---- Import your packages here... ----*/
 import java.util.ArrayList;
 import java.util.List;
 import nosi.webapps.agenda.dao.Balcao;
 import nosi.core.webapp.Igrp;
+
 /*---- End ----*/
 
 public class LST_BALCAOController extends Controller {		

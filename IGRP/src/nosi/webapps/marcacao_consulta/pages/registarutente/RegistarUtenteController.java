@@ -3,13 +3,15 @@
 /*Create Controller*/
 
 package nosi.webapps.marcacao_consulta.pages.registarutente;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 import nosi.core.webapp.Response;
-/*---- Import your packages here... ----*/
 import nosi.core.webapp.Igrp;
 import nosi.webapps.marcacao_consulta.dao.Utente;
 import java.util.HashMap;
+
 /*---- End ----*/
 
 public class RegistarUtenteController extends Controller {		

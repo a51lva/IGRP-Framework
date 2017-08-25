@@ -3,11 +3,11 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.lookuplistpage;
+
+/*---- Import your packages here... ----*/
 import nosi.core.webapp.Controller;
 import java.io.IOException;
 
-
-/*---- Import your packages here... ----*/
 import nosi.core.webapp.Igrp;
 import nosi.core.webapp.Response;
 import nosi.webapps.igrp.dao.Action;

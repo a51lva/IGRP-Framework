@@ -8,6 +8,8 @@
 /*Create Controller*/
 
 package nosi.webapps.igrp.pages.page;
+/*---- Import your packages here... ----*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.json.JSONArray;
@@ -34,6 +37,7 @@ import nosi.webapps.igrp.dao.Action;
 import nosi.webapps.igrp.dao.Application;
 import nosi.webapps.igrp.dao.Transaction;
 
+/*---- End ----*/
 public class PageController extends Controller {		
 
 	public PrintWriter actionListDomains() throws IOException{
@@ -407,6 +411,7 @@ public class PageController extends Controller {
 		Action ac = new Action().findOne(Integer.parseInt(p_id));	
 		if(ac!=null){			
 			String filename = Config.getResolvePathXsl(ac.getApplication().getDad(), ac.getPage(), ac.getVersion())+"/"+ac.getPage()+".xml";
+			System.out.println(filename);
 			ServletContext context = Igrp.getInstance().getServlet().getServletContext();
 			InputStream inputStrem = context.getResourceAsStream(filename);
 	        if (inputStrem != null) {

@@ -3,19 +3,19 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.addservicos;
+/*---- Import your packages here... ----*/
+
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import nosi.core.webapp.Response;
 import nosi.webapps.agenda.dao.Entidade;
 import nosi.webapps.agenda.dao.Servicos;
 
-/*---- Import your packages here... ----*//*---- End ----*/
+/*---- End ----*/
 
 public class AddServicosController extends Controller {		
 

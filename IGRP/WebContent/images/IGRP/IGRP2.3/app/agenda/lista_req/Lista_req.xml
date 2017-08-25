@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="images/IGRP/IGRP2.3/app/agenda/lista_req/Lista_req.xsl" type="text/xsl"?>
+<rows>
+    <link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
+    <site>
+        <welcome_note>Ola</welcome_note>
+        <footer_note>2011 - Copyright NOSI</footer_note>
+        <user_name>red-igrp</user_name>
+        <button type="specific">
+            <title>Sair</title>
+            <app>RED</app>
+            <page />
+            <link>#</link>
+            <target>_self</target>
+            <img>exit.png</img>
+        </button>
+    </site>
+    <page>Lista_req</page>
+    <app>agenda</app>
+    <plsql>
+        <action>index</action>
+        <package_instance></package_instance>
+        <package_db>nosi.webapps.agenda.pages</package_db>
+        <package_html>Lista_req</package_html>
+        <table_name></table_name>
+        <with_replace>false</with_replace>
+        <with_label>false</with_label>
+        <with_biztalk>false</with_biztalk>
+        <dynamic_menu>false</dynamic_menu>
+        <copy_menu>false</copy_menu>
+        <package_copy_db />
+        <package_copy_html />
+        <preserve_url>http://localhost:8080/IGRP/webapps?r=igrp/page/preserveUrl&amp;p_id=</preserve_url>
+    </plsql>
+    <content>
+        <title>Listar os requisitos dos servicos</title>
+        <sectionheader_1 type="sectionheader" xml-type="form" gen-type="container" gen-group="">
+            <fields>
+                <sectionheader_1_text type="text" name="p_sectionheader_1_text" persist="true" maxlength="4000">
+                    <value>
+                        <![CDATA[Requisitos do Serviço]]>
+                    </value>
+                </sectionheader_1_text>
+            </fields>
+        </sectionheader_1>
+        <table_1 type="table" xml-type="table" gen-type="container" gen-group="true">
+            <fields>
+                <tipo_de_requisito name="p_tipo_de_requisito" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Tipo de requisito</label>
+                </tipo_de_requisito>
+                <requisito name="p_requisito" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Requisito</label>
+                </requisito>
+                <requisito_item name="p_requisito_item" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Requisito Item</label>
+                </requisito_item>
+            </fields>
+            <table>
+                <value>
+                    <row>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Adipiscing rem elit adipiscing</tipo_de_requisito>
+                        <requisito name="p_requisito">Magna deserunt mollit totam re</requisito>
+                        <requisito_item name="p_requisito_item">Magna rem perspiciatis dolorem</requisito_item>
+                    </row>
+                    <row>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Laudantium doloremque aliqua d</tipo_de_requisito>
+                        <requisito name="p_requisito">Natus ut sed stract doloremque</requisito>
+                        <requisito_item name="p_requisito_item">Aperiam iste ipsum adipiscing</requisito_item>
+                    </row>
+                    <row>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Deserunt accusantium adipiscin</tipo_de_requisito>
+                        <requisito name="p_requisito">Sed ut deserunt amet laudantiu</requisito>
+                        <requisito_item name="p_requisito_item">Officia labore voluptatem sit</requisito_item>
+                    </row>
+                    <row>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Sit anim lorem sit perspiciati</tipo_de_requisito>
+                        <requisito name="p_requisito">Natus unde voluptatem doloremq</requisito>
+                        <requisito_item name="p_requisito_item">Voluptatem aperiam anim sed is</requisito_item>
+                    </row>
+                    <row>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Natus adipiscing sit dolor sit</tipo_de_requisito>
+                        <requisito name="p_requisito">Omnis aliqua magna voluptatem</requisito>
+                        <requisito_item name="p_requisito_item">Sit ipsum anim labore stract</requisito_item>
+                    </row>
+                </value>
+            </table>
+        </table_1>
+    </content>
+</rows>
