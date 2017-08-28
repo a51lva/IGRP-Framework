@@ -126,7 +126,7 @@ public class PontoAtendimentoView extends View {
 		btn_eliminar = new IGRPButton("Alterar Estado","agenda","PontoAtendimento","eliminar","alert_submit","info|fa-refresh","","");
 		btn_eliminar.propertie.add("type","specific").add("code","").add("class","danger").add("rel","eliminar");
 		
-		btn_editar_serv = new IGRPButton("Editar","agenda","PontoAtendimento","eliminar","_self","info|fa-pencil","","");
+		btn_editar_serv = new IGRPButton("Editar","agenda","PontoAtendimento","editarServico","_blank","warning|fa-pencil","","");
 		btn_editar_serv.propertie.add("type","specific").add("code","").add("class","danger").add("rel","Editar");
 		
 	}

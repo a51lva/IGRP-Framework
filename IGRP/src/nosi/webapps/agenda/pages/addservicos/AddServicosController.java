@@ -24,6 +24,10 @@ public class AddServicosController extends Controller {
 		/*---- Insert your code here... ----*/						
 		AddServicos model = new AddServicos();
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		String id_ent = Igrp.getInstance().getRequest().getParameter("p_id_entidade");
+		if(id_ent!=null && !id_ent.equals("")){
+			model.setEntidade(Integer.parseInt(id_ent));
+		}
 		if(id != null) {
 			Servicos ser = Servicos.getServicoById(Integer.parseInt(id));
 			if(ser != null) {

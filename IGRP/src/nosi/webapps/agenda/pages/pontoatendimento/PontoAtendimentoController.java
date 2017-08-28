@@ -3,6 +3,7 @@
 /*Create Controller*/
 
 package nosi.webapps.agenda.pages.pontoatendimento;
+import nosi.core.config.Config;
 /*---- Import your packages here... ----*/
 import nosi.core.webapp.Controller;
 import nosi.core.webapp.Igrp;
@@ -159,8 +160,9 @@ public class PontoAtendimentoController extends Controller {
 
 	public Response actionNovo() throws IOException{
 		/*---- Insert your code here... ----*/	
-		String id = Igrp.getInstance().getRequest().getParameter("p_id_entidade");						
-		return this.redirect("agenda","AddServicos","index&p_id_entidade="+id);
+		String id_entidade = Igrp.getInstance().getRequest().getParameter("p_id_entidade");	
+		Config.target="_blank";
+		return this.redirect("agenda","AddServicos","index&p_id_entidade="+(id_entidade!=null?id_entidade:""));
 					/*---- End ----*/
 	}
 	
@@ -183,6 +185,8 @@ public class PontoAtendimentoController extends Controller {
 				b.setEstado("ATIVO");
 			if(Balcao.update(b)!=null){
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operação Realizada com sucesso!");
+			}else{
+				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
 			}
 		}
 		return this.redirect("agenda","PontoAtendimento","index");
@@ -191,16 +195,31 @@ public class PontoAtendimentoController extends Controller {
 	
 
 	public Response actionRequisitos() throws IOException{
-		/*---- Insert your code here... ----*/		
+		/*---- Insert your code here... ----*/
+		Config.target="_blank";		
 		String id = Igrp.getInstance().getRequest().getParameter("p_id_servico");					
-		return this.redirect("agenda","REQ_SERVICOS","index&p_id_servico="+id);
+		return this.redirect("agenda","Lista_req","index&p_id_servico="+id);
 					/*---- End ----*/
 	}
 	
 
 	public Response actionEliminar() throws IOException{
-		/*---- Insert your code here... ----*/						
-		return this.redirect("agenda","PontoAtendimento","index");
+		/*---- Insert your code here... ----*/		
+		String id = Igrp.getInstance().getRequest().getParameter("p_id_servico");
+		if(id!=null){
+			Servicos ser = Servicos.getServicoById(Integer.parseInt(id));
+			if(ser.getEstado().equals("ATIVO"))
+				ser.setEstado("INATIVO");
+			else
+				ser.setEstado("ATIVO");
+			if(Servicos.update(ser) != null) {
+				Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
+			}else {
+				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
+			}
+		}
+		String id_entidade = Igrp.getInstance().getRequest().getParameter("p_id_entidade");
+		return this.redirect("agenda","PontoAtendimento","index&p_id_entidade="+(id_entidade!=null?id_entidade:""));
 					/*---- End ----*/
 	}
 	
@@ -247,6 +266,13 @@ public class PontoAtendimentoController extends Controller {
 			}
 		}
 		return this.redirect("agenda","PontoAtendimento","indexp_id_entidade="+model.getEntidade());
+					/*---- End ----*/
+	}
+	public Response actionEditarServico() throws IOException{
+		/*---- Insert your code here... ----*/
+		Config.target="_blank";		
+		String id = Igrp.getInstance().getRequest().getParameter("p_id_servico");					
+		return this.redirect("agenda","AddServicos","index&p_id="+id);
 					/*---- End ----*/
 	}
 	/*---- End ----*/
