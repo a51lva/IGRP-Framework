@@ -13,7 +13,6 @@ public class PontoAtendimentoView extends View {
 	public Field page_title_text;
 	public Field entidade;
 	public Field ponto_atendimento;
-	public Field ponto_atendimento_desc;
 	public Field estado_list;
 	public Field p_id_balcao;
 	public Field ponto;
@@ -63,10 +62,7 @@ public class PontoAtendimentoView extends View {
 		ponto_atendimento = new LinkField(model,"ponto_atendimento");
 		ponto_atendimento.setLabel("Ponto Atendimento");
 		ponto_atendimento.propertie().add("name","p_ponto_atendimento").add("type","link").add("target","_self").add("target_fields","").add("action","index").add("page","PontoAtendimento").add("app","agenda").add("class","link").add("btnSize","[object Object]").add("iconColor","#333").add("iconClass","").add("img","").add("maxlength","100").add("align","left").add("lookup_parser","false").add("iskey","false").add("desc","false");
-		ponto_atendimento_desc = new LinkField(model,"ponto_atendimento_desc");
-		ponto_atendimento_desc.setLabel("Ponto Atendimento");
-		ponto_atendimento_desc.propertie().add("name","p_ponto_atendimento_desc").add("type","link").add("target","_self").add("target_fields","").add("action","index").add("page","PontoAtendimento").add("app","agenda").add("class","link").add("btnSize","[object Object]").add("iconColor","#333").add("iconClass","").add("img","").add("maxlength","100").add("align","left").add("lookup_parser","false").add("iskey","false").add("desc","true");
-		
+
 		estado_list = new TextField(model,"estado_list");
 		estado_list.setLabel("Estado");
 		estado_list.propertie().add("name","p_estado_list").add("type","text").add("maxlength","30").add("align","left").add("lookup_parser","false").add("iskey","false");
@@ -143,7 +139,6 @@ public class PontoAtendimentoView extends View {
 		form_2.addField(entidade);
 
 		table_1.addField(ponto_atendimento);
-		table_1.addField(ponto_atendimento_desc);
 		table_1.addField(estado_list);
 		table_1.addField(p_id_balcao);
 
