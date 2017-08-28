@@ -38,26 +38,22 @@ public class AgendamentosController extends Controller {
 			/*---- End ----*/
 	}
 
-
 	public Response actionAgendar() throws IOException{
 		/*---- Insert your code here... ----*/
 		return this.redirect("agenda","AddServicos","index");
 		/*---- End ----*/
 	}
 	
-
 	public Response actionConfirmar() throws IOException{
 		/*---- Insert your code here... ----*/
 		return this.redirect("","","");
 		/*---- End ----*/
 	}
 	
-
 	public Response actionCancelar() throws IOException{
 		/*---- Insert your code here... ----*/
 		return this.redirect("","","");
 		/*---- End ----*/
 	}
-	
 	/*---- Insert your actions here... ----*//*---- End ----*/
 }

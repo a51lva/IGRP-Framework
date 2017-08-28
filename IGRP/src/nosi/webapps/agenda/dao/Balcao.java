@@ -164,7 +164,7 @@ public class Balcao {
 	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult,Balcao.class);
+		        aux =  RestRequestHelper.convertJsonToListDao(jsonResult,  new TypeToken<List<Balcao>>(){}.getType());
 	        }
 	        else {
 	       	 	System.err.println("Error");

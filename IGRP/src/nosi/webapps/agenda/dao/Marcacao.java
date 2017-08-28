@@ -27,9 +27,7 @@ import nosi.webapps.agenda.helper.RestRequestHelper;
 public class Marcacao {
 	@Expose(serialize = false, deserialize = true)
 	private Integer id;
-	private int id_entidade;
-	private int id_servico;
-	private int id_balcao;
+	private int id_agenda;
 	private String nome;
 	private String data_marcacao;
 	private String hr_marcacao;
@@ -45,30 +43,19 @@ public class Marcacao {
 	private String localizacao;
 	private String nome_servico;
 	
+	public int getId_agenda() {
+		return id_agenda;
+	}
+	public void setId_agenda(int id_agenda) {
+		this.id_agenda = id_agenda;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getId_entidade() {
-		return id_entidade;
-	}
-	public void setId_entidade(int id_entidade) {
-		this.id_entidade = id_entidade;
-	}
-	public int getId_servico() {
-		return id_servico;
-	}
-	public void setId_servico(int id_servico) {
-		this.id_servico = id_servico;
-	}
-	public int getId_balcao() {
-		return id_balcao;
-	}
-	public void setId_balcao(int id_balcao) {
-		this.id_balcao = id_balcao;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
