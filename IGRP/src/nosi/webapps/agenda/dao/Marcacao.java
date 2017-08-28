@@ -44,6 +44,7 @@ public class Marcacao {
 	
 	private String localizacao;
 	private String nome_servico;
+	private String nome_balcao;
 	
 	public Integer getId() {
 		return id;
@@ -148,6 +149,13 @@ public class Marcacao {
 	public void setNome_servico(String nome_servico) {
 		this.nome_servico = nome_servico;
 	}
+	
+	public String getNome_balcao() {
+		return nome_balcao;
+	}
+	public void setNome_balcao(String nome_balcao) {
+		this.nome_balcao = nome_balcao;
+	}
 	public static String convertDate(String date, String formatIn, String formatOut) {
 		String myDateString = null;
 		try {
@@ -167,7 +175,7 @@ public class Marcacao {
 		try {
 			ClientConfig config = new DefaultClientConfig();			 
 	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-	        String url = RestRequestHelper.baseUrl + "/marcacoes_filter";	        
+	        String url = RestRequestHelper.baseUrl_ + "/marcacoes_filter";	        
 	        WebResource resource = client.resource(url);
 	        JSONObject jsonObject = new JSONObject();
 	        jsonObject.put("_postmarcacoes_filter",new JSONObject().put("filterQuery", filter));
@@ -192,10 +200,11 @@ public class Marcacao {
 	public static int update(Marcacao m){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/marcacao";	        
-        WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.createJsonPostData("_putmarcacao_id", m);
-		ClientResponse response = resource.path(String.valueOf(m.getId())).accept(MediaType.APPLICATION_JSON).type("application/json")
+        String url = RestRequestHelper.baseUrl + "/marcacao("+m.getId()+")";	        
+        WebResource resource = client.resource(url);
+        m.setId(null);
+		String content = RestRequestHelper.convertDaoToJson(m);
+		ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
         		.put(ClientResponse.class, content);			
  	    client.destroy();
 	    return response.getStatus();
@@ -204,20 +213,14 @@ public class Marcacao {
 	public static Marcacao getMarcacao(int id){
 		Marcacao aux = null;
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/marcacao";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.path(String.valueOf(id)).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
-	   	 	
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_marcacao("+id+")";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (Marcacao) RestRequestHelper.convertJsonToDao(jsonResult, "Marcacoes", "Marcacao", new TypeToken<List<Marcacao>>(){}.getType());
+		        aux = (Marcacao) RestRequestHelper.convertJsonToDao(jsonResult, Marcacao.class);
 	        }
 	        else {
 	       	 System.out.println("Error");

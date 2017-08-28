@@ -90,7 +90,7 @@ public class ServBalcao {
 	public static int updateStatus(String estado,int id_balcao){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	 
-        String url = "https://0ext.com/services/AgendaService/status_serv_balcoes";
+        String url = RestRequestHelper.baseUrl_ +"/status_serv_balcoes";
         WebResource resource = client.resource(url);	        
 		String content = "{\"_poststatus_serv_balcoes\":{\"estado\":\""+estado+"\",\"id_balcao\":"+id_balcao+"}}";
 		ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
