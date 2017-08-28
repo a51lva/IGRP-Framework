@@ -13,7 +13,9 @@ public class PontoAtendimentoView extends View {
 	public Field page_title_text;
 	public Field entidade;
 	public Field ponto_atendimento;
+	public Field ponto_atendimento_desc;
 	public Field estado_list;
+	public Field p_id_balcao;
 	public Field ponto;
 	public Field n_de_servicos;
 	public Field localizacao;
@@ -42,6 +44,7 @@ public class PontoAtendimentoView extends View {
 	public IGRPButton btn_remover;
 	public IGRPButton btn_requisitos;
 	public IGRPButton btn_eliminar;
+	public IGRPButton btn_editar_serv;
 	public PontoAtendimentoView(PontoAtendimento model){
 		this.setPageTitle("Ponto de Atendimento");
 			
@@ -59,10 +62,17 @@ public class PontoAtendimentoView extends View {
 		entidade.propertie().add("name","p_entidade").add("type","select").add("multiple","false").add("domain","").add("maxlength","30").add("required","true").add("change","true").add("disabled","false").add("right","false");
 		ponto_atendimento = new LinkField(model,"ponto_atendimento");
 		ponto_atendimento.setLabel("Ponto Atendimento");
-		ponto_atendimento.propertie().add("name","p_ponto_atendimento").add("type","link").add("target","_self").add("target_fields","").add("action","index").add("page","PontoAtendimento").add("app","agenda").add("class","link").add("btnSize","").add("iconColor","#333").add("iconClass","").add("img","fa-link").add("maxlength","30").add("align","left").add("lookup_parser","false").add("iskey","false").add("desc","true");
+		ponto_atendimento.propertie().add("name","p_ponto_atendimento").add("type","link").add("target","_self").add("target_fields","").add("action","index").add("page","PontoAtendimento").add("app","agenda").add("class","link").add("btnSize","[object Object]").add("iconColor","#333").add("iconClass","").add("img","").add("maxlength","100").add("align","left").add("lookup_parser","false").add("iskey","false").add("desc","false");
+		ponto_atendimento_desc = new LinkField(model,"ponto_atendimento_desc");
+		ponto_atendimento_desc.setLabel("Ponto Atendimento");
+		ponto_atendimento_desc.propertie().add("name","p_ponto_atendimento_desc").add("type","link").add("target","_self").add("target_fields","").add("action","index").add("page","PontoAtendimento").add("app","agenda").add("class","link").add("btnSize","[object Object]").add("iconColor","#333").add("iconClass","").add("img","").add("maxlength","100").add("align","left").add("lookup_parser","false").add("iskey","false").add("desc","true");
+		
 		estado_list = new TextField(model,"estado_list");
 		estado_list.setLabel("Estado");
 		estado_list.propertie().add("name","p_estado_list").add("type","text").add("maxlength","30").add("align","left").add("lookup_parser","false").add("iskey","false");
+		p_id_balcao = new HiddenField(model,"p_id_balcao");
+		p_id_balcao.setLabel("");
+		p_id_balcao.propertie().add("name","p_id_balcao").add("type","hidden").add("maxlength","30").add("tag","id_balcao");
 		ponto = new TextField(model,"ponto");
 		ponto.setLabel("Ponto de Atendimento");
 		ponto.propertie().add("name","p_ponto").add("type","text").add("maxlength","300").add("required","true").add("change","false").add("readonly","false").add("disabled","false").add("placeholder","").add("right","false");
@@ -109,18 +119,20 @@ public class PontoAtendimentoView extends View {
 		toolsbar_1 = new IGRPToolsBar("toolsbar_1");
 		btn_gravar = new IGRPButton("Gravar","agenda","PontoAtendimento","gravar","submit","success|fa-save","","");
 		btn_gravar.propertie.add("type","specific").add("code","").add("rel","gravar");
-		btn_novo = new IGRPButton("Novo","agenda","PontoAtendimento","novo","_blank","success|fa-plus-square","","");
+		btn_novo = new IGRPButton("Novo Serviço","agenda","PontoAtendimento","novo","_blank","success|fa-plus-square","","");
 		btn_novo.propertie.add("type","specific").add("code","").add("rel","novo");
 		btn_configurar = new IGRPButton("Configurar","agenda","PontoAtendimento","configurar","_blank","info|fa-certificate","","");
 		btn_configurar.propertie.add("type","specific").add("code","").add("rel","configurar");
-		btn_remover = new IGRPButton("Remover","agenda","PontoAtendimento","remover","alert_submit","danger|fa-close","","");
+		btn_remover = new IGRPButton("Alterar Estado","agenda","PontoAtendimento","remover","alert_submit","info|fa-refresh","","");
 		btn_remover.propertie.add("type","specific").add("code","").add("class","danger").add("rel","remover");
 		btn_requisitos = new IGRPButton("Requisitos","agenda","PontoAtendimento","requisitos","_blank","warning|fa-info","","");
 		btn_requisitos.propertie.add("type","specific").add("code","").add("class","warning").add("rel","requisitos");
-		btn_eliminar = new IGRPButton("Eliminar","agenda","PontoAtendimento","eliminar","alert_submit","danger|fa-close","","");
+		btn_eliminar = new IGRPButton("Alterar Estado","agenda","PontoAtendimento","eliminar","alert_submit","info|fa-refresh","","");
 		btn_eliminar.propertie.add("type","specific").add("code","").add("class","danger").add("rel","eliminar");
 		
-	
+		btn_editar_serv = new IGRPButton("Editar","agenda","PontoAtendimento","eliminar","_self","info|fa-pencil","","");
+		btn_editar_serv.propertie.add("type","specific").add("code","").add("class","danger").add("rel","Editar");
+		
 	}
 		
 	@Override
@@ -131,7 +143,9 @@ public class PontoAtendimentoView extends View {
 		form_2.addField(entidade);
 
 		table_1.addField(ponto_atendimento);
+		table_1.addField(ponto_atendimento_desc);
 		table_1.addField(estado_list);
+		table_1.addField(p_id_balcao);
 
 
 		form_1.addField(ponto);
@@ -153,10 +167,11 @@ public class PontoAtendimentoView extends View {
 
 		toolsbar_2.addButton(btn_gravar);
 		toolsbar_1.addButton(btn_novo);
-		toolsbar_1.addButton(btn_configurar);
+//		toolsbar_1.addButton(btn_configurar);
 		table_1.addButton(btn_remover);
 		table_2.addButton(btn_requisitos);
 		table_2.addButton(btn_eliminar);
+		table_2.addButton(btn_editar_serv);
 		this.addToPage(page_title);
 		this.addToPage(form_2);
 		this.addToPage(table_1);

@@ -72,12 +72,13 @@
         </form_2>
         <table_1 type="table" xml-type="table" gen-type="container" gen-group="true">
             <fields>
-                <ponto_atendimento name="p_ponto_atendimento" type="link" target="_self" target_fields="" action="index" page="PontoAtendimento" app="agenda" class="link" btnSize="" iconColor="#333" iconClass="" img="fa-link" maxlength="30" align="left" lookup_parser="false" iskey="false" desc="true">
+                <ponto_atendimento name="p_ponto_atendimento" type="link" target="_self" target_fields="" action="index" page="PontoAtendimento" app="agenda" class="link" btnSize="[object Object]" iconColor="#333" iconClass="" img="fa-link" maxlength="30" align="left" lookup_parser="false" iskey="false" desc="true">
                     <label>Ponto Atendimento</label>
                 </ponto_atendimento>
                 <estado_list name="p_estado_list" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
                     <label>Estado</label>
                 </estado_list>
+                <id_balcao name="p_id_balcao" type="hidden" maxlength="30" tag="id_balcao"/>
             </fields>
             <table>
                 <value>
@@ -88,7 +89,8 @@
                         </context-menu>
                         <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
                         <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
-                        <estado_list name="p_estado_list">Sit ipsum sit aliqua elit</estado_list>
+                        <estado_list name="p_estado_list">Adipiscing aliqua anim aperiam</estado_list>
+                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
                     </row>
                     <row>
                         <context-menu>
@@ -97,7 +99,8 @@
                         </context-menu>
                         <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
                         <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
-                        <estado_list name="p_estado_list">Labore laudantium sed officia</estado_list>
+                        <estado_list name="p_estado_list">Sed stract consectetur sed con</estado_list>
+                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
                     </row>
                     <row>
                         <context-menu>
@@ -106,7 +109,8 @@
                         </context-menu>
                         <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
                         <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
-                        <estado_list name="p_estado_list">Accusantium dolor anim ut sit</estado_list>
+                        <estado_list name="p_estado_list">Officia stract mollit iste ips</estado_list>
+                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
                     </row>
                     <row>
                         <context-menu>
@@ -115,7 +119,8 @@
                         </context-menu>
                         <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
                         <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
-                        <estado_list name="p_estado_list">Unde mollit accusantium sit lo</estado_list>
+                        <estado_list name="p_estado_list">Accusantium aperiam rem perspi</estado_list>
+                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
                     </row>
                     <row>
                         <context-menu>
@@ -124,7 +129,8 @@
                         </context-menu>
                         <ponto_atendimento name="p_ponto_atendimento" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/pontoatendimento/PontoAtendimento.xsl</ponto_atendimento>
                         <ponto_atendimento_desc name="p_ponto_atendimento_desc">Ponto Atendimento</ponto_atendimento_desc>
-                        <estado_list name="p_estado_list">Sed voluptatem totam officia s</estado_list>
+                        <estado_list name="p_estado_list">Ipsum laudantium unde mollit d</estado_list>
+                        <id_balcao name="p_id_balcao" tag="id_balcao">1</id_balcao>
                     </row>
                 </value>
                 <context-menu>
@@ -155,7 +161,7 @@
             <fields>
                 <ponto name="p_ponto" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Ponto de Atendimento</label>
-                    <value>Natus perspiciatis magna elit voluptatem</value>
+                    <value>Doloremque iste totam omnis natus</value>
                 </ponto>
                 <n_de_servicos name="p_n_de_servicos" type="select" multiple="false" domain="" maxlength="2" required="true" change="false" disabled="false" right="false">
                     <label>Nº de Serviços</label>
@@ -181,22 +187,30 @@
                 </n_de_servicos>
                 <localizacao name="p_localizacao" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Localização</label>
-                    <value>Mollit doloremque labore perspiciatis unde</value>
+                    <value>Totam perspiciatis deserunt iste totam</value>
                 </localizacao>
                 <fuso_horario name="p_fuso_horario" type="text" maxlength="300" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Fuso Horário</label>
-                    <value>Ut labore natus omnis anim</value>
+                    <value>Unde deserunt totam sed sit</value>
                 </fuso_horario>
                 <confirmacao_automatica name="p_confirmacao_automatica" type="radiolist" domain="YES_NO" maxlength="30" required="true" change="false" readonly="false" disabled="false" child_size="12" right="false">
                     <label>Confirmação Automática</label>
                     <list>
                         <option>
-                            <text>Sim</text>
-                            <value>Y</value>
+                            <text>Option 1</text>
+                            <value>1</value>
                         </option>
                         <option>
-                            <text>Nao</text>
-                            <value>N</value>
+                            <text>Option 2</text>
+                            <value>2</value>
+                        </option>
+                        <option>
+                            <text>Option 3</text>
+                            <value>3</value>
+                        </option>
+                        <option>
+                            <text>Option 4</text>
+                            <value>4</value>
                         </option>
                     </list>
                 </confirmacao_automatica>
@@ -252,7 +266,7 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Sit lorem dolor anim ut</servicos>
+                        <servicos name="p_servicos">Lorem doloremque adipiscing to</servicos>
                         <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
                         <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
@@ -262,7 +276,7 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Stract iste officia natus ipsu</servicos>
+                        <servicos name="p_servicos">Accusantium stract dolor lorem</servicos>
                         <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
                         <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
@@ -272,7 +286,7 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Voluptatem labore iste totam r</servicos>
+                        <servicos name="p_servicos">Rem sit mollit rem ut</servicos>
                         <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
                         <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
@@ -282,7 +296,7 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Ut aperiam omnis sit officia</servicos>
+                        <servicos name="p_servicos">Unde sit accusantium doloremqu</servicos>
                         <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
                         <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>
@@ -292,7 +306,7 @@
                             <param>p1=linha1</param>
                             <param>p2=linha1</param>
                         </context-menu>
-                        <servicos name="p_servicos">Aliqua omnis mollit lorem dolo</servicos>
+                        <servicos name="p_servicos">Sit labore lorem officia totam</servicos>
                         <id_servico_check name="p_id_servico_check" check="true" desc="true">1</id_servico_check>
                         <id_servico_check_desc name="p_id_servico_check_desc">1</id_servico_check_desc>
                         <id_servico name="p_id_servico" tag="id_servico">1</id_servico>

@@ -46,20 +46,20 @@ public class LST_BALCAOController extends Controller {
 		LST_BALCAO model = new LST_BALCAO();
 		if(Igrp.getInstance().getRequest().getMethod().toUpperCase().equals("POST")){
 			model.load();
-			List<Balcao> balcoes = Balcao.getAllBalcao(model.getEntidade());
-			List<LST_BALCAO.Table_1> data = new ArrayList<>();
-			for(Balcao b:balcoes){
-				LST_BALCAO.Table_1 t = new LST_BALCAO.Table_1();
-				t.setP_id(b.getId());
-				t.setBalcao(b.getLocalizacao());
-				if(b.getEstado().toUpperCase().equals("ATIVO")){
-					t.setCheckbox_1_check(b.getId());
-				}
-				t.setCheckbox_1(b.getId());
-				data.add(t);
-			}
+//			List<Balcao> balcoes = Balcao.getAllBalcao(model.getEntidade());
+//			List<LST_BALCAO.Table_1> data = new ArrayList<>();
+//			for(Balcao b:balcoes){
+//				LST_BALCAO.Table_1 t = new LST_BALCAO.Table_1();
+//				t.setP_id(b.getId());
+//				t.setBalcao(b.getLocalizacao());
+//				if(b.getEstado().toUpperCase().equals("ATIVO")){
+//					t.setCheckbox_1_check(b.getId());
+//				}
+//				t.setCheckbox_1(b.getId());
+//				data.add(t);
+//			}
 			LST_BALCAOView view = new LST_BALCAOView(model);
-			view.table_1.addData(data);
+//			view.table_1.addData(data);
 			return this.renderView(view);
 		}else{
 			return this.redirect("agenda","LST_BALCAO","index");
