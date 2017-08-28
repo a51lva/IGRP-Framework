@@ -89,8 +89,8 @@ public class LST_SERVController extends Controller {
 			String id = Igrp.getInstance().getRequest().getParameter("p_id");
 			Servicos ser = Servicos.getServicoById(Integer.parseInt(id));
 			ser.setEstado("INATIVO");
-			int status = Servicos.update(ser);
-			if(status == 200 || status ==202) {
+			ser = Servicos.update(ser);
+			if(ser != null) {
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 			}else {
 				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
