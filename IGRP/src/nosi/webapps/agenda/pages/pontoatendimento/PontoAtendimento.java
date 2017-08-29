@@ -133,12 +133,20 @@ public class PontoAtendimento extends Model{
 
 	public static class Table_1{
 		private String ponto_atendimento;
+		private String ponto_atendimento_desc;
 		private String estado_list;
+		private String p_id_balcao;
 		public void setPonto_atendimento(String ponto_atendimento){
 			this.ponto_atendimento = ponto_atendimento;
 		}
 		public String getPonto_atendimento(){
 			return this.ponto_atendimento;
+		}
+		public void setPonto_atendimento_desc(String ponto_atendimento_desc){
+			this.ponto_atendimento_desc = ponto_atendimento_desc;
+		}
+		public String getPonto_atendimento_desc(){
+			return this.ponto_atendimento_desc;
 		}
 
 		public void setEstado_list(String estado_list){
@@ -146,6 +154,13 @@ public class PontoAtendimento extends Model{
 		}
 		public String getEstado_list(){
 			return this.estado_list;
+		}
+
+		public void setP_id_balcao(String p_id_balcao){
+			this.p_id_balcao = p_id_balcao;
+		}
+		public String getP_id_balcao(){
+			return this.p_id_balcao;
 		}
 
 	}

@@ -24,6 +24,10 @@ public class AddServicosController extends Controller {
 		/*---- Insert your code here... ----*/						
 		AddServicos model = new AddServicos();
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		String id_ent = Igrp.getInstance().getRequest().getParameter("p_id_entidade");
+		if(id_ent!=null && !id_ent.equals("")){
+			model.setEntidade(Integer.parseInt(id_ent));
+		}
 		if(id != null) {
 			Servicos ser = Servicos.getServicoById(Integer.parseInt(id));
 			if(ser != null) {
@@ -70,17 +74,19 @@ public class AddServicosController extends Controller {
 			ser_bd.setEstado(model.getEstado());
 			ser_bd.setAssunto(model.getAssunto());
 			String id = Igrp.getInstance().getRequest().getParameter("p_id");
+			System.out.println(id);
 			if(id != null && !id.equals("")) {
 				ser_bd.setId(Integer.parseInt(id));
+				System.out.println("Entrou");
 			}
-			int status = ser_bd.getId()!=null ?  Servicos.update(ser_bd) : Servicos.insert(ser_bd);
-			if(status == 200 || status == 202) {
+			ser_bd = ser_bd.getId()!=null ?  Servicos.update(ser_bd) : Servicos.insert(ser_bd);
+			if(ser_bd != null) {
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 			}else {
 				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
 			}
 		}
-		return this.redirect("agenda","AddServicos","index");
+		return this.redirect("agenda","LST_SERV","index");
 				/*---- End ----*/
 	}
 	

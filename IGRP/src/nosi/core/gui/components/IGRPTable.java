@@ -137,6 +137,14 @@ public class IGRPTable extends IGRPComponent{
 					}
 					this.xml.text(val);
 					this.xml.endElement();
+					this.xml.startElement(field.getTagName()+"_desc");
+					this.xml.writeAttribute("name", field.propertie().getProperty("name")+"_desc");
+					String val1 = IgrpHelper.getValue(obj, field.getName()+"_desc");
+					if(val1==null || val1.equals("")){
+						val1 = field.getValue().toString();
+					}
+					this.xml.text(val1);
+					this.xml.endElement();
 				}
 				this.xml.endElement();
 			}

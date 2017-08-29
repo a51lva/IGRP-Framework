@@ -28,8 +28,8 @@ public class AGENDA_PRESENCAController extends Controller {
 		String filter = " AND ag_t_marcacao.estado='ATIVO' ";	
 		if(Igrp.getInstance().getRequest().getMethod().toUpperCase().equals("POST")){
 			model.load();
-			filter += model.getEntidade()!=null && !model.getEntidade().equals("")? " AND ag_t_marcacao.id_entidade="+model.getEntidade():"";
-			filter += model.getBalcao()!=null && !model.getBalcao().equals("")? " AND ag_t_marcacao.id_balcao="+model.getBalcao():"";
+			filter += model.getEntidade()!=null && !model.getEntidade().equals("")? " AND ag_t_servicos.id_entidade="+model.getEntidade():"";
+			filter += model.getBalcao()!=null && !model.getBalcao().equals("")? " AND ag_t_serv_balcao.id_balcao="+model.getBalcao():"";
 			filter += model.getDate_de()!=null && !model.getDate_de().equals("")? " AND ag_t_marcacao.data_marcacao>='"+Marcacao.convertDate(model.getDate_de(), "dd-MM-yyyy", "yyyy-MM-dd")+"'":"";
 			filter += model.getData_ate()!=null && !model.getData_ate().equals("")? " AND ag_t_marcacao.data_marcacao<='"+Marcacao.convertDate(model.getData_ate(), "dd-MM-yyyy", "yyyy-MM-dd")+"'":"";
 		}
@@ -37,7 +37,7 @@ public class AGENDA_PRESENCAController extends Controller {
 		List<Marcacao> marcacoes = Marcacao.getAllMarcacao(filter);
 		for(Marcacao m:marcacoes){
 			AGENDA_PRESENCA.Table_1 t = new AGENDA_PRESENCA.Table_1();
-			t.setBalcao(m.getLocalizacao());
+			t.setBalcao(m.getNome_balcao());
 			t.setEstado(m.getEstado());
 			t.setNome(m.getNome());
 			t.setServico(m.getNome_servico());
@@ -73,9 +73,9 @@ public class AGENDA_PRESENCAController extends Controller {
 			boolean x = false;
 			for(String id:p_ids){
 				Marcacao m = Marcacao.getMarcacao(Integer.parseInt(id));
-				m.setEstado("Realizado");
+				m.setEstado("REALIZADO");
 				int s = Marcacao.update(m);
-				x = s==200 || s==202;
+				x = s==200 || s==204;
 			}
 			if(x){
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operação Realizada com sucesso");

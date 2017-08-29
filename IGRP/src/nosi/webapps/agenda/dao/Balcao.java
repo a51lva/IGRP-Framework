@@ -2,9 +2,7 @@ package nosi.webapps.agenda.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.ws.rs.core.MediaType;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
@@ -101,6 +99,7 @@ public class Balcao {
 				+ localizacao + ", hr_inicio=" + hr_inicio + ", hr_fim=" + hr_fim + ", nr_servicos=" + nr_servicos
 				+ ", confirmacao=" + confirmacao + ", estado=" + estado + ", nome_balcao=" + nome_balcao + "]";
 	}
+	
 	public static Balcao insert(Balcao b){
 		ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
@@ -113,46 +112,52 @@ public class Balcao {
        client.destroy();
        return response.getStatus()==201?RestRequestHelper.convertJsonToDao(jsonResult, Balcao.class):null;
 	}	
-
-	public static Balcao update(Balcao b){
-	    ClientConfig config = new DefaultClientConfig();			 
-        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes("+b.getId()+")";	        
-        WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.convertDaoToJson(b);
-		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
-        		.put(ClientResponse.class, content);		
-        String jsonResult = response.getEntity(String.class);
-       client.destroy();
-       return response.getStatus()==201?RestRequestHelper.convertJsonToDao(jsonResult, Balcao.class):null;
-	}
 	
-	public static List<Balcao> getAllBalcao(String nome_entidade){
-		if(nome_entidade==null || nome_entidade.equals("")){
-			return getAllBalcao();
-		}
-		List<Balcao> aux = null;
+	public static List<ServBalcao> getAllServicos(int id_balcao) {
+		
+		List<ServBalcao> aux = null;
+		
 		try {
-			ClientConfig config = new DefaultClientConfig();			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-	        String url = RestRequestHelper.baseUrl + "/balcoes_ent";	        
-	        WebResource resource = client.resource(url);	        
-	        ClientResponse response = resource.path(nome_entidade.trim()).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        String jsonResult = response.getEntity(String.class);
+			ClientConfig config = new DefaultClientConfig();
+			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
+	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes("+id_balcao+")/ag_t_serv_balcao?$filter=estado%20eq%20'ATIVO'";
+	        
+	        WebResource resource = client.resource(url);
+	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+	        
+	   	 	String jsonResult = response.getEntity(String.class);
+	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Balcao>) RestRequestHelper.convertJsonToDaoColl(jsonResult, "Balcoes", "Balcao", new TypeToken<List<Balcao>>(){}.getType());
+		        aux = (List<ServBalcao>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<ServBalcao>>(){}.getType());
 	        }
 	        else {
-	       	 System.err.println("Error:"+RestRequestHelper.convertToDefaultFault(jsonResult));
+	       	 System.out.println("Error");
 	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
 	        }
 	       client.destroy();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return aux != null ? aux : new ArrayList<Balcao>();
+		
+		return aux != null ? aux : new ArrayList<ServBalcao>();
 	}
-	
+
+	public static Balcao update(Balcao b){
+	    ClientConfig config = new DefaultClientConfig();			 
+        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	
+        int id = b.getId();
+        String url = RestRequestHelper.baseUrl + "/ag_t_balcoes("+id+")";	   
+        b.setId(null);
+        WebResource resource = client.resource(url);	        
+		String content = RestRequestHelper.convertDaoToJson(b);
+		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
+        		.put(ClientResponse.class, content);		
+       client.destroy();
+       return response.getStatus()==204?getBalcao(id):null;
+	}
 	
 	public static List<Balcao> getAllBalcao(){
 		List<Balcao> aux = null;
@@ -164,7 +169,7 @@ public class Balcao {
 	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
-		        aux =  RestRequestHelper.convertJsonToListDao(jsonResult,  new TypeToken<List<Balcao>>(){}.getType());
+		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult,new TypeToken<List<Balcao>>(){}.getType());
 	        }
 	        else {
 	       	 	System.err.println("Error");

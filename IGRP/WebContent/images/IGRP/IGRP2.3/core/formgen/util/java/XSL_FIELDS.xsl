@@ -275,7 +275,49 @@
 		    			<xsl:value-of select="'}'"/>
 	    			</xsl:if>
 	    		</xsl:when>
-	    		
+	    		<xsl:when test="$type='link'">
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public void set',$name_,'(String ',$name,'){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('this.',$name,' = ',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="concat('public String get',$name_,'(){')" />
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab2_"/>
+	    			<xsl:value-of select="concat('return this.',$name,';')"/>
+	    			<xsl:value-of select="$newline"/>
+	    			<xsl:value-of select="$tab_"/>
+	    			<xsl:value-of select="'}'"/>
+	    			
+	    			<xsl:if test="$type_content='table'">
+	    				<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab_"/>
+		    			<xsl:value-of select="concat('public void set',$name_,'_desc(String ',$name,'_check){')" />
+		    			<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab2_"/>
+		    			<xsl:value-of select="concat('this.',$name,'_desc = ',$name,'_desc;')"/>
+		    			<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab_"/>
+		    			<xsl:value-of select="'}'"/>
+	
+		    			<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab_"/>
+		    			<xsl:value-of select="concat('public String get',$name_,'_desc(){')" />
+		    			<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab2_"/>
+		    			<xsl:value-of select="concat('return this.',$name,'_desc;')"/>
+		    			<xsl:value-of select="$newline"/>
+		    			<xsl:value-of select="$tab_"/>
+		    			<xsl:value-of select="'}'"/>
+	    			</xsl:if>
+	    		</xsl:when>
 	    		<xsl:when test="$type='arraylist'">
 	    			<xsl:value-of select="$newline"/>
 	    			<xsl:value-of select="$tab_"/>

@@ -18,6 +18,8 @@ public class REQ_SERVICOSController extends Controller {
 		/*---- Insert your code here... ----*/		
 		REQ_SERVICOS model = new REQ_SERVICOS();
 		REQ_SERVICOSView view = new REQ_SERVICOSView(model);
+		
+		
 		return this.renderView(view);
 			/*---- End ----*/
 	}

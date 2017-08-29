@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" id="row-3005ce57">
+                                    <div class="row" id="row-426d7ee8">
                                         <div class="gen-column col-sm-4">
                                             <div class="gen-inner">
                                                 <xsl:if test="rows/content/page_title">
@@ -100,11 +100,13 @@
                                                                     <xsl:for-each select="rows/content/table_1/table/value/row[not(@total='yes')]">
                                                                         <tr>
                                                                             <xsl:apply-templates mode="context-param" select="context-menu"/>
+                                                                            <input name="p_id_balcao_fk" value="{id_balcao}" type="hidden"/>
+                                                                            <input name="p_id_balcao_fk_desc" value="{id_balcao_desc}" type="hidden"/>
                                                                             <xsl:if test="ponto_atendimento">
                                                                                 <td align="left" data-row="{position()}" data-title="{../../label/ponto_atendimento}" class="link" item-name="ponto_atendimento">
                                                                                     <xsl:choose>
                                                                                         <xsl:when test="ponto_atendimento != ''">
-                                                                                            <a href="{ponto_atendimento}" class="link bClick btn btn-link " target-fields="" target="_self" name="ponto_atendimento">
+                                                                                            <a href="{ponto_atendimento}" class="link bClick btn btn-link [object Object]" target-fields="" target="_self" name="ponto_atendimento">
                                                                                                 <i class="fa fa-link"/>
                                                                                                 <span>
                                                                                                     <xsl:value-of select="ponto_atendimento_desc"/>
@@ -375,10 +377,10 @@ $.IGRP.rules.set({"p_entidade":[{"name":"remote list","events":"change","isTable
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503681576024"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503681576024"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503681576024"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503681576024"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503681576024"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503681576024"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503787245403"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503787245403"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503787245403"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503787245403"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503787245403"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503787245403"/>
 </xsl:stylesheet>
