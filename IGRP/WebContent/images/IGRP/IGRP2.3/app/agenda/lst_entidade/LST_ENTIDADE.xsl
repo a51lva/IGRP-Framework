@@ -21,7 +21,7 @@
                             <xsl:call-template name="IGRP-sidebar"/>
                             <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3 main" id="igrp-contents">
                                 <div class="content">
-                                    <div class="row" id="row-01673561">
+                                    <div class="row" id="row-c7a779a0">
                                         <div class="gen-column col-md-12">
                                             <div class="gen-inner">
                                                 <xsl:apply-templates mode="igrp-messages" select="rows/content/messages"/>
@@ -63,11 +63,6 @@
                                                         </xsl:call-template>
                                                         <div class="box-body table-box">
                                                             <xsl:apply-templates mode="form-hidden-fields" select="rows/content/table_1/fields"/>
-                                                            <xsl:call-template name="table-filter">
-                                                                <xsl:with-param name="name" select="'p_table_1_filter'"/>
-                                                                <xsl:with-param name="value" select="rows/content/table_1/fields/table_1_filter/value"/>
-                                                                <xsl:with-param name="type" select="'filter_az'"/>
-                                                            </xsl:call-template>
                                                             <table id="table_1" class="table table-striped gen-data-table IGRP_contextmenu" exports="null">
                                                                 <thead>
                                                                     <tr>
@@ -138,10 +133,10 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1503676397914"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1503676397914"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1503676397914"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1503676397914"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1503676397915"/>
-    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1503676397917"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-functions.tmpl.xsl?v=1504027834511"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-variables.tmpl.xsl?v=1504027834511"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-home-include.tmpl.xsl?v=1504027834511"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-utils.tmpl.xsl?v=1504027834511"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-form-utils.tmpl.xsl?v=1504027834511"/>
+    <xsl:include href="../../../xsl/tmpl/IGRP-table-utils.tmpl.xsl?v=1504027834511"/>
 </xsl:stylesheet>
