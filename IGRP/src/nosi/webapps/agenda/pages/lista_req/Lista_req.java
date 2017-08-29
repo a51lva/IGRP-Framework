@@ -36,9 +36,9 @@ public class Lista_req extends Model{
 	public static class Table_1{
 		private String servicos;
 		private String tipo_de_requisito;
-		private String requisito;
-		private String requisito_item;
+		private String descricao_do_requisito;
 		private String estado;
+		private Integer p_p_id;
 		public void setServicos(String servicos){
 			this.servicos = servicos;
 		}
@@ -53,18 +53,11 @@ public class Lista_req extends Model{
 			return this.tipo_de_requisito;
 		}
 
-		public void setRequisito(String requisito){
-			this.requisito = requisito;
+		public void setDescricao_do_requisito(String descricao_do_requisito){
+			this.descricao_do_requisito = descricao_do_requisito;
 		}
-		public String getRequisito(){
-			return this.requisito;
-		}
-
-		public void setRequisito_item(String requisito_item){
-			this.requisito_item = requisito_item;
-		}
-		public String getRequisito_item(){
-			return this.requisito_item;
+		public String getDescricao_do_requisito(){
+			return this.descricao_do_requisito;
 		}
 
 		public void setEstado(String estado){
@@ -72,6 +65,13 @@ public class Lista_req extends Model{
 		}
 		public String getEstado(){
 			return this.estado;
+		}
+
+		public void setP_p_id(Integer p_p_id){
+			this.p_p_id = p_p_id;
+		}
+		public Integer getP_p_id(){
+			return this.p_p_id;
 		}
 
 	}

@@ -24,7 +24,7 @@ public class Requisitos {
 	private Integer id;
 	private Integer id_servico;
 	private String tipo_requisito;
-	private byte[] id_doc_igrp;
+	private byte id_doc_igrp;
 	private String descritivo;
 	private String estado;
 	private String nome_doc_igrp;
@@ -48,10 +48,10 @@ public class Requisitos {
 	public void setTipo_requisito(String tipo_requisito) {
 		this.tipo_requisito = tipo_requisito;
 	}
-	public byte[] getId_doc_igrp() {
+	public byte getId_doc_igrp() {
 		return id_doc_igrp;
 	}
-	public void setId_doc_igrp(byte[] id_doc_igrp) {
+	public void setId_doc_igrp(byte id_doc_igrp) {
 		this.id_doc_igrp = id_doc_igrp;
 	}
 	public String getDescritivo() {
