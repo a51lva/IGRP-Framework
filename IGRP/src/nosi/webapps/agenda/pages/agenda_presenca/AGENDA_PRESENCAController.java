@@ -75,7 +75,7 @@ public class AGENDA_PRESENCAController extends Controller {
 				Marcacao m = Marcacao.getMarcacao(Integer.parseInt(id));
 				m.setEstado("REALIZADO");
 				int s = Marcacao.update(m);
-				x = s==200 || s==202;
+				x = s==200 || s==204;
 			}
 			if(x){
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operação Realizada com sucesso");

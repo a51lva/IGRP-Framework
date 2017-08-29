@@ -27,9 +27,12 @@ import nosi.webapps.agenda.helper.RestRequestHelper;
 public class Marcacao {
 	@Expose(serialize = false, deserialize = true)
 	private Integer id;
-	private int id_entidade;
-	private int id_servico;
-	private int id_balcao;
+	@Expose(serialize = false, deserialize = true)
+	private Integer id_entidade;
+	@Expose(serialize = false, deserialize = true)
+	private Integer id_servico;
+	@Expose(serialize = false, deserialize = true)
+	private Integer id_balcao;
 	private String nome;
 	private String data_marcacao;
 	private String hr_marcacao;
@@ -41,9 +44,13 @@ public class Marcacao {
 	private String email;
 	private String notificacao;
 	private String estado;
-	
+	private Integer id_agenda;
+
+	@Expose(serialize = false, deserialize = true)
 	private String localizacao;
+	@Expose(serialize = false, deserialize = true)
 	private String nome_servico;
+	@Expose(serialize = false, deserialize = true)
 	private String nome_balcao;
 	
 	public Integer getId() {
@@ -52,22 +59,22 @@ public class Marcacao {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getId_entidade() {
+	public Integer getId_entidade() {
 		return id_entidade;
 	}
-	public void setId_entidade(int id_entidade) {
+	public void setId_entidade(Integer id_entidade) {
 		this.id_entidade = id_entidade;
 	}
-	public int getId_servico() {
+	public Integer getId_servico() {
 		return id_servico;
 	}
-	public void setId_servico(int id_servico) {
+	public void setId_servico(Integer id_servico) {
 		this.id_servico = id_servico;
 	}
-	public int getId_balcao() {
+	public Integer getId_balcao() {
 		return id_balcao;
 	}
-	public void setId_balcao(int id_balcao) {
+	public void setId_balcao(Integer id_balcao) {
 		this.id_balcao = id_balcao;
 	}
 	public String getNome() {
@@ -156,6 +163,14 @@ public class Marcacao {
 	public void setNome_balcao(String nome_balcao) {
 		this.nome_balcao = nome_balcao;
 	}
+	
+	
+	public Integer getId_agenda() {
+		return id_agenda;
+	}
+	public void setId_agenda(Integer id_agenda) {
+		this.id_agenda = id_agenda;
+	}
 	public static String convertDate(String date, String formatIn, String formatOut) {
 		String myDateString = null;
 		try {
@@ -200,9 +215,12 @@ public class Marcacao {
 	public static int update(Marcacao m){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/marcacao("+m.getId()+")";	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_marcacao("+m.getId()+")";	        
         WebResource resource = client.resource(url);
         m.setId(null);
+        m.setId_balcao(null);
+        m.setId_entidade(null);
+        m.setId_servico(null);
 		String content = RestRequestHelper.convertDaoToJson(m);
 		ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
         		.put(ClientResponse.class, content);			
@@ -218,7 +236,7 @@ public class Marcacao {
 	        String url = RestRequestHelper.baseUrl + "/ag_t_marcacao("+id+")";	        
 	        WebResource resource = client.resource(url);	        
 	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
-	   	 	String jsonResult = response.getEntity(String.class);	   	 	
+	   	 	String jsonResult = response.getEntity(String.class);
 	        if(response.getStatus() == 200) {
 		        aux = (Marcacao) RestRequestHelper.convertJsonToDao(jsonResult, Marcacao.class);
 	        }
