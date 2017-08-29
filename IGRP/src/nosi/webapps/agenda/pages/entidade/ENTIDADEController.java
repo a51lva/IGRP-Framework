@@ -49,7 +49,6 @@ public class ENTIDADEController extends Controller {
 			String id = Igrp.getInstance().getRequest().getParameter("p_id");
 			e.setEstado("ATIVO");
 			if(id!=null && !id.equals("")){
-				e.setEstado(model.getP_estado());
 				e.setId(Integer.parseInt(id));
 			}
 			e.setId_organica(Integer.parseInt(model.getOrganica()));

@@ -32,7 +32,8 @@ public class LST_ENTIDADEController extends Controller {
 		for(Entidade e:entidades){
 			LST_ENTIDADE.Table_1 t = new LST_ENTIDADE.Table_1();
 			t.setP_id(""+e.getId());
-			t.setEntidade(e.getNome_entidade());			
+			t.setEntidade(e.getNome_entidade());	
+			t.setEstado(e.getEstado());
 			data.add(t);
 		}
 		LST_ENTIDADEView view = new LST_ENTIDADEView(model);
@@ -72,7 +73,7 @@ public class LST_ENTIDADEController extends Controller {
 		/*---- Insert your code here... ----*/					
 		Config.target = "_blank";	
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");						
-		return this.redirect("agenda","AddServicos","index&p_id="+id);
+		return this.redirect("agenda","AddServicos","index&p_id_entidade="+id);
 				/*---- End ----*/
 	}
 	
@@ -81,7 +82,7 @@ public class LST_ENTIDADEController extends Controller {
 		/*---- Insert your code here... ----*/						
 		Config.target = "_blank";			
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");			
-		return this.redirect("agenda","Agendar","index&p_id="+id);
+		return this.redirect("agenda","Agendar","index&p_id_entidade="+id);
 				/*---- End ----*/
 	}
 	

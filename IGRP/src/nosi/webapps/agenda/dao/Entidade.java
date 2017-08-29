@@ -14,6 +14,7 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import nosi.core.webapp.helpers.Permission;
+import nosi.core.webapp.helpers.UrlHelper;
 import nosi.webapps.agenda.helper.RestRequestHelper;
 /**
  * @author: Emanuel Pereira
@@ -92,16 +93,12 @@ public class Entidade {
 		List<Entidade> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica%20eq%20"+Permission.getCurrentOrganization();
-	        url +=(entidade!=null && !entidade.equals(""))?"%20and%20nome_entidade%20eq%20%27"+entidade+"%27":"";
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica eq "+Permission.getCurrentOrganization();
+	        url +=(entidade!=null && !entidade.equals(""))?" and contains(nome_entidade,'"+entidade+"')":"";
+	        WebResource resource = client.resource(UrlHelper.urlEncoding(url));	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);
 	        if(response.getStatus() == 200) {
 		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
@@ -123,16 +120,11 @@ public class Entidade {
 		List<Entidade> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica%20eq%20"+Permission.getCurrentOrganization();
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica eq "+Permission.getCurrentOrganization();	        
+	        WebResource resource = client.resource(UrlHelper.urlEncoding(url));	 
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);
 	        if(response.getStatus() == 200) {
 		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
@@ -155,18 +147,12 @@ public class Entidade {
 		List<Balcao> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_balcoes";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
-	   	 	
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_balcoes";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
 		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Balcao>>(){}.getType());
 	        }
@@ -187,18 +173,12 @@ public class Entidade {
 		List<Servicos> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_servicos";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
-	   	 	
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_servicos";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
 		        aux = (List<Servicos>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Servicos>>(){}.getType());
 	        }
@@ -221,8 +201,7 @@ public class Entidade {
 	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id+")";	        
 	        WebResource resource = client.resource(url);	        
 	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
-	   	 	String jsonResult = response.getEntity(String.class);	   	    
-	   	 	
+	   	 	String jsonResult = response.getEntity(String.class);  
 	        if(response.getStatus() == 200) {
 	        	aux = (Entidade) RestRequestHelper.convertJsonToDao(jsonResult, Entidade.class);
 	        }
