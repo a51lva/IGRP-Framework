@@ -28,7 +28,6 @@ public class LST_ENTIDADE extends Model{
 		private String entidade;
 		private String estado;
 		private String p_id;
-		private String table_1_filter;
 		public void setEntidade(String entidade){
 			this.entidade = entidade;
 		}
@@ -48,13 +47,6 @@ public class LST_ENTIDADE extends Model{
 		}
 		public String getP_id(){
 			return this.p_id;
-		}
-
-		public void setTable_1_filter(String table_1_filter){
-			this.table_1_filter = table_1_filter;
-		}
-		public String getTable_1_filter(){
-			return this.table_1_filter;
 		}
 
 	}

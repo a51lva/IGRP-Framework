@@ -145,7 +145,7 @@ public class Balcao {
 		return aux != null ? aux : new ArrayList<ServBalcao>();
 	}
 
-	public static Balcao update(Balcao b){
+	public static int update(Balcao b){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	
         int id = b.getId();
@@ -156,7 +156,7 @@ public class Balcao {
 		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
         		.put(ClientResponse.class, content);		
        client.destroy();
-       return response.getStatus()==204?getBalcao(id):null;
+       return response.getStatus();//==204?getBalcao(id):null;
 	}
 	
 	public static List<Balcao> getAllBalcao(){

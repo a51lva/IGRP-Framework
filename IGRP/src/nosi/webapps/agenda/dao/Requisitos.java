@@ -1,8 +1,8 @@
 package nosi.webapps.agenda.dao;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-
 import javax.ws.rs.core.MediaType;
 
 import com.google.gson.annotations.Expose;
@@ -26,7 +26,8 @@ public class Requisitos {
 	private String tipo_requisito;
 	private int id_doc_igrp;
 	private String descritivo;
-	private int estado;
+	private String estado;
+	private int nome_doc_igrp;
 	
 	public int getId() {
 		return id;
@@ -59,12 +60,66 @@ public class Requisitos {
 	public void setDescritivo(String descritivo) {
 		this.descritivo = descritivo;
 	}
-	public int getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(int estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}	
+	
+	public int getNome_doc_igrp() {
+		return nome_doc_igrp;
+	}
+	public void setNome_doc_igrp(int nome_doc_igrp) {
+		this.nome_doc_igrp = nome_doc_igrp;
+	}
+	public static Requisitos insert(Collection<Requisitos> r) {
+		ClientConfig config = new DefaultClientConfig();			 
+        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_requisitos";	
+        WebResource resource = client.resource(url);	        
+		String content = RestRequestHelper.convertDaoToJson(r);
+		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
+        		.post(ClientResponse.class, content);
+		String jsonResult = response.getEntity(String.class);
+		client.destroy();
+	    return (response.getStatus() == 201) ? RestRequestHelper.convertJsonToDao(jsonResult, Requisitos.class) : null;
+	}
+	
+	public static Requisitos update(Requisitos r) {
+		ClientConfig config = new DefaultClientConfig();			 
+        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_requisitos("+r.getId() +")";
+        int id = r.getId();
+        WebResource resource = client.resource(url);	        
+		String content = RestRequestHelper.convertDaoToJson(r);
+		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
+        		.post(ClientResponse.class, content);
+		client.destroy();
+		return response.getStatus() == 204 ? getRequisitoById(id) : null;
+	}
+	
+	public static Requisitos getRequisitoById(int id) {
+		Requisitos aux = null;
+		try {
+			ClientConfig config = new DefaultClientConfig();
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
+	        String url = RestRequestHelper.baseUrl + "/ag_t_requisitos("+id+")";
+	        WebResource resource = client.resource(url);
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+	   	 	String jsonResult = response.getEntity(String.class);
+	   	 	
+	   	 	if(response.getStatus() == 200) {
+	   	 		aux = (Requisitos) RestRequestHelper.convertJsonToDao(jsonResult, Requisitos.class);
+	   	 	}else {
+	   	 	System.out.println("Error");
+	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
+	   	 	}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return aux != null ? aux : new  Requisitos();
+	}
 	
 	public static List<Requisitos> getAllRequisitos(){
 		List<Requisitos> aux = null;
@@ -74,7 +129,7 @@ public class Requisitos {
 			 
 	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
 	        
-	        String url = RestRequestHelper.baseUrl + "/requisitos";
+	        String url = RestRequestHelper.baseUrl + "/ag_t_requisitos";
 	        
 	        WebResource resource = client.resource(url);
 	        
@@ -83,7 +138,7 @@ public class Requisitos {
 	   	 	String jsonResult = response.getEntity(String.class);
 	   	 	
 	        if(response.getStatus() == 200) {
-		        aux = (List<Requisitos>) RestRequestHelper.convertJsonToDaoColl(jsonResult, "Requisitos", "Requisito", new TypeToken<List<Requisitos>>(){}.getType());
+		        aux = (List<Requisitos>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Requisitos>>(){}.getType());
 	        }
 	        else {
 	       	 System.out.println("Error");

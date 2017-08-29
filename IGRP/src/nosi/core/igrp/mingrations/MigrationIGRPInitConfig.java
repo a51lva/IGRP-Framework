@@ -150,26 +150,25 @@ public class MigrationIGRPInitConfig {
 		actions.add(new Action("AGDashboard", "index", null, "agenda/agdashboard/AGDashboard.xsl", "Dashboard Agenda Eletronica", "Dashboard Agenda Eletronica", "2.3", 1, app));
 		actions.add(new Action("Agenda", "index", null, "agenda/agenda/Agenda.xsl", "Efetuar uma agenda", "Efetuar uma agenda", "2.3", 1, app));
 		actions.add(new Action("Agendamentos", "index", null, "agenda/agendamentos/Agendamentos.xsl", "Lista de Agendamentos", "Lista de Agendamentos", "2.3", 1, app));
-		actions.add(new Action("Agendar", "index", null, "agenda/agendar/Agendar.xsl", "Agendar", "Agendar", "2.3", 1, app));
+		actions.add(new Action("Agendar", "index", null, "agenda/agendar/Agendar.xsl", "Configurar Agenda", "Configurar Agenda", "2.3", 1, app));
 		actions.add(new Action("AGENDA_PRESENCA", "index", null, "agenda/agenda_presenca/AGENDA_PRESENCA.xsl", "Marcar Presença do Cidadao", "Marcar Presença do Cidadao", "2.3", 1, app));
-		actions.add(new Action("CONFIG_BALCAO", "index", null, "agenda/config_balcao/CONFIG_BALCAO.xsl", "Configuração de Balcao", "Configuração de Balcao", "2.3", 1, app));
 		actions.add(new Action("ENTIDADE", "index", null, "agenda/entidade/ENTIDADE.xsl", "Adicionar Entidades", "Adicionar Entidades", "2.3", 1, app));
-		actions.add(new Action("LST_BALCAO", "index", null, "agenda/lst_balcao/LST_BALCAO.xsl", "Lista de Balcao", "Lista de Balcao", "2.3", 1, app));
 		actions.add(new Action("LST_ENTIDADE", "index", null, "agenda/lst_entidade/LST_ENTIDADE.xsl", "Lista de Entidades", "Lista de Entidades", "2.3", 1, app));
 		actions.add(new Action("LST_SERV", "index", null, "agenda/lst_serv/LST_SERV.xsl", "Lista de Serviços", "Lista de Serviços", "2.3", 1, app));
-		actions.add(new Action("NOTIFICACAO", "index", null, "agenda/notificacao/NOTIFICACAO.xsl", "Notificações", "Notificações", "2.3", 1, app));
-		actions.add(new Action("REQ_SERVICOS", "index", null, "agenda/req_servicos/REQ_SERVICOS.xsl", "Requisições de Serviços", "Requisições de Serviços", "2.3", 1, app));
-		actions.add(new Action("MyAgenda", "index", null, "agenda/myagenda/MyAgenda.xsl", "Minha Agenda", "Minha Agenda", "2.3", 1, app));
+		actions.add(new Action("REQ_SERVICOS", "index", null, "agenda/req_servicos/REQ_SERVICOS.xsl", "Requisitos de Serviços", "Requisitos de Serviços", "2.3", 1, app));
+		actions.add(new Action("Lista_req", "index", null, "agenda/lista_req/Lista_req.xsl", "Lista Requisitos", "Lista Requisitos", "2.3", 1, app));
+		actions.add(new Action("PontoAtendimento", "index", null, "agenda/pontoatendimento/PontoAtendimento.xsl", "Ponto de Atendimento", "Ponto de Atendimento", "2.3", 1, app));
 		for(Action ac:actions){
 			ac.insert();
 		}
 		List<Menu> menus = new ArrayList<>();			
-		menus.add(new Menu("Gestão de Agenda", 1, 1, 0, null, null, app, null));		
-		menus.add(new Menu("Agendar", 1, 1, 0, "_self", actions.get(4), app, menus.get(0)));
-		menus.add(new Menu("Configurar Balcao", 1, 1, 0, "_self", actions.get(6), app, menus.get(0)));
-		menus.add(new Menu("Adicionar Entidade", 1, 1, 0, "_self", actions.get(7), app, menus.get(0)));
-		menus.add(new Menu("Adicionar Serviços", 1, 1, 0, "_self", actions.get(0), app, menus.get(0)));
-		menus.add(new Menu("Agendamentos", 1, 1, 0, "_self", actions.get(3), app, menus.get(0)));
+		menus.add(new Menu("Gestão de Agenda", 1, 1, 0, null, null, app, null));
+		menus.add(new Menu("Adicionar Entidade", 1, 1, 0, "_self", actions.get(6), app, menus.get(0)));
+		menus.add(new Menu("Adicionar Serviços", 1, 1, 0, "_self", actions.get(0), app, menus.get(0)));	
+		menus.add(new Menu("Adicionar Requisitos", 1, 1, 0, "_self", actions.get(9), app, menus.get(0)));		
+		menus.add(new Menu("Configurar Ponto de Atendimento", 1, 1, 0, "_self", actions.get(11), app, menus.get(0)));
+		menus.add(new Menu("Configurar Agenda", 1, 1, 0, "_self", actions.get(2), app, menus.get(0)));
+		menus.add(new Menu("Marcar Agenda", 1, 1, 0, "_self", actions.get(4), app, menus.get(0)));
 		menus.add(new Menu("Confirmar Presença", 1, 1, 0, "_self", actions.get(5), app, menus.get(0)));
 		menus.add(new Menu("Dash Board", 1, 1, 0, "_self", actions.get(1), app, menus.get(0)));
 		
@@ -187,6 +186,7 @@ public class MigrationIGRPInitConfig {
 		profiles.add(new Profile(20, "MEN", prof0, user0, org));
 		profiles.add(new Profile(21, "MEN", prof0, user0, org));
 		profiles.add(new Profile(22, "MEN", prof0, user0, org));
+		profiles.add(new Profile(23, "MEN", prof0, user0, org));
 		profiles.add(new Profile(16, "MEN", prof, user0, org));
 		profiles.add(new Profile(17, "MEN", prof, user0, org));
 		profiles.add(new Profile(18, "MEN", prof, user0, org));
@@ -194,6 +194,7 @@ public class MigrationIGRPInitConfig {
 		profiles.add(new Profile(20, "MEN", prof, user0, org));
 		profiles.add(new Profile(21, "MEN", prof, user0, org));
 		profiles.add(new Profile(22, "MEN", prof, user0, org));
+		profiles.add(new Profile(23, "MEN", prof, user0, org));
 		
 		for(Profile p:profiles){
 			p.insert();
@@ -239,12 +240,12 @@ public class MigrationIGRPInitConfig {
 		List<Profile> profiles = new ArrayList<>();
 		profiles.add(new Profile(3, "ENV", prof, user, org));
 		profiles.add(new Profile(3, "PROF", prof, user, org));
-		profiles.add(new Profile(24, "MEN", prof0, user0, org));
 		profiles.add(new Profile(25, "MEN", prof0, user0, org));
 		profiles.add(new Profile(26, "MEN", prof0, user0, org));
-		profiles.add(new Profile(24, "MEN", prof, user0, org));
+		profiles.add(new Profile(27, "MEN", prof0, user0, org));
 		profiles.add(new Profile(25, "MEN", prof, user0, org));
 		profiles.add(new Profile(26, "MEN", prof, user0, org));
+		profiles.add(new Profile(27, "MEN", prof, user0, org));
 		
 		for(Profile p:profiles){
 			p.insert();
@@ -303,18 +304,18 @@ public class MigrationIGRPInitConfig {
 		List<Profile> profiles = new ArrayList<>();
 		profiles.add(new Profile(4, "ENV", prof, user, org));
 		profiles.add(new Profile(4, "PROF", prof, user, org));
-		profiles.add(new Profile(28, "MEN", prof0, user0, org));
 		profiles.add(new Profile(29, "MEN", prof0, user0, org));
 		profiles.add(new Profile(30, "MEN", prof0, user0, org));
 		profiles.add(new Profile(31, "MEN", prof0, user0, org));
 		profiles.add(new Profile(32, "MEN", prof0, user0, org));
 		profiles.add(new Profile(33, "MEN", prof0, user0, org));
-		profiles.add(new Profile(28, "MEN", prof, user0, org));
+		profiles.add(new Profile(34, "MEN", prof0, user0, org));
 		profiles.add(new Profile(29, "MEN", prof, user0, org));
 		profiles.add(new Profile(30, "MEN", prof, user0, org));
 		profiles.add(new Profile(31, "MEN", prof, user0, org));
 		profiles.add(new Profile(32, "MEN", prof, user0, org));
 		profiles.add(new Profile(33, "MEN", prof, user0, org));
+		profiles.add(new Profile(34, "MEN", prof, user0, org));
 		
 		for(Profile p:profiles){
 			p.insert();
