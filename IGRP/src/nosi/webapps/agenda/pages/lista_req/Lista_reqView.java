@@ -24,7 +24,7 @@ public class Lista_reqView extends View {
 		table_1 = new IGRPTable("table_1");
 		sectionheader_1_text = new TextField(model,"sectionheader_1_text");
 		sectionheader_1_text.setLabel("");
-		sectionheader_1_text.setValue("Requisitos do ServiÃ§o");
+		sectionheader_1_text.setValue("Requisitos do Serviço");
 		sectionheader_1_text.propertie().add("type","text").add("name","p_sectionheader_1_text").add("persist","true").add("maxlength","4000");
 		tipo_de_requisito = new TextField(model,"tipo_de_requisito");
 		tipo_de_requisito.setLabel("Tipo de requisito");
