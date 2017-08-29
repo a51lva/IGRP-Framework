@@ -115,13 +115,13 @@ public class CONFIG_BALCAOController extends Controller {
 		    	b.setId(Integer.parseInt(id));
 		    	b.setEstado(Igrp.getInstance().getRequest().getParameter("estado"));
 		    }
-		    b = b.getId()!=null?Balcao.update(b):Balcao.insert(b);
-		    if(b!=null) {
-	        	Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
-	        }
-	        else {
-	        	Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
-	        }
+//		    b = b.getId()!=null?Balcao.update(b):Balcao.insert(b);
+//		    if(b!=null) {
+//	        	Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
+//	        }
+//	        else {
+//	        	Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
+//	        }
 		}
 		return this.redirect("agenda","CONFIG_BALCAO","index");
 		/*---- End ----*/

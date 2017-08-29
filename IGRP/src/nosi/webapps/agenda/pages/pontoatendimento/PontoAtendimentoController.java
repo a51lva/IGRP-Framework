@@ -111,7 +111,7 @@ public class PontoAtendimentoController extends Controller {
 		view.table_2.addData(table2);
 		view.p_id_balcao.setParam(true);
 		view.p_id_servico.setParam(true);
-		if(id_balcao!=null && model.getEntidade()!=null && !model.getEntidade().equals("")){
+		if(id_balcao!=null && !id_balcao.equals("") && model.getEntidade()!=null && !model.getEntidade().equals("")){
 			view.btn_gravar.setLink("editar&p_id_balcao="+id_balcao);
 		}
 		if(model.getEntidade()!=null && !model.getEntidade().equals("")){
@@ -183,7 +183,8 @@ public class PontoAtendimentoController extends Controller {
 				b.setEstado("INATIVO");
 			else
 				b.setEstado("ATIVO");
-			if(Balcao.update(b)!=null){
+			int status = Balcao.update(b);
+			if(status==200 || status==204){
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operação Realizada com sucesso!");
 			}else{
 				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
@@ -243,8 +244,8 @@ public class PontoAtendimentoController extends Controller {
 			b.setNome_balcao(model.getPonto());
 			b.setNr_servicos(Integer.parseInt(model.getN_de_servicos()));
 			b.setId(Integer.parseInt(id_balcao));
-			b = Balcao.update(b);
-			if(b!=null){
+			int status = Balcao.update(b);
+			if(status==200 || status==204){
 				ServBalcao.updateStatus("INATIVO", Integer.parseInt(id_balcao));
 				if(servicos!=null){
 					for(String s:servicos){
@@ -265,7 +266,7 @@ public class PontoAtendimentoController extends Controller {
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operação Realizada com sucesso!");
 			}
 		}
-		return this.redirect("agenda","PontoAtendimento","indexp_id_entidade="+model.getEntidade());
+		return this.redirect("agenda","PontoAtendimento","index&p_id_entidade="+model.getEntidade());
 					/*---- End ----*/
 	}
 	public Response actionEditarServico() throws IOException{
