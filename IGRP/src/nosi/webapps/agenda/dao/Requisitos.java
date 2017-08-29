@@ -21,24 +21,24 @@ import nosi.webapps.agenda.helper.RestRequestHelper;
  */
 public class Requisitos {
 	@Expose(serialize = false, deserialize = true)
-	private int id;
-	private int id_servico;
+	private Integer id;
+	private Integer id_servico;
 	private String tipo_requisito;
-	private int id_doc_igrp;
+	private byte[] id_doc_igrp;
 	private String descritivo;
 	private String estado;
-	private int nome_doc_igrp;
+	private String nome_doc_igrp;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getId_servico() {
+	public Integer getId_servico() {
 		return id_servico;
 	}
-	public void setId_servico(int id_servico) {
+	public void setId_servico(Integer id_servico) {
 		this.id_servico = id_servico;
 	}
 	
@@ -48,10 +48,10 @@ public class Requisitos {
 	public void setTipo_requisito(String tipo_requisito) {
 		this.tipo_requisito = tipo_requisito;
 	}
-	public int getId_doc_igrp() {
+	public byte[] getId_doc_igrp() {
 		return id_doc_igrp;
 	}
-	public void setId_doc_igrp(int id_doc_igrp) {
+	public void setId_doc_igrp(byte[] id_doc_igrp) {
 		this.id_doc_igrp = id_doc_igrp;
 	}
 	public String getDescritivo() {
@@ -67,13 +67,13 @@ public class Requisitos {
 		this.estado = estado;
 	}	
 	
-	public int getNome_doc_igrp() {
+	public String getNome_doc_igrp() {
 		return nome_doc_igrp;
 	}
-	public void setNome_doc_igrp(int nome_doc_igrp) {
+	public void setNome_doc_igrp(String nome_doc_igrp) {
 		this.nome_doc_igrp = nome_doc_igrp;
 	}
-	public static Requisitos insert(Collection<Requisitos> r) {
+	public static int insert(Requisitos r) {
 		ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
         String url = RestRequestHelper.baseUrl + "/ag_t_requisitos";	
@@ -81,9 +81,11 @@ public class Requisitos {
 		String content = RestRequestHelper.convertDaoToJson(r);
 		ClientResponse response = resource.header("Prefer", "return=representation").accept(MediaType.APPLICATION_JSON).type("application/json")
         		.post(ClientResponse.class, content);
-		String jsonResult = response.getEntity(String.class);
+		System.out.println(content);
+		System.out.println(url);
 		client.destroy();
-	    return (response.getStatus() == 201) ? RestRequestHelper.convertJsonToDao(jsonResult, Requisitos.class) : null;
+		
+	    return response.getStatus();
 	}
 	
 	public static Requisitos update(Requisitos r) {

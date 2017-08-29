@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Lista_req extends Model{		
 	@RParam(rParamName = "p_sectionheader_1_text")
 	private String sectionheader_1_text;
+	@RParam(rParamName = "p_nome_requisitos")
+	private String nome_requisitos;
 
 	private ArrayList<Table_1> table_1 = new ArrayList<>();
 	public void setTable_1(ArrayList<Table_1> table_1){
@@ -22,12 +24,28 @@ public class Lista_req extends Model{
 	public String getSectionheader_1_text(){
 		return this.sectionheader_1_text;
 	}
+	
+	public void setNome_requisitos(String nome_requisitos){
+		this.nome_requisitos = nome_requisitos;
+	}
+	public String getNome_requisitos(){
+		return this.nome_requisitos;
+	}
 
 
 	public static class Table_1{
+		private String servicos;
 		private String tipo_de_requisito;
 		private String requisito;
 		private String requisito_item;
+		private String estado;
+		public void setServicos(String servicos){
+			this.servicos = servicos;
+		}
+		public String getServicos(){
+			return this.servicos;
+		}
+
 		public void setTipo_de_requisito(String tipo_de_requisito){
 			this.tipo_de_requisito = tipo_de_requisito;
 		}
@@ -47,6 +65,13 @@ public class Lista_req extends Model{
 		}
 		public String getRequisito_item(){
 			return this.requisito_item;
+		}
+
+		public void setEstado(String estado){
+			this.estado = estado;
+		}
+		public String getEstado(){
+			return this.estado;
 		}
 
 	}

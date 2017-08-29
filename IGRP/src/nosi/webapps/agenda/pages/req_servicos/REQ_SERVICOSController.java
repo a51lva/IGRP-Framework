@@ -25,7 +25,7 @@ public class REQ_SERVICOSController extends Controller {
 
 
 	public Response actionIndex() throws IOException{
-		/*---- Insert your code here... ----*/						
+		/*---- Insert your code here... ----*/										
 		REQ_SERVICOS model = new REQ_SERVICOS();
 		
 		
@@ -48,12 +48,12 @@ public class REQ_SERVICOSController extends Controller {
 		view.tipo_requisito.setValue(tip_req_map);
 		
 		return this.renderView(view);
-					/*---- End ----*/
+							/*---- End ----*/
 	}
 
 
 	public Response actionGravar() throws IOException, IllegalArgumentException, IllegalAccessException{
-		/*---- Insert your code here... ----*/				
+		/*---- Insert your code here... ----*/								
 		REQ_SERVICOS model = new REQ_SERVICOS();
 		if(Igrp.getInstance().getRequest().getMethod().toUpperCase().equals("POST")) {
 			model.load();
@@ -63,24 +63,34 @@ public class REQ_SERVICOSController extends Controller {
 				Requisitos req = new Requisitos();
 				req.setId_servico(model.getServico());
 				req.setTipo_requisito(model.getP_tipo_requisito_fk_desc()[i]);
-				//req.setId_doc_igrp(model.getP_upload_desc()[i]);
-				//req.setNome_doc_igrp(model.getP_upload_desc()[i]);
+				req.setNome_doc_igrp(model.getP_upload_fk_desc()[i]);
 				req.setDescritivo(model.getP_descritivo_fk()[i]);
 				req.setEstado("ATIVO");
 				req_cole.add(req);
 			}
-			Requisitos req_insert = Requisitos.insert(req_cole);
-			if(req_insert != null) {
+			boolean x = false;
+			for(Requisitos r:req_cole) {
+				 x = Requisitos.insert(r) == 201;
+			}
+			
+			if(x) {
 				Igrp.getInstance().getFlashMessage().addMessage("success", "Operacao efetuada com sucesso");
 			}else {
 				Igrp.getInstance().getFlashMessage().addMessage("error", "Operacao falhada");
-			}			
+			}		
 		}
 		
 		
 		
 		return this.redirect("agenda","REQ_SERVICOS","index");
-				/*---- End ----*/
+						/*---- End ----*/
+	}
+	
+
+	public Response actionListar_requisitos() throws IOException{
+		/*---- Insert your code here... ----*/		
+		return this.redirect("agenda","Lista_req","index");
+			/*---- End ----*/
 	}
 	
 	/*---- Insert your actions here... ----*//*---- End ----*/

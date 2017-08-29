@@ -45,6 +45,9 @@
         </sectionheader_1>
         <table_1 type="table" xml-type="table" gen-type="container" gen-group="true">
             <fields>
+                <servicos name="p_servicos" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Serviços</label>
+                </servicos>
                 <tipo_de_requisito name="p_tipo_de_requisito" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
                     <label>Tipo de requisito</label>
                 </tipo_de_requisito>
@@ -54,36 +57,108 @@
                 <requisito_item name="p_requisito_item" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
                     <label>Requisito Item</label>
                 </requisito_item>
+                <estado name="p_estado" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
+                    <label>Estado</label>
+                </estado>
             </fields>
             <table>
                 <value>
                     <row>
-                        <tipo_de_requisito name="p_tipo_de_requisito">Adipiscing rem elit adipiscing</tipo_de_requisito>
-                        <requisito name="p_requisito">Magna deserunt mollit totam re</requisito>
-                        <requisito_item name="p_requisito_item">Magna rem perspiciatis dolorem</requisito_item>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <servicos name="p_servicos">Consectetur perspiciatis sit o</servicos>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Natus aperiam consectetur pers</tipo_de_requisito>
+                        <requisito name="p_requisito">Aperiam ipsum dolor ut labore</requisito>
+                        <requisito_item name="p_requisito_item">Lorem officia laudantium dolor</requisito_item>
+                        <estado name="p_estado">Elit mollit magna labore magna</estado>
                     </row>
                     <row>
-                        <tipo_de_requisito name="p_tipo_de_requisito">Laudantium doloremque aliqua d</tipo_de_requisito>
-                        <requisito name="p_requisito">Natus ut sed stract doloremque</requisito>
-                        <requisito_item name="p_requisito_item">Aperiam iste ipsum adipiscing</requisito_item>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <servicos name="p_servicos">Officia sit ut totam natus</servicos>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Omnis magna doloremque laudant</tipo_de_requisito>
+                        <requisito name="p_requisito">Consectetur dolor adipiscing o</requisito>
+                        <requisito_item name="p_requisito_item">Ipsum labore dolor laudantium</requisito_item>
+                        <estado name="p_estado">Unde labore laudantium stract</estado>
                     </row>
                     <row>
-                        <tipo_de_requisito name="p_tipo_de_requisito">Deserunt accusantium adipiscin</tipo_de_requisito>
-                        <requisito name="p_requisito">Sed ut deserunt amet laudantiu</requisito>
-                        <requisito_item name="p_requisito_item">Officia labore voluptatem sit</requisito_item>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <servicos name="p_servicos">Ipsum deserunt totam stract ut</servicos>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Doloremque natus iste labore v</tipo_de_requisito>
+                        <requisito name="p_requisito">Unde ut dolor elit unde</requisito>
+                        <requisito_item name="p_requisito_item">Totam accusantium sit mollit o</requisito_item>
+                        <estado name="p_estado">Mollit consectetur sed omnis s</estado>
                     </row>
                     <row>
-                        <tipo_de_requisito name="p_tipo_de_requisito">Sit anim lorem sit perspiciati</tipo_de_requisito>
-                        <requisito name="p_requisito">Natus unde voluptatem doloremq</requisito>
-                        <requisito_item name="p_requisito_item">Voluptatem aperiam anim sed is</requisito_item>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <servicos name="p_servicos">Elit lorem stract laudantium i</servicos>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Unde iste aperiam rem labore</tipo_de_requisito>
+                        <requisito name="p_requisito">Officia sit unde natus labore</requisito>
+                        <requisito_item name="p_requisito_item">Voluptatem aperiam unde perspi</requisito_item>
+                        <estado name="p_estado">Officia anim iste unde mollit</estado>
                     </row>
                     <row>
-                        <tipo_de_requisito name="p_tipo_de_requisito">Natus adipiscing sit dolor sit</tipo_de_requisito>
-                        <requisito name="p_requisito">Omnis aliqua magna voluptatem</requisito>
-                        <requisito_item name="p_requisito_item">Sit ipsum anim labore stract</requisito_item>
+                        <context-menu>
+                            <param>p1=linha1</param>
+                            <param>p2=linha1</param>
+                        </context-menu>
+                        <servicos name="p_servicos">Adipiscing aperiam anim deseru</servicos>
+                        <tipo_de_requisito name="p_tipo_de_requisito">Dolor elit mollit aperiam dese</tipo_de_requisito>
+                        <requisito name="p_requisito">Iste stract laudantium ut volu</requisito>
+                        <requisito_item name="p_requisito_item">Unde aliqua adipiscing magna a</requisito_item>
+                        <estado name="p_estado">Ipsum sit totam natus elit</estado>
                     </row>
                 </value>
+                <context-menu>
+                    <item type="specific" code="" class="warning" rel="edit">
+                        <title>Edit</title>
+                        <app>agenda</app>
+                        <page>Lista_req</page>
+                        <link>index</link>
+                        <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/lista_req/Lista_req.xsl?</parameter>
+                        <target>submit</target>
+                        <img>warning|fa-edit</img>
+                    </item>
+                    <item type="specific" code="" class="danger" rel="eliminar">
+                        <title>Eliminar</title>
+                        <app>agenda</app>
+                        <page>Lista_req</page>
+                        <link>index</link>
+                        <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/lista_req/Lista_req.xsl?</parameter>
+                        <target>alert_submit</target>
+                        <img>danger|fa-refresh</img>
+                    </item>
+                </context-menu>
             </table>
         </table_1>
+        <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
+            <item type="specific" code="" rel="pesquisar">
+                <title>Pesquisar</title>
+                <app>agenda</app>
+                <page>Lista_req</page>
+                <link>index</link>
+                <target>submit</target>
+                <img>default|fa-search</img>
+                <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/lista_req/Lista_req.xsl</parameter>
+            </item>
+        </toolsbar_1>
+        <form_1 type="form" xml-type="form" gen-type="container" gen-group="">
+            <fields>
+                <nome_requisitos name="p_nome_requisitos" type="text" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false">
+                    <label>Nome Requisitos</label>
+                    <value>Elit laudantium adipiscing con</value>
+                </nome_requisitos>
+            </fields>
+        </form_1>
     </content>
 </rows>
