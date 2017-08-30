@@ -1,7 +1,6 @@
 package nosi.webapps.agenda.dao;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import javax.ws.rs.core.MediaType;
 
@@ -24,7 +23,7 @@ public class Requisitos {
 	private Integer id;
 	private Integer id_servico;
 	private String tipo_requisito;
-	private byte id_doc_igrp;
+	private String id_doc_igrp;
 	private String descritivo;
 	private String estado;
 	private String nome_doc_igrp;
@@ -48,10 +47,10 @@ public class Requisitos {
 	public void setTipo_requisito(String tipo_requisito) {
 		this.tipo_requisito = tipo_requisito;
 	}
-	public byte getId_doc_igrp() {
+	public String getId_doc_igrp() {
 		return id_doc_igrp;
 	}
-	public void setId_doc_igrp(byte id_doc_igrp) {
+	public void setId_doc_igrp(String id_doc_igrp) {
 		this.id_doc_igrp = id_doc_igrp;
 	}
 	public String getDescritivo() {
@@ -154,13 +153,35 @@ public class Requisitos {
 		return aux != null ? aux : new ArrayList<Requisitos>();
 	}
 	
-	public static List<Requisitos> getAllRequisitosByServico(int servicoId){
-		List<Requisitos> aux = getAllRequisitos();
-		List<Requisitos> result = new ArrayList<Requisitos>();
-		for(Requisitos requisito : aux) 
-			if(requisito.getId_servico() == servicoId)
-				result.add(requisito);
-		return result;
+	public static List<Requisitos> getAllRequisitosByServico(int id){
+List<Requisitos> aux = null;
+		
+		try {
+			ClientConfig config = new DefaultClientConfig();
+			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
+	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_servicos("+id +")/ag_t_requisitos";
+	        
+	        WebResource resource = client.resource(url);
+	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+	        
+	   	 	String jsonResult = response.getEntity(String.class);
+	   	 	
+	        if(response.getStatus() == 200) {
+		        aux = (List<Requisitos>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Requisitos>>(){}.getType());
+	        }
+	        else {
+	       	 System.out.println("Error");
+	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
+	        }
+	       client.destroy();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return aux != null ? aux : new ArrayList<Requisitos>();
 	}
 	
 }
