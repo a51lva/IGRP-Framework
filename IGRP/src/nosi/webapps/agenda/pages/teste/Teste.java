@@ -1,7 +1,10 @@
 /*---------------------- Create Model ----------------------*/
 package nosi.webapps.agenda.pages.teste;
+import nosi.core.gui.components.IGRPSeparatorList.Pair;
 import nosi.core.webapp.Model;
 import nosi.core.webapp.RParam;
+import nosi.core.webapp.SeparatorList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +22,20 @@ public class Teste extends Model{
 	@RParam(rParamName = "p_email_fk_desc")
 	private String[] p_email_fk_desc;
 	
+	@SeparatorList(name = Separatorlist_1.class)
 	private List<Separatorlist_1> list;
 
 	private ArrayList<Separatorlist_1> separatorlist_1 = new ArrayList<>();
 	
+	public List<Separatorlist_1> getList() {
+		return list;
+	}
+	public void setList(List<Separatorlist_1> list) {
+		this.list = list;
+	}
+	public ArrayList<Separatorlist_1> getSeparatorlist_1() {
+		return separatorlist_1;
+	}
 	public void setSeparatorlist_1(ArrayList<Separatorlist_1> separatorlist_1){
 		this.separatorlist_1 = separatorlist_1;
 	}
@@ -77,37 +90,6 @@ public class Teste extends Model{
 		private Pair cod;
 		private Pair name;
 		private Pair email;
-		
-		public static class Pair{
-		
-			private String key;
-			private String value;
-			
-			public Pair() {}
-			
-			public Pair(String key, String value) {
-				this.key = key;
-				this.value = value;
-			}
-			
-			public String getKey() {
-				return key;
-			}
-			public void setKey(String key) {
-				this.key = key;
-			}
-			public String getValue() {
-				return value;
-			}
-			public void setValue(String value) {
-				this.value = value;
-			}
-			
-			@Override
-			public String toString() {
-				return this.key + "_" + this.value;
-			}
-		}
  		
 		public void setCod(Pair cod){
 			this.cod = cod;

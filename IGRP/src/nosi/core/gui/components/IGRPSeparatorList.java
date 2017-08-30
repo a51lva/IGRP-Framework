@@ -39,6 +39,11 @@ public class IGRPSeparatorList extends IGRPFormList {
 		this.properties.put("type", "separatorlist");
 	}
 	
+	public IGRPSeparatorList(String tag_name, Object model, String name) {
+		this(tag_name);
+		//
+	}
+	
 	@Override
 	protected void genRows() {
 		if(this.data != null && this.data.size() > 0 && this.fields.size() > 0){
@@ -78,5 +83,35 @@ public class IGRPSeparatorList extends IGRPFormList {
 			this.xml.addXml(this.rows);
 		}
 	}
-
+	
+	public static class Pair{
+		
+		private String key;
+		private String value;
+		
+		public Pair() {}
+		
+		public Pair(String key, String value) {
+			this.key = key;
+			this.value = value;
+		}
+		
+		public String getKey() {
+			return key;
+		}
+		public void setKey(String key) {
+			this.key = key;
+		}
+		public String getValue() {
+			return value;
+		}
+		public void setValue(String value) {
+			this.value = value;
+		}
+		
+		@Override
+		public String toString() {
+			return this.key + "_" + this.value;
+		}
+	}
 }

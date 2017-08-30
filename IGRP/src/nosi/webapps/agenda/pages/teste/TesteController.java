@@ -25,6 +25,8 @@ public class TesteController extends Controller {
 		
 		TesteView view = new TesteView(model);
 		
+		view.separatorlist_1.addData(model.getList());
+		
 		return this.renderView(view);
 		/*---- End ----*/
 	}
