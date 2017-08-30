@@ -21,57 +21,69 @@ import nosi.webapps.agenda.dao.Entidade;
 public class LST_ENTIDADEController extends Controller {		
 
 
-	public Response actionIndex() throws IOException{
-		/*---- Insert your code here... ----*/			
+	public Response actionIndex() throws IOException, IllegalArgumentException, IllegalAccessException{
+		/*---- Insert your code here... ----*/					
 		LST_ENTIDADE model = new LST_ENTIDADE();
-		List<Entidade> entidades = Entidade.getAllEntidade();
+		if(Igrp.getInstance().getRequest().getMethod().toUpperCase().equals("POST")){
+			model.load();
+		}
+		List<Entidade> entidades = Entidade.getAllEntidade(model.getEntidade());
 		List<LST_ENTIDADE.Table_1> data = new ArrayList<>();
 		for(Entidade e:entidades){
 			LST_ENTIDADE.Table_1 t = new LST_ENTIDADE.Table_1();
 			t.setP_id(""+e.getId());
-			t.setEntidade(e.getNome_entidade());			
+			t.setEntidade(e.getNome_entidade());	
+			t.setEstado(e.getEstado());
 			data.add(t);
 		}
 		LST_ENTIDADEView view = new LST_ENTIDADEView(model);
 		view.table_1.addData(data);
 		view.p_id.setParam(true);
+		view.btn_pesquisar.setLink("index");
 		return this.renderView(view);
-			/*---- End ----*/
+				/*---- End ----*/
 	}
 
 
 	public Response actionNova_entidade() throws IOException{
-		/*---- Insert your code here... ----*/			
+		/*---- Insert your code here... ----*/					
 		Config.target = "_blank";
 		return this.redirect("agenda","ENTIDADE","index");
-			/*---- End ----*/
+				/*---- End ----*/
+	}
+	
+
+	public Response actionPesquisar() throws IOException{
+		/*---- Insert your code here... ----*/
+		return this.redirect("agenda","LST_ENTIDADE","index");
+		/*---- End ----*/
+	}
+	
+
+	public Response actionEditar() throws IOException{
+		/*---- Insert your code here... ----*/						
+		Config.target = "_blank";	
+		String id = Igrp.getInstance().getRequest().getParameter("p_id");
+		return this.redirect("agenda","ENTIDADE","index&p_id="+id);
+				/*---- End ----*/
 	}
 	
 
 	public Response actionServicos() throws IOException{
-		/*---- Insert your code here... ----*/			
+		/*---- Insert your code here... ----*/					
 		Config.target = "_blank";	
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");						
-		return this.redirect("agenda","AddServicos","index&p_id="+id);
-			/*---- End ----*/
-	}
-	
-
-	public Response actionBalcoes() throws IOException{
-		/*---- Insert your code here... ----*/				
-		Config.target = "_blank";	
-		String id = Igrp.getInstance().getRequest().getParameter("p_id");
-		return this.redirect("agenda","CONFIG_BALCAO","index&p_id="+id);
-			/*---- End ----*/
+		return this.redirect("agenda","AddServicos","index&p_id_entidade="+id);
+				/*---- End ----*/
 	}
 	
 
 	public Response actionAgenda() throws IOException{
-		/*---- Insert your code here... ----*/				
+		/*---- Insert your code here... ----*/						
 		Config.target = "_blank";			
 		String id = Igrp.getInstance().getRequest().getParameter("p_id");			
-		return this.redirect("agenda","Agendar","index&p_id="+id);
-			/*---- End ----*/
+		return this.redirect("agenda","Agendar","index&p_id_entidade="+id);
+				/*---- End ----*/
 	}
 	
 	/*---- Insert your actions here... ----*//*---- End ----*/

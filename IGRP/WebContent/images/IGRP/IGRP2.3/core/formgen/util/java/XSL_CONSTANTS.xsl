@@ -23,6 +23,9 @@
     <xsl:variable name="import_view">import nosi.core.webapp.View;</xsl:variable>
     <xsl:variable name="import_model">import nosi.core.webapp.Model;</xsl:variable>
     <xsl:variable name="import_array_list">import java.util.ArrayList;</xsl:variable>
+    <xsl:variable name="import_list">import java.util.List;</xsl:variable>
+    <xsl:variable name="import_separator_list">import nosi.core.gui.components.IGRPSeparatorList.Pair;</xsl:variable>
+    <xsl:variable name="import_separator_list_annotation">import nosi.core.webapp.SeparatorList;</xsl:variable>
     <xsl:variable name="import_controller">import nosi.core.webapp.Controller;</xsl:variable>
     <xsl:variable name="import_exception">import java.io.IOException;</xsl:variable>
     <xsl:variable name="import_response">import nosi.core.webapp.Response;</xsl:variable>

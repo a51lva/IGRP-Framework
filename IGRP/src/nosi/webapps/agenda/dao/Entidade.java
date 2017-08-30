@@ -14,6 +14,7 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import nosi.core.webapp.helpers.Permission;
+import nosi.core.webapp.helpers.UrlHelper;
 import nosi.webapps.agenda.helper.RestRequestHelper;
 /**
  * @author: Emanuel Pereira
@@ -65,9 +66,9 @@ public class Entidade {
 	public static int insert(Entidade e){
 		ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/entidade";	        
+        String url = RestRequestHelper.baseUrl + "/ag_t_entidades";	        
         WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.createJsonPostData("_postentidade", e);
+		String content = RestRequestHelper.convertDaoToJson(e);
         ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
         		.post(ClientResponse.class, content);			
        client.destroy();
@@ -77,13 +78,41 @@ public class Entidade {
 	public static int update(Entidade e){
 	    ClientConfig config = new DefaultClientConfig();			 
         Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
-        String url = RestRequestHelper.baseUrl + "/balcao";	        
-        WebResource resource = client.resource(url);	        
-		String content = RestRequestHelper.createJsonPostData("_putentidade_id", e);
-		ClientResponse response = resource.path(String.valueOf(e.getId())).accept(MediaType.APPLICATION_JSON).type("application/json")
+        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+e.getId()+")";	        
+        WebResource resource = client.resource(url);
+        e.setId(null);
+		String content = RestRequestHelper.convertDaoToJson(e);
+		ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
         		.put(ClientResponse.class, content);			
  	    client.destroy();
 	    return response.getStatus();
+	}
+	
+	public static List<Entidade> getAllEntidade(String entidade) {
+		
+		List<Entidade> aux = null;
+		
+		try {
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica eq "+Permission.getCurrentOrganization();
+	        url +=(entidade!=null && !entidade.equals(""))?" and contains(nome_entidade,'"+entidade+"')":"";
+	        WebResource resource = client.resource(UrlHelper.urlEncoding(url));	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);
+	        if(response.getStatus() == 200) {
+		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
+	        }
+	        else {
+	       	 System.out.println("Error");
+	       	 //System.out.println(RestRequestHelper.convertToDefaultFault(jsonResult));
+	        }
+	       client.destroy();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return aux != null ? aux : new ArrayList<Entidade>();
 	}
 	
 	public static List<Entidade> getAllEntidade() {
@@ -91,16 +120,11 @@ public class Entidade {
 		List<Entidade> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica%20eq%20"+Permission.getCurrentOrganization();
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades?$filter=id_organica eq "+Permission.getCurrentOrganization();	        
+	        WebResource resource = client.resource(UrlHelper.urlEncoding(url));	 
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
 	   	 	String jsonResult = response.getEntity(String.class);
 	        if(response.getStatus() == 200) {
 		        aux = (List<Entidade>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Entidade>>(){}.getType());
@@ -123,18 +147,12 @@ public class Entidade {
 		List<Balcao> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_balcoes";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
-	   	 	
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_balcoes";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
 		        aux = (List<Balcao>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Balcao>>(){}.getType());
 	        }
@@ -155,18 +173,12 @@ public class Entidade {
 		List<Servicos> aux = null;
 		
 		try {
-			ClientConfig config = new DefaultClientConfig();
-			 
-	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));
-	        
-	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_servicos";
-	        
-	        WebResource resource = client.resource(url);
-	        
-	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-	        
-	   	 	String jsonResult = response.getEntity(String.class);
-	   	 	
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id_entidade+")/ag_t_servicos";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);	   	 	
 	        if(response.getStatus() == 200) {
 		        aux = (List<Servicos>) RestRequestHelper.convertJsonToListDao(jsonResult, new TypeToken<List<Servicos>>(){}.getType());
 	        }
@@ -180,5 +192,26 @@ public class Entidade {
 		}
 		
 		return aux != null ? aux : new ArrayList<Servicos>();
+	}
+	public static Entidade getEntidade(int id) {
+		Entidade aux = null;
+		try {
+			ClientConfig config = new DefaultClientConfig();			 
+	        Client client = Client.create(RestRequestHelper.applySslSecurity(config));	        
+	        String url = RestRequestHelper.baseUrl + "/ag_t_entidades("+id+")";	        
+	        WebResource resource = client.resource(url);	        
+	        ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);	        
+	   	 	String jsonResult = response.getEntity(String.class);  
+	        if(response.getStatus() == 200) {
+	        	aux = (Entidade) RestRequestHelper.convertJsonToDao(jsonResult, Entidade.class);
+	        }
+	        else {
+	       	 	System.err.println("Error");
+	        }
+	       client.destroy();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return aux != null ? aux : new Entidade();
 	}
 }

@@ -321,7 +321,7 @@
 	    		<xsl:when test="$type='arraylist'">
 	    			<xsl:value-of select="$newline"/>
 	    			<xsl:value-of select="$tab_"/>
-	    			<xsl:value-of select="concat('public void set',$name_,'(ArrayList&lt;',$name_,'&gt; ',$name,'){')" />
+	    			<xsl:value-of select="concat('public void set',$name_,'(List&lt;',$name_,'&gt; ',$name,'){')" />
 	    			<xsl:value-of select="$newline"/>
 	    			<xsl:value-of select="$tab2_"/>
 	    			<xsl:value-of select="concat('this.',$name,' = ',$name,';')"/>
@@ -331,7 +331,7 @@
 
 	    			<xsl:value-of select="$newline"/>
 	    			<xsl:value-of select="$tab_"/>
-	    			<xsl:value-of select="concat('public ArrayList&lt;',$name_,'&gt; get',$name,'(){')" />
+	    			<xsl:value-of select="concat('public List&lt;',$name_,'&gt; get',$name,'(){')" />
 	    			<xsl:value-of select="$newline"/>
 	    			<xsl:value-of select="$tab2_"/>
 	    			<xsl:value-of select="concat('return this.',$name,';')"/>

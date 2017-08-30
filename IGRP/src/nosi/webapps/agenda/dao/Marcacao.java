@@ -27,12 +27,6 @@ import nosi.webapps.agenda.helper.RestRequestHelper;
 public class Marcacao {
 	@Expose(serialize = false, deserialize = true)
 	private Integer id;
-	@Expose(serialize = false, deserialize = true)
-	private Integer id_entidade;
-	@Expose(serialize = false, deserialize = true)
-	private Integer id_servico;
-	@Expose(serialize = false, deserialize = true)
-	private Integer id_balcao;
 	private String nome;
 	private String data_marcacao;
 	private String hr_marcacao;
@@ -59,24 +53,7 @@ public class Marcacao {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getId_entidade() {
-		return id_entidade;
-	}
-	public void setId_entidade(Integer id_entidade) {
-		this.id_entidade = id_entidade;
-	}
-	public Integer getId_servico() {
-		return id_servico;
-	}
-	public void setId_servico(Integer id_servico) {
-		this.id_servico = id_servico;
-	}
-	public Integer getId_balcao() {
-		return id_balcao;
-	}
-	public void setId_balcao(Integer id_balcao) {
-		this.id_balcao = id_balcao;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -165,10 +142,10 @@ public class Marcacao {
 	}
 	
 	
-	public Integer getId_agenda() {
+	public int getId_agenda() {
 		return id_agenda;
 	}
-	public void setId_agenda(Integer id_agenda) {
+	public void setId_agenda(int id_agenda) {
 		this.id_agenda = id_agenda;
 	}
 	public static String convertDate(String date, String formatIn, String formatOut) {
@@ -218,9 +195,6 @@ public class Marcacao {
         String url = RestRequestHelper.baseUrl + "/ag_t_marcacao("+m.getId()+")";	        
         WebResource resource = client.resource(url);
         m.setId(null);
-        m.setId_balcao(null);
-        m.setId_entidade(null);
-        m.setId_servico(null);
 		String content = RestRequestHelper.convertDaoToJson(m);
 		ClientResponse response = resource.accept(MediaType.APPLICATION_JSON).type("application/json")
         		.put(ClientResponse.class, content);			
