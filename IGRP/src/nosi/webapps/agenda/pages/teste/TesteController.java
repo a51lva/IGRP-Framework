@@ -20,7 +20,7 @@ public class TesteController extends Controller {
 		Teste model = new Teste();
 		
 		if(Igrp.getInstance().getRequest().getMethod().equalsIgnoreCase("POST")) {
-			model.load();
+			model.load();  
 		}
 		
 		TesteView view = new TesteView(model);
