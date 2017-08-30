@@ -33,67 +33,97 @@
         <preserve_url>http://localhost:8080/IGRP/webapps?r=igrp/page/preserveUrl&amp;p_id=</preserve_url>
     </plsql>
     <content>
-        <title></title>
+        <title>Teste</title>
         <separatorlist_1 type="separatorlist" xml-type="separatorlist" gen-clean="true" gen-type="container" gen-group="true">
             <fields>
-                <cod name="p_cod" type="text" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
-                    <label>Cod</label>
-                    <value>Adipiscing sit elit doloremque</value>
-                </cod>
-                <name name="p_name" type="text" maxlength="100" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
-                    <label>Name</label>
-                    <value>Omnis magna accusantium omnis ut</value>
-                </name>
-                <email name="p_email" type="text" maxlength="100" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
-                    <label>Email</label>
-                    <value>Voluptatem aliqua iste officia natus</value>
-                </email>
+                <text_1 name="p_text_1" type="text" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
+                    <label>Text</label>
+                    <value>Laudantium omnis lorem ipsum l</value>
+                </text_1>
+                <number_1 name="p_number_1" type="number" min="" max="" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
+                    <label>Number</label>
+                    <value>3</value>
+                </number_1>
             </fields>
             <table>
                 <value>
                     <row>
-                        <cod name="p_cod" desc="true">Ipsum magna doloremque sit mol</cod>
-                        <cod_desc name="p_cod_desc">Ipsum magna doloremque sit mol</cod_desc>
-                        <name name="p_name" desc="true">Adipiscing aliqua dolor voluptatem adipiscing</name>
-                        <name_desc name="p_name_desc">Adipiscing aliqua dolor voluptatem adipiscing</name_desc>
-                        <email name="p_email" desc="true">Amet accusantium deserunt amet magna</email>
-                        <email_desc name="p_email_desc">Amet accusantium deserunt amet magna</email_desc>
+                        <text_1 name="p_text_1" desc="true">Adipiscing voluptatem mollit p</text_1>
+                        <text_1_desc name="p_text_1_desc">Adipiscing voluptatem mollit p</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">16</number_1>
+                        <number_1_desc name="p_number_1_desc">16</number_1_desc>
                     </row>
                     <row>
-                        <cod name="p_cod" desc="true">Officia unde officia unde lore</cod>
-                        <cod_desc name="p_cod_desc">Officia unde officia unde lore</cod_desc>
-                        <name name="p_name" desc="true">Amet aliqua labore amet aperiam</name>
-                        <name_desc name="p_name_desc">Amet aliqua labore amet aperiam</name_desc>
-                        <email name="p_email" desc="true">Omnis sit accusantium omnis adipiscing</email>
-                        <email_desc name="p_email_desc">Omnis sit accusantium omnis adipiscing</email_desc>
+                        <text_1 name="p_text_1" desc="true">Anim aliqua rem laudantium acc</text_1>
+                        <text_1_desc name="p_text_1_desc">Anim aliqua rem laudantium acc</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">7</number_1>
+                        <number_1_desc name="p_number_1_desc">7</number_1_desc>
                     </row>
                     <row>
-                        <cod name="p_cod" desc="true">Sed unde consectetur totam per</cod>
-                        <cod_desc name="p_cod_desc">Sed unde consectetur totam per</cod_desc>
-                        <name name="p_name" desc="true">Omnis adipiscing magna natus voluptatem</name>
-                        <name_desc name="p_name_desc">Omnis adipiscing magna natus voluptatem</name_desc>
-                        <email name="p_email" desc="true">Unde sit accusantium deserunt voluptatem</email>
-                        <email_desc name="p_email_desc">Unde sit accusantium deserunt voluptatem</email_desc>
+                        <text_1 name="p_text_1" desc="true">Doloremque ut labore sed sit</text_1>
+                        <text_1_desc name="p_text_1_desc">Doloremque ut labore sed sit</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">15</number_1>
+                        <number_1_desc name="p_number_1_desc">15</number_1_desc>
                     </row>
                     <row>
-                        <cod name="p_cod" desc="true">Accusantium omnis labore aperi</cod>
-                        <cod_desc name="p_cod_desc">Accusantium omnis labore aperi</cod_desc>
-                        <name name="p_name" desc="true">Voluptatem sit totam unde elit</name>
-                        <name_desc name="p_name_desc">Voluptatem sit totam unde elit</name_desc>
-                        <email name="p_email" desc="true">Iste aliqua consectetur mollit omnis</email>
-                        <email_desc name="p_email_desc">Iste aliqua consectetur mollit omnis</email_desc>
+                        <text_1 name="p_text_1" desc="true">Deserunt labore sit ipsum sit</text_1>
+                        <text_1_desc name="p_text_1_desc">Deserunt labore sit ipsum sit</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">24</number_1>
+                        <number_1_desc name="p_number_1_desc">24</number_1_desc>
                     </row>
                     <row>
-                        <cod name="p_cod" desc="true">Mollit elit rem aperiam mollit</cod>
-                        <cod_desc name="p_cod_desc">Mollit elit rem aperiam mollit</cod_desc>
-                        <name name="p_name" desc="true">Perspiciatis magna sit mollit doloremque</name>
-                        <name_desc name="p_name_desc">Perspiciatis magna sit mollit doloremque</name_desc>
-                        <email name="p_email" desc="true">Laudantium sit natus mollit anim</email>
-                        <email_desc name="p_email_desc">Laudantium sit natus mollit anim</email_desc>
+                        <text_1 name="p_text_1" desc="true">Deserunt iste aperiam deserunt</text_1>
+                        <text_1_desc name="p_text_1_desc">Deserunt iste aperiam deserunt</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">6</number_1>
+                        <number_1_desc name="p_number_1_desc">6</number_1_desc>
                     </row>
                 </value>
             </table>
         </separatorlist_1>
+        <formlist_1 type="formlist" xml-type="formlist" gen-clean="true" gen-type="container" gen-group="true">
+            <fields>
+                <text_1 name="p_text_1" type="text" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" desc="true">
+                    <label>Text</label>
+                </text_1>
+                <number_1 name="p_number_1" type="number" min="" max="" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" desc="true">
+                    <label>Number</label>
+                </number_1>
+            </fields>
+            <table>
+                <value>
+                    <row>
+                        <text_1 name="p_text_1" desc="true">Elit doloremque mollit consect</text_1>
+                        <text_1_desc name="p_text_1_desc">Elit doloremque mollit consect</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">10</number_1>
+                        <number_1_desc name="p_number_1_desc">10</number_1_desc>
+                    </row>
+                    <row>
+                        <text_1 name="p_text_1" desc="true">Ut mollit elit lorem dolor</text_1>
+                        <text_1_desc name="p_text_1_desc">Ut mollit elit lorem dolor</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">0</number_1>
+                        <number_1_desc name="p_number_1_desc">0</number_1_desc>
+                    </row>
+                    <row>
+                        <text_1 name="p_text_1" desc="true">Officia ipsum magna anim ut</text_1>
+                        <text_1_desc name="p_text_1_desc">Officia ipsum magna anim ut</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">21</number_1>
+                        <number_1_desc name="p_number_1_desc">21</number_1_desc>
+                    </row>
+                    <row>
+                        <text_1 name="p_text_1" desc="true">Dolor ipsum aperiam officia ac</text_1>
+                        <text_1_desc name="p_text_1_desc">Dolor ipsum aperiam officia ac</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">9</number_1>
+                        <number_1_desc name="p_number_1_desc">9</number_1_desc>
+                    </row>
+                    <row>
+                        <text_1 name="p_text_1" desc="true">Officia iste totam natus anim</text_1>
+                        <text_1_desc name="p_text_1_desc">Officia iste totam natus anim</text_1_desc>
+                        <number_1 name="p_number_1" desc="true">27</number_1>
+                        <number_1_desc name="p_number_1_desc">27</number_1_desc>
+                    </row>
+                </value>
+            </table>
+        </formlist_1>
         <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
             <item type="specific" code="" rel="save">
                 <title>Save</title>
@@ -101,7 +131,7 @@
                 <page>Teste</page>
                 <link>index</link>
                 <target>submit</target>
-                <img>default|fa-angle-right</img>
+                <img>success|fa-save</img>
                 <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/teste/Teste.xsl</parameter>
             </item>
         </toolsbar_1>

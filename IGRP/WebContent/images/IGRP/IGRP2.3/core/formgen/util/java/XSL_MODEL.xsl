@@ -9,7 +9,7 @@
     	...
 	-->
     <xsl:template name="gen-get-set-model">
-    	<xsl:for-each select="/rows/content/*[@type != 'table'  and @type != 'separatorlist']">
+    	<xsl:for-each select="/rows/content/*[@type != 'table'  and @type != 'separatorlist'  and @type != 'formlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
 					<xsl:choose>
@@ -31,6 +31,7 @@
 				</xsl:if>
 			</xsl:for-each>
 		</xsl:for-each>
+		<!-- 
 		<xsl:for-each select="/rows/content/*[@type = 'separatorlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
@@ -59,6 +60,7 @@
 				</xsl:if>
 			</xsl:for-each>
 		</xsl:for-each>
+		-->
 	</xsl:template>
 
 	
@@ -69,7 +71,7 @@
     	...
 	-->
     <xsl:template name="declare-variables-model">
-    	<xsl:for-each select="/rows/content/*[@type != 'table' and @type != 'separatorlist']">
+    	<xsl:for-each select="/rows/content/*[@type != 'table' and @type != 'separatorlist' and @type != 'formlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
 					<xsl:choose>
@@ -96,6 +98,7 @@
 				</xsl:if>
 			</xsl:for-each>
     	</xsl:for-each> 
+    	<!-- 
     	<xsl:for-each select="/rows/content/*[@type = 'separatorlist']">
     		<xsl:for-each select="fields/*">
     			<xsl:variable name="tag_name">
@@ -129,11 +132,15 @@
 				</xsl:if>
 			</xsl:for-each>
     	</xsl:for-each> 
+    	-->
     	<xsl:for-each select="/rows/content/*[@type = 'table' or @type = 'formlist' or @type = 'separatorlist' or @type = 'chart']">
     		<xsl:variable name="tableName"><xsl:call-template name="CamelCaseWord"><xsl:with-param name="text"><xsl:value-of select="name()"/> </xsl:with-param> </xsl:call-template> </xsl:variable>
 	 		<xsl:value-of select="$newline"/>			
 			<xsl:value-of select="$tab"/>
-			<xsl:value-of select="concat('private ArrayList&lt;',$tableName,'&gt; ',name(),' = new ArrayList&lt;&gt;();')"/>
+			<xsl:value-of select="concat('@SeparatorList(name = ',$tableName,'.class)')"/>
+			<xsl:value-of select="$newline"/>			
+			<xsl:value-of select="$tab"/>
+			<xsl:value-of select="concat('private List&lt;',$tableName,'&gt; ',name(),' = new ArrayList&lt;&gt;();')"/>
 			<xsl:call-template name="getSetField">
 	    		<xsl:with-param name="type_content" select="../../@type" />
 	    		<xsl:with-param name="type" select="'arraylist'" />
@@ -151,8 +158,14 @@
 		<xsl:value-of select="$newline"/>
  		<xsl:value-of select="$import_annotations"/>
 		<xsl:value-of select="$newline"/>
+ 		<xsl:value-of select="$import_separator_list"/>
+		<xsl:value-of select="$newline"/>
+ 		<xsl:value-of select="$import_separator_list_annotation"/>
+		<xsl:value-of select="$newline"/>
 		<xsl:if test="count(/rows/content/*[@type = 'table' or @type = 'formlist' or @type = 'separatorlist' or @type = 'chart']) > 0">
 	 		<xsl:value-of select="$import_array_list"/>
+			<xsl:value-of select="$newline"/>
+			<xsl:value-of select="$import_list"/>
 			<xsl:value-of select="$newline"/>
 		</xsl:if>
  	</xsl:template>
@@ -235,7 +248,7 @@
  	</xsl:template>
  	
  	
- 	<!-- Gen attributes for subclass for separatorList-->
+ 	<!-- Gen attributes for subclass for separatorList and formlist-->
  	<xsl:template name="gen-ttributes-subclass-separatorList">
  		<xsl:value-of select="$newline"/>
 			<xsl:value-of select="$tab"/>
@@ -260,41 +273,7 @@
 	 			<xsl:value-of select="$tab2"/>
 				<xsl:value-of select="concat('private Pair ',$tag_name,'_check;')"/>
 			</xsl:if>
- 		</xsl:for-each>
- 		
- 		<xsl:text>
-		public static class Pair{
-		
-			private String key;
-			private String value;
-			
-			public Pair() {}
-			
-			public Pair(String key, String value) {
-				this.key = key;
-				this.value = value;
-			}
-			
-			public String getKey() {
-				return key;
-			}
-			public void setKey(String key) {
-				this.key = key;
-			}
-			public String getValue() {
-				return value;
-			}
-			public void setValue(String value) {
-				this.value = value;
-			}
-			
-			@Override
-			public String toString() {
-				return this.key + "_" + this.value;
-			}
-		}
- 		</xsl:text>
- 		
+ 		</xsl:for-each> 		
  		<xsl:for-each select="fields/*">
  			<xsl:variable name="tag_name">
 				<xsl:choose>
@@ -361,7 +340,7 @@
  			<xsl:call-template name="gen-ttributes-subclass-separatorList"></xsl:call-template>
  		</xsl:for-each> 		
  		<xsl:for-each select="/rows/content/*[@type='formlist']">
- 			<xsl:call-template name="gen-ttributes-subclass"></xsl:call-template>
+ 			<xsl:call-template name="gen-ttributes-subclass-separatorList"></xsl:call-template>
  		</xsl:for-each>		
  		<xsl:for-each select="/rows/content/*[@type='chart']">
  			<xsl:call-template name="gen-ttributes-subclass-chart"></xsl:call-template>
