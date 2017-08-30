@@ -159,8 +159,6 @@ public class Balcao {
        return response.getStatus();//==204?getBalcao(id):null;
 	}
 	
-	
-	
 	public static List<Balcao> getAllBalcao(){
 		List<Balcao> aux = null;
 		try {

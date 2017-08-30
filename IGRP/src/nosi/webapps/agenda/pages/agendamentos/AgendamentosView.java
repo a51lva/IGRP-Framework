@@ -27,6 +27,7 @@ public class AgendamentosView extends View {
 	public IGRPButton btn_pesquisar;
 	public IGRPButton btn_confirmar;
 	public IGRPButton btn_cancelar;
+	
 	public AgendamentosView(Agendamentos model){
 		this.setPageTitle("Lista de Agendamentos");
 			
@@ -92,8 +93,8 @@ public class AgendamentosView extends View {
 
 		//toolsbar_1.addButton(btn_agendar);
 		form_1.addButton(btn_pesquisar);
-		table_1.addButton(btn_confirmar);
-		table_1.addButton(btn_cancelar);
+		//table_1.addButton(btn_confirmar);
+		//table_1.addButton(btn_cancelar);
 		this.addToPage(form_1);
 		this.addToPage(table_1);
 		this.addToPage(toolsbar_1);

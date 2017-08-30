@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="images/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl" type="text/xsl"?>
 <rows>
-<link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
+    <link_img>/IGRP/images/IGRP/IGRP2.3</link_img>
     <site>
         <welcome_note>Ola</welcome_note>
         <footer_note>2011 - Copyright NOSI</footer_note>
@@ -49,8 +49,8 @@
         </page_title>
         <separatorlist_2 type="separatorlist" xml-type="separatorlist" title="Serviços" gen-clean="true" gen-type="container" gen-group="true">
             <fields>
-                <entidade name="p_entidade" type="select" multiple="false" maxlength="30" required="true" change="false" disabled="false" right="false" visible="true" domain="" desc="true">
-                    <label>Entidade</label>
+                <agenda name="p_agenda" type="select" multiple="false" domain="" maxlength="100" required="false" change="false" disabled="false" right="false" visible="true" desc="true">
+                    <label>Agenda</label>
                     <list>
                         <option/>
                         <option>
@@ -70,153 +70,71 @@
                             <value>4</value>
                         </option>
                     </list>
-                </entidade>
-                <servico name="p_servico" type="select" multiple="false" maxlength="30" required="true" change="false" disabled="false" right="false" visible="true" domain="" desc="true">
-                    <label>Serviço</label>
-                    <list>
-                        <option/>
-                        <option>
-                            <text>Option 1</text>
-                            <value>1</value>
-                        </option>
-                        <option>
-                            <text>Option 2</text>
-                            <value>2</value>
-                        </option>
-                        <option>
-                            <text>Option 3</text>
-                            <value>3</value>
-                        </option>
-                        <option>
-                            <text>Option 4</text>
-                            <value>4</value>
-                        </option>
-                    </list>
-                </servico>
-                <balcao name="p_balcao" type="select" multiple="false" maxlength="30" required="true" change="false" disabled="false" right="false" visible="true" domain="" desc="true">
-                    <label>Balcão</label>
-                    <list>
-                        <option/>
-                        <option>
-                            <text>Option 1</text>
-                            <value>1</value>
-                        </option>
-                        <option>
-                            <text>Option 2</text>
-                            <value>2</value>
-                        </option>
-                        <option>
-                            <text>Option 3</text>
-                            <value>3</value>
-                        </option>
-                        <option>
-                            <text>Option 4</text>
-                            <value>4</value>
-                        </option>
-                    </list>
-                </balcao>
+                </agenda>
                 <data name="p_data" type="date" format="IGRP_datePicker" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" class="primary" desc="true">
                     <label>Data</label>
                     <value/>
                 </data>
-                <hora name="p_hora" type="select" multiple="true" maxlength="30" required="true" change="false" disabled="false" right="false" visible="true" domain="" desc="true">
+                <hora name="p_hora" type="date" format="IGRP_timePicker" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" class="default" desc="true">
                     <label>Hora</label>
-                    <list>
-                        <option/>
-                        <option>
-                            <text>Option 1</text>
-                            <value>1</value>
-                        </option>
-                        <option>
-                            <text>Option 2</text>
-                            <value>2</value>
-                        </option>
-                        <option>
-                            <text>Option 3</text>
-                            <value>3</value>
-                        </option>
-                        <option>
-                            <text>Option 4</text>
-                            <value>4</value>
-                        </option>
-                    </list>
+                    <value/>
                 </hora>
-                <nome name="p_nome" type="text" maxlength="6" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
+                <nome name="p_nome" type="text" maxlength="100" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false" visible="true" desc="true">
                     <label>Nome</label>
-                    <value>Sit do</value>
+                    <value>Laudantium sit aperiam ut elit</value>
                 </nome>
             </fields>
             <table>
                 <value>
                     <row>
-                        <entidade name="p_entidade" desc="true">2</entidade>
-                        <entidade_desc name="p_entidade_desc">2</entidade_desc>
-                        <servico name="p_servico" desc="true">2</servico>
-                        <servico_desc name="p_servico_desc">2</servico_desc>
-                        <balcao name="p_balcao" desc="true">2</balcao>
-                        <balcao_desc name="p_balcao_desc">2</balcao_desc>
+                        <agenda name="p_agenda" desc="true">2</agenda>
+                        <agenda_desc name="p_agenda_desc">2</agenda_desc>
                         <data name="p_data" desc="true"/>
                         <data_desc name="p_data_desc"/>
-                        <hora name="p_hora" desc="true">12</hora>
-                        <hora_desc name="p_hora_desc">12</hora_desc>
-                        <nome name="p_nome" desc="true">Anim v</nome>
-                        <nome_desc name="p_nome_desc">Anim v</nome_desc>
+                        <hora name="p_hora" desc="true"/>
+                        <hora_desc name="p_hora_desc"/>
+                        <nome name="p_nome" desc="true">Anim accusantium consectetur officia sit</nome>
+                        <nome_desc name="p_nome_desc">Anim accusantium consectetur officia sit</nome_desc>
                     </row>
                     <row>
-                        <entidade name="p_entidade" desc="true">2</entidade>
-                        <entidade_desc name="p_entidade_desc">2</entidade_desc>
-                        <servico name="p_servico" desc="true">2</servico>
-                        <servico_desc name="p_servico_desc">2</servico_desc>
-                        <balcao name="p_balcao" desc="true">2</balcao>
-                        <balcao_desc name="p_balcao_desc">2</balcao_desc>
+                        <agenda name="p_agenda" desc="true">2</agenda>
+                        <agenda_desc name="p_agenda_desc">2</agenda_desc>
                         <data name="p_data" desc="true"/>
                         <data_desc name="p_data_desc"/>
-                        <hora name="p_hora" desc="true">12</hora>
-                        <hora_desc name="p_hora_desc">12</hora_desc>
-                        <nome name="p_nome" desc="true">Accusa</nome>
-                        <nome_desc name="p_nome_desc">Accusa</nome_desc>
+                        <hora name="p_hora" desc="true"/>
+                        <hora_desc name="p_hora_desc"/>
+                        <nome name="p_nome" desc="true">Sit labore laudantium ipsum dolor</nome>
+                        <nome_desc name="p_nome_desc">Sit labore laudantium ipsum dolor</nome_desc>
                     </row>
                     <row>
-                        <entidade name="p_entidade" desc="true">2</entidade>
-                        <entidade_desc name="p_entidade_desc">2</entidade_desc>
-                        <servico name="p_servico" desc="true">2</servico>
-                        <servico_desc name="p_servico_desc">2</servico_desc>
-                        <balcao name="p_balcao" desc="true">2</balcao>
-                        <balcao_desc name="p_balcao_desc">2</balcao_desc>
+                        <agenda name="p_agenda" desc="true">2</agenda>
+                        <agenda_desc name="p_agenda_desc">2</agenda_desc>
                         <data name="p_data" desc="true"/>
                         <data_desc name="p_data_desc"/>
-                        <hora name="p_hora" desc="true">12</hora>
-                        <hora_desc name="p_hora_desc">12</hora_desc>
-                        <nome name="p_nome" desc="true">Labore</nome>
-                        <nome_desc name="p_nome_desc">Labore</nome_desc>
+                        <hora name="p_hora" desc="true"/>
+                        <hora_desc name="p_hora_desc"/>
+                        <nome name="p_nome" desc="true">Omnis deserunt iste labore laudantium</nome>
+                        <nome_desc name="p_nome_desc">Omnis deserunt iste labore laudantium</nome_desc>
                     </row>
                     <row>
-                        <entidade name="p_entidade" desc="true">2</entidade>
-                        <entidade_desc name="p_entidade_desc">2</entidade_desc>
-                        <servico name="p_servico" desc="true">2</servico>
-                        <servico_desc name="p_servico_desc">2</servico_desc>
-                        <balcao name="p_balcao" desc="true">2</balcao>
-                        <balcao_desc name="p_balcao_desc">2</balcao_desc>
+                        <agenda name="p_agenda" desc="true">2</agenda>
+                        <agenda_desc name="p_agenda_desc">2</agenda_desc>
                         <data name="p_data" desc="true"/>
                         <data_desc name="p_data_desc"/>
-                        <hora name="p_hora" desc="true">12</hora>
-                        <hora_desc name="p_hora_desc">12</hora_desc>
-                        <nome name="p_nome" desc="true">Offici</nome>
-                        <nome_desc name="p_nome_desc">Offici</nome_desc>
+                        <hora name="p_hora" desc="true"/>
+                        <hora_desc name="p_hora_desc"/>
+                        <nome name="p_nome" desc="true">Accusantium aperiam voluptatem aperiam doloremque</nome>
+                        <nome_desc name="p_nome_desc">Accusantium aperiam voluptatem aperiam doloremque</nome_desc>
                     </row>
                     <row>
-                        <entidade name="p_entidade" desc="true">2</entidade>
-                        <entidade_desc name="p_entidade_desc">2</entidade_desc>
-                        <servico name="p_servico" desc="true">2</servico>
-                        <servico_desc name="p_servico_desc">2</servico_desc>
-                        <balcao name="p_balcao" desc="true">2</balcao>
-                        <balcao_desc name="p_balcao_desc">2</balcao_desc>
+                        <agenda name="p_agenda" desc="true">2</agenda>
+                        <agenda_desc name="p_agenda_desc">2</agenda_desc>
                         <data name="p_data" desc="true"/>
                         <data_desc name="p_data_desc"/>
-                        <hora name="p_hora" desc="true">12</hora>
-                        <hora_desc name="p_hora_desc">12</hora_desc>
-                        <nome name="p_nome" desc="true">Sit ad</nome>
-                        <nome_desc name="p_nome_desc">Sit ad</nome_desc>
+                        <hora name="p_hora" desc="true"/>
+                        <hora_desc name="p_hora_desc"/>
+                        <nome name="p_nome" desc="true">Elit doloremque adipiscing rem omnis</nome>
+                        <nome_desc name="p_nome_desc">Elit doloremque adipiscing rem omnis</nome_desc>
                     </row>
                 </value>
             </table>
@@ -224,67 +142,20 @@
         <toolsbar_1 type="toolsbar" xml-type="toolsbar" gen-type="menu" gen-group="">
             <item type="specific" code="" rel="agendar">
                 <title>Agendar</title>
-                <app>agenda</app>
-                <page>AddServicos</page>
-                <link>index</link>
+                <app/>
+                <page/>
+                <link/>
                 <target>submit</target>
                 <img>success|fa-calendar-check-o</img>
-                <parameter>undefinedimages/IGRP/IGRP2.3/app/agenda/addservicos/AddServicos.xsl</parameter>
+                <parameter>undefined</parameter>
             </item>
         </toolsbar_1>
-        <table_1 type="table" xml-type="table" title="Requisitos" gen-type="container" gen-group="true">
-            <fields>
-                <tipo_requisito name="p_tipo_requisito" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
-                    <label>Tipo Requisito</label>
-                </tipo_requisito>
-                <descritivo name="p_descritivo" type="text" maxlength="30" align="left" lookup_parser="false" iskey="false">
-                    <label>Descritivo</label>
-                </descritivo>
-                <formulario name="p_formulario" type="link" target="_self" class="link" iconColor="#333" iconClass="" img="fa-link" maxlength="30" align="left" lookup_parser="false" target_fields="" action="index" page="Agendar" app="agenda" btnSize="[object Object]" iskey="false" desc="true">
-                    <label>Formulário</label>
-                </formulario>
-            </fields>
-            <table>
-                <value>
-                    <row>
-                        <tipo_requisito name="p_tipo_requisito">Anim iste labore aliqua laudan</tipo_requisito>
-                        <descritivo name="p_descritivo">Adipiscing deserunt voluptatem</descritivo>
-                        <formulario name="p_formulario" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl</formulario>
-                        <formulario_desc name="p_formulario_desc">Formulário</formulario_desc>
-                    </row>
-                    <row>
-                        <tipo_requisito name="p_tipo_requisito">Elit magna amet sit totam</tipo_requisito>
-                        <descritivo name="p_descritivo">Labore ut mollit totam anim</descritivo>
-                        <formulario name="p_formulario" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl</formulario>
-                        <formulario_desc name="p_formulario_desc">Formulário</formulario_desc>
-                    </row>
-                    <row>
-                        <tipo_requisito name="p_tipo_requisito">Sed lorem amet labore officia</tipo_requisito>
-                        <descritivo name="p_descritivo">Officia ut mollit accusantium</descritivo>
-                        <formulario name="p_formulario" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl</formulario>
-                        <formulario_desc name="p_formulario_desc">Formulário</formulario_desc>
-                    </row>
-                    <row>
-                        <tipo_requisito name="p_tipo_requisito">Adipiscing ipsum aliqua volupt</tipo_requisito>
-                        <descritivo name="p_descritivo">Aliqua magna deserunt aperiam</descritivo>
-                        <formulario name="p_formulario" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl</formulario>
-                        <formulario_desc name="p_formulario_desc">Formulário</formulario_desc>
-                    </row>
-                    <row>
-                        <tipo_requisito name="p_tipo_requisito">Voluptatem ipsum deserunt aper</tipo_requisito>
-                        <descritivo name="p_descritivo">Deserunt anim sit rem omnis</descritivo>
-                        <formulario name="p_formulario" desc="true">undefinedimages/IGRP/IGRP2.3/app/agenda/agendar/Agendar.xsl</formulario>
-                        <formulario_desc name="p_formulario_desc">Formulário</formulario_desc>
-                    </row>
-                </value>
-            </table>
-        </table_1>
         <form_1 type="form" xml-type="form" title="Requerente" gen-type="container" gen-group="">
             <fields>
-                <nome2 name="p_nome2" type="text" maxlength="100" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
+                <requerente name="p_requerente" type="text" maxlength="100" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Nome</label>
-                    <value>Sit consectetur sed amet mollit</value>
-                </nome2>
+                    <value>Sed laudantium totam natus sed</value>
+                </requerente>
                 <tipo_documento_de_identificacao name="p_tipo_documento_de_identificacao" type="select" multiple="false" maxlength="30" required="true" change="false" disabled="false" right="false" domain="">
                     <label>Tipo documento de identificação</label>
                     <list>
@@ -309,20 +180,24 @@
                 </tipo_documento_de_identificacao>
                 <documento_de_identificacao name="p_documento_de_identificacao" type="number" maxlength="30" required="true" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Documento de Identificação</label>
-                    <value>19</value>
+                    <value>28</value>
                 </documento_de_identificacao>
                 <email name="p_email" type="email" maxlength="100" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Email</label>
-                    <value>awpegak@example.com</value>
+                    <value>rof@example.com</value>
                 </email>
                 <telemovel name="p_telemovel" type="number" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false">
                     <label>Telemóvel</label>
-                    <value>29</value>
+                    <value>21</value>
                 </telemovel>
                 <telefone name="p_telefone" type="number" maxlength="30" required="false" change="false" readonly="false" disabled="false" placeholder="" right="false" min="" max="">
                     <label>Telefone</label>
-                    <value>23</value>
+                    <value>9</value>
                 </telefone>
+                <notificacao name="p_notificacao" type="checkbox" maxlength="30" required="false" change="false" readonly="false" disabled="false" right="false" check="true">
+                    <label>Notificação</label>
+                    <value>1</value>
+                </notificacao>
             </fields>
         </form_1>
     </content>
